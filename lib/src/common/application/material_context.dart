@@ -16,7 +16,6 @@ class _MaterialContextState extends State<MaterialContext>
     with RouterStateMixin {
   @override
   Widget build(final BuildContext context) => MaterialApp.router(
-        title: 'Weight Control',
         restorationScopeId: 'application',
         routerConfig: router.config,
         builder: (final context, final child) {
