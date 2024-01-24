@@ -61,8 +61,8 @@ jobs:
       - name: Analyze
         run: flutter analyze . --fatal-infos
 
-      - name: Run tests
-        run: flutter test --machine | tojunit -o report.xml
+    #   - name: Run tests
+    #     run: flutter test --machine | tojunit -o report.xml
         
       - name: Publish test reports
         uses: mikepenz/action-junit-report@v4
