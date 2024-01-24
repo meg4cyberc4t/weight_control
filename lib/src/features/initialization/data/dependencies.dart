@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart' show BuildContext;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:weight_control/src/common/app_metadata/app_metadata.dart';
 import 'package:weight_control/src/common/database/database.dart';
 import 'package:weight_control/src/features/initialization/widget/inherited_dependencies.dart';
 
@@ -11,6 +12,7 @@ final class Dependencies {
   const Dependencies({
     required this.flutterSecureStorage,
     required this.database,
+    required this.appMetadata,
   });
 
   /// The state from the closest instance of this class.
@@ -20,6 +22,9 @@ final class Dependencies {
   /// Shared preferences
   final FlutterSecureStorage flutterSecureStorage;
 
-  /// SQL drift-based Database
+  /// {@macro AppDatabase}
   final AppDatabase database;
+
+  /// {@macro AppMetadata}
+  final AppMetadata appMetadata;
 }

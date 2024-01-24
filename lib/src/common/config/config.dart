@@ -72,10 +72,6 @@ enum SupportedPlatform {
   ios;
 
   /// Initialization of the platform from 'dart:io';
-  static SupportedPlatform create() {
-    if (kIsWeb) {
-      return android;
-    }
-    return Platform.isIOS || Platform.isMacOS ? ios : android;
-  }
+  static SupportedPlatform create() =>
+      Platform.isIOS || Platform.isMacOS ? ios : android;
 }

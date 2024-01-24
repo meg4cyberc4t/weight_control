@@ -3,6 +3,8 @@ import 'dart:ui';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:weight_control/src/common/app_metadata/app_metadata.dart';
 import 'package:weight_control/src/common/application/application.dart';
 import 'package:weight_control/src/common/database/database.dart';
 import 'package:weight_control/src/common/logger/bloc_observer.dart';
@@ -31,10 +33,6 @@ final class AppRunner {
   /// Initializing dependencies
   @visibleForTesting
   Future<InitializationResult> processInitialization() async {
-    // if (_environmentStore.enableTrackingManager) {
-    //   await _trackingManager.enableReporting();
-    // }
-
     logger.info('Dependencies initialization has started');
     final stopwatch = Stopwatch()..start();
 
@@ -66,9 +64,15 @@ final class AppRunner {
       ),
     );
 
+    final packageInfo = await PackageInfo.fromPlatform();
+    final appMetadata = AppMetadata(
+      packageInfo,
+    );
+
     return Dependencies(
       flutterSecureStorage: flutterSecureStorage,
       database: database,
+      appMetadata: appMetadata,
     );
   }
 }

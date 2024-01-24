@@ -1,7 +1,6 @@
 // ignore_for_file: public_member_api_docs
 
 import 'package:flutter/cupertino.dart';
-import 'package:weight_control/main.dart';
 
 class HomeScreenWidget extends StatefulWidget {
   const HomeScreenWidget({super.key});
@@ -18,10 +17,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
         ),
         child: Center(
           child: CupertinoButton.filled(
-            onPressed: () async {
-              final database = Dependencies.of(context).database;
-              print(await database.select(database.logsTable).get());
-            },
+            onPressed: () async {},
             child: const Text('asd'),
           ),
         ),

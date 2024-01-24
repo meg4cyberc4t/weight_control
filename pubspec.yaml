@@ -21,9 +21,11 @@ dependencies:
   logging: ^1.2.0
   meta: ^1.10.0
   octopus: ^0.0.8
+  package_info_plus: ^5.0.1
   path: ^1.8.3
   path_provider: ^2.1.2
   shared_preferences: ^2.2.2
+  version: ^3.0.2
 
 dev_dependencies:
   flutter_test:
