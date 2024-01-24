@@ -1,0 +1,48 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Production",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "toolArgs": [
+        "--dart-define",
+        "ENVIRONMENT=PRODUCTION",
+        "--flavor",
+        "production"
+      ]
+    },
+    {
+      "name": "Development Profile",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile",
+      "toolArgs": [
+        "--dart-define",
+        "ENVIRONMENT=DEVELOPMENT",
+        "--flavor",
+        "development"
+      ]
+    },
+    {
+      "name": "Development",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "toolArgs": [
+        "--dart-define",
+        "ENVIRONMENT=DEVELOPMENT",
+        "--flavor",
+        "development"
+      ]
+    },
+    {
+      "name": "Stage",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "toolArgs": ["--dart-define", "ENVIRONMENT=STAGE", "--flavor", "stage"]
+    }
+  ]
+}
