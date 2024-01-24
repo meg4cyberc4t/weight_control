@@ -1,4 +1,4 @@
-.PHONY: fix get upgrade upgrade-major outdated dependencies dependencies-full build regen-logo
+.PHONY: fix get upgrade upgrade-major  localizations outdated dependencies dependencies-full build regen-logo
 
 # Fixing errors in the code using dart fix and applying fixes
 fix:
@@ -15,6 +15,10 @@ upgrade:
 # Updating all major versions of project dependencies using pub upgrade --major-versions
 upgrade-major:
 	@fvm dart pub upgrade --major-versions
+
+# Generation of localization files
+localizations: 
+	@fvm flutter pub run intl_utils:generate
 
 # Displaying a list of outdated dependencies using pub outdated
 outdated: get

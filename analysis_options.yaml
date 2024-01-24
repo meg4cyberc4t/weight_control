@@ -1,6 +1,10 @@
 include: package:flutter_lints/flutter.yaml
 
 analyzer:
+  exclude:
+    - "lib/src/common/localizations/generated/**"
+    - "**/*.g.dart"
+
   language:
     strict-casts: true
     strict-inference: true

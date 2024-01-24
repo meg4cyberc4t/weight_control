@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:weight_control/src/common/localizations/localizations_state_mixin.dart';
 import 'package:weight_control/src/common/navigation/router_state_mixin.dart';
 
 /// [CupertinoContext] is an entry point to the cupertino context.
@@ -13,11 +14,14 @@ class CupertinoContext extends StatefulWidget {
 }
 
 class _CupertinoContextState extends State<CupertinoContext>
-    with RouterStateMixin {
+    with RouterStateMixin, LocalizationsStateMixin {
   @override
   Widget build(final BuildContext context) => CupertinoApp.router(
         restorationScopeId: 'application',
         routerConfig: router.config,
+        onGenerateTitle: onGenerateTitle,
+        supportedLocales: localizationDelegate.supportedLocales,
+        localizationsDelegates: localizationsDelegate,
         builder: (final context, final child) {
           final MediaQueryData mediaQueryData = MediaQuery.of(context);
           return MediaQuery(
