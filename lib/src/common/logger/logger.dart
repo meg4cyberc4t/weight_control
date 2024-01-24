@@ -89,6 +89,21 @@ enum LoggerLevel implements Comparable<LoggerLevel> {
   /// Value of the level
   final int value;
 
+  /// Getting the [LoggerLevel] based on the value
+  static LoggerLevel fromLevel(final int level) {
+    if (level >= error.value) {
+      return error;
+    } else if (level >= warning.value) {
+      return warning;
+    } else if (level >= info.value) {
+      return info;
+    } else if (level >= debug.value) {
+      return debug;
+    } else {
+      return verbose;
+    }
+  }
+
   @override
   int compareTo(final LoggerLevel other) => value.compareTo(other.value);
 

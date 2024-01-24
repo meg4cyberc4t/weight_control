@@ -1,9 +1,13 @@
 import 'dart:ui';
 
 import 'package:flutter/widgets.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:weight_control/src/common/application/application.dart';
+import 'package:weight_control/src/common/database/database.dart';
+import 'package:weight_control/src/common/logger/bloc_observer.dart';
 import 'package:weight_control/src/common/logger/logger.dart';
+import 'package:weight_control/src/common/tracking_manager/tracking_manager.dart';
 import 'package:weight_control/src/features/initialization/data/dependencies.dart';
 import 'package:weight_control/src/features/initialization/data/initialization_result.dart';
 
@@ -49,10 +53,22 @@ final class AppRunner {
   }
 
   Future<Dependencies> _$initializationDependencies() async {
-    final sharedPreferences = await SharedPreferences.getInstance();
+    Bloc.observer = const LoggerBlocObserver();
+
+    final database = AppDatabase();
+
+    final trackingManager = DatabaseTrackingManager(database, logger);
+    await trackingManager.enableReporting();
+
+    const flutterSecureStorage = FlutterSecureStorage(
+      aOptions: AndroidOptions(
+        encryptedSharedPreferences: true,
+      ),
+    );
 
     return Dependencies(
-      sharedPreferences: sharedPreferences,
+      flutterSecureStorage: flutterSecureStorage,
+      database: database,
     );
   }
 }

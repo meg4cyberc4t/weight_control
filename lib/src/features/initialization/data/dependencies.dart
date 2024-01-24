@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart' show BuildContext;
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:weight_control/src/common/database/database.dart';
 import 'package:weight_control/src/features/initialization/widget/inherited_dependencies.dart';
 
 /// {@template Dependencies}
@@ -8,7 +9,8 @@ import 'package:weight_control/src/features/initialization/widget/inherited_depe
 final class Dependencies {
   /// {@macro Dependencies}
   const Dependencies({
-    required this.sharedPreferences,
+    required this.flutterSecureStorage,
+    required this.database,
   });
 
   /// The state from the closest instance of this class.
@@ -16,5 +18,8 @@ final class Dependencies {
       InheritedDependencies.of(context);
 
   /// Shared preferences
-  final SharedPreferences sharedPreferences;
+  final FlutterSecureStorage flutterSecureStorage;
+
+  /// SQL drift-based Database
+  final AppDatabase database;
 }

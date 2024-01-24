@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:weight_control/src/common/application/cupertino_context.dart';
 import 'package:weight_control/src/common/application/material_context.dart';
+import 'package:weight_control/src/common/config/config.dart';
 import 'package:weight_control/src/features/initialization/data/dependencies.dart';
 import 'package:weight_control/src/features/initialization/widget/inherited_dependencies.dart';
 
@@ -24,6 +26,9 @@ class Application extends StatelessWidget {
   @override
   Widget build(final BuildContext context) => InheritedDependencies(
         dependencies: dependencies,
-        child: const MaterialContext(),
+        child: switch (Config.platform) {
+          SupportedPlatform.android => const MaterialContext(),
+          SupportedPlatform.ios => const CupertinoContext(),
+        },
       );
 }
