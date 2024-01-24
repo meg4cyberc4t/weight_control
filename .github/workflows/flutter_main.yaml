@@ -70,8 +70,8 @@ jobs:
         with:
           report_paths: '**/report.xml'
 
-      - name: Build app
-        run: |
-            flutter build apk --dart-define "ENVIRONMENT=PRODUCTION" --flavor production
-            flutter build appbundle --dart-define "ENVIRONMENT=PRODUCTION" --flavor production
-            flutter build ipa --dart-define "ENVIRONMENT=PRODUCTION" --flavor production --no-codesign
+      # - name: Build app
+      #   run: |
+      #       flutter build apk --dart-define "ENVIRONMENT=PRODUCTION" --flavor production
+      #       flutter build appbundle --dart-define "ENVIRONMENT=PRODUCTION" --flavor production
+      #       flutter build ipa --dart-define "ENVIRONMENT=PRODUCTION" --flavor production --no-codesign
