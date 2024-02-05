@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:version/version.dart';
-import 'package:weight_control/main.dart';
 import 'package:weight_control/src/common/config/config.dart';
 import 'package:weight_control/src/common/localizations/localizations_state_mixin.dart';
+import 'package:weight_control/src/features/initialization/data/dependencies.dart';
 
 part '_settings_screen_cupertino.dart';
 part '_settings_screen_material.dart';

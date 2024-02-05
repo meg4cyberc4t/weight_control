@@ -5,11 +5,18 @@ import 'package:weight_control/src/common/config/config.dart';
 import 'package:weight_control/src/common/localizations/localizations_state_mixin.dart';
 import 'package:weight_control/src/features/settings/widget/settings_screen.dart';
 
+/// Home tabs. They will show which page needs to be kept open.
 enum HomeTabs {
+  /// Create Tab, allows you to switch to [CreateScreenWidget]
   create('create'),
+
+  /// Create Tab, allows you to switch to [DashboardScreenWidget]
   dashboard('dashboard'),
+
+  /// Create Tab, allows you to switch to [SettingsScreenWidget]
   settings('settings');
 
+  ///ы String representation of the enum for comparing tabs
   final String name;
   const HomeTabs(this.name);
 
@@ -26,7 +33,12 @@ enum HomeTabs {
       };
 }
 
+/// {@template HomeScreenWidget}
+/// The home screen of the application.
+/// It stores a router for navigating through [HomeTabs].
+/// {@endtemplate}
 class HomeScreenWidget extends StatefulWidget {
+  /// {@macro HomeScreenWidget}
   const HomeScreenWidget({super.key});
 
   @override
