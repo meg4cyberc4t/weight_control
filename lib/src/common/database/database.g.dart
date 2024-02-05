@@ -37,8 +37,15 @@ class $LogsTableTable extends LogsTable
               requiredDuringInsert: false,
               defaultValue: const Constant(200))
           .withConverter<LoggerLevel>($LogsTableTable.$converterlevel);
+  static const VerificationMeta _stackTraceMeta =
+      const VerificationMeta('stackTrace');
   @override
-  List<GeneratedColumn> get $columns => [id, message, time, level];
+  late final GeneratedColumnWithTypeConverter<StackTrace?, String> stackTrace =
+      GeneratedColumn<String>('stack_trace', aliasedName, true,
+              type: DriftSqlType.string, requiredDuringInsert: false)
+          .withConverter<StackTrace?>($LogsTableTable.$converterstackTracen);
+  @override
+  List<GeneratedColumn> get $columns => [id, message, time, level, stackTrace];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -63,6 +70,7 @@ class $LogsTableTable extends LogsTable
           _timeMeta, time.isAcceptableOrUnknown(data['time']!, _timeMeta));
     }
     context.handle(_levelMeta, const VerificationResult.success());
+    context.handle(_stackTraceMeta, const VerificationResult.success());
     return context;
   }
 
@@ -81,6 +89,9 @@ class $LogsTableTable extends LogsTable
       level: $LogsTableTable.$converterlevel.fromSql(attachedDatabase
           .typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}level'])!),
+      stackTrace: $LogsTableTable.$converterstackTracen.fromSql(attachedDatabase
+          .typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}stack_trace'])),
     );
   }
 
@@ -91,6 +102,10 @@ class $LogsTableTable extends LogsTable
 
   static TypeConverter<LoggerLevel, int> $converterlevel =
       const LoggerLevelConverter();
+  static TypeConverter<StackTrace, String> $converterstackTrace =
+      const StackTraceConverter();
+  static TypeConverter<StackTrace?, String?> $converterstackTracen =
+      NullAwareTypeConverter.wrap($converterstackTrace);
 }
 
 class LogsTableData extends DataClass implements Insertable<LogsTableData> {
@@ -105,11 +120,15 @@ class LogsTableData extends DataClass implements Insertable<LogsTableData> {
 
   /// The level of this logs
   final LoggerLevel level;
+
+  /// The StackTrace of this logs
+  final StackTrace? stackTrace;
   const LogsTableData(
       {required this.id,
       required this.message,
       this.time,
-      required this.level});
+      required this.level,
+      this.stackTrace});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -122,6 +141,10 @@ class LogsTableData extends DataClass implements Insertable<LogsTableData> {
       map['level'] =
           Variable<int>($LogsTableTable.$converterlevel.toSql(level));
     }
+    if (!nullToAbsent || stackTrace != null) {
+      map['stack_trace'] = Variable<String>(
+          $LogsTableTable.$converterstackTracen.toSql(stackTrace));
+    }
     return map;
   }
 
@@ -131,6 +154,9 @@ class LogsTableData extends DataClass implements Insertable<LogsTableData> {
       message: Value(message),
       time: time == null && nullToAbsent ? const Value.absent() : Value(time),
       level: Value(level),
+      stackTrace: stackTrace == null && nullToAbsent
+          ? const Value.absent()
+          : Value(stackTrace),
     );
   }
 
@@ -142,6 +168,7 @@ class LogsTableData extends DataClass implements Insertable<LogsTableData> {
       message: serializer.fromJson<String>(json['message']),
       time: serializer.fromJson<DateTime?>(json['time']),
       level: serializer.fromJson<LoggerLevel>(json['level']),
+      stackTrace: serializer.fromJson<StackTrace?>(json['stackTrace']),
     );
   }
   @override
@@ -152,6 +179,7 @@ class LogsTableData extends DataClass implements Insertable<LogsTableData> {
       'message': serializer.toJson<String>(message),
       'time': serializer.toJson<DateTime?>(time),
       'level': serializer.toJson<LoggerLevel>(level),
+      'stackTrace': serializer.toJson<StackTrace?>(stackTrace),
     };
   }
 
@@ -159,12 +187,14 @@ class LogsTableData extends DataClass implements Insertable<LogsTableData> {
           {int? id,
           String? message,
           Value<DateTime?> time = const Value.absent(),
-          LoggerLevel? level}) =>
+          LoggerLevel? level,
+          Value<StackTrace?> stackTrace = const Value.absent()}) =>
       LogsTableData(
         id: id ?? this.id,
         message: message ?? this.message,
         time: time.present ? time.value : this.time,
         level: level ?? this.level,
+        stackTrace: stackTrace.present ? stackTrace.value : this.stackTrace,
       );
   @override
   String toString() {
@@ -172,13 +202,14 @@ class LogsTableData extends DataClass implements Insertable<LogsTableData> {
           ..write('id: $id, ')
           ..write('message: $message, ')
           ..write('time: $time, ')
-          ..write('level: $level')
+          ..write('level: $level, ')
+          ..write('stackTrace: $stackTrace')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(id, message, time, level);
+  int get hashCode => Object.hash(id, message, time, level, stackTrace);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -186,7 +217,8 @@ class LogsTableData extends DataClass implements Insertable<LogsTableData> {
           other.id == this.id &&
           other.message == this.message &&
           other.time == this.time &&
-          other.level == this.level);
+          other.level == this.level &&
+          other.stackTrace == this.stackTrace);
 }
 
 class LogsTableCompanion extends UpdateCompanion<LogsTableData> {
@@ -194,29 +226,34 @@ class LogsTableCompanion extends UpdateCompanion<LogsTableData> {
   final Value<String> message;
   final Value<DateTime?> time;
   final Value<LoggerLevel> level;
+  final Value<StackTrace?> stackTrace;
   const LogsTableCompanion({
     this.id = const Value.absent(),
     this.message = const Value.absent(),
     this.time = const Value.absent(),
     this.level = const Value.absent(),
+    this.stackTrace = const Value.absent(),
   });
   LogsTableCompanion.insert({
     this.id = const Value.absent(),
     required String message,
     this.time = const Value.absent(),
     this.level = const Value.absent(),
+    this.stackTrace = const Value.absent(),
   }) : message = Value(message);
   static Insertable<LogsTableData> custom({
     Expression<int>? id,
     Expression<String>? message,
     Expression<DateTime>? time,
     Expression<int>? level,
+    Expression<String>? stackTrace,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
       if (message != null) 'message': message,
       if (time != null) 'time': time,
       if (level != null) 'level': level,
+      if (stackTrace != null) 'stack_trace': stackTrace,
     });
   }
 
@@ -224,12 +261,14 @@ class LogsTableCompanion extends UpdateCompanion<LogsTableData> {
       {Value<int>? id,
       Value<String>? message,
       Value<DateTime?>? time,
-      Value<LoggerLevel>? level}) {
+      Value<LoggerLevel>? level,
+      Value<StackTrace?>? stackTrace}) {
     return LogsTableCompanion(
       id: id ?? this.id,
       message: message ?? this.message,
       time: time ?? this.time,
       level: level ?? this.level,
+      stackTrace: stackTrace ?? this.stackTrace,
     );
   }
 
@@ -249,6 +288,10 @@ class LogsTableCompanion extends UpdateCompanion<LogsTableData> {
       map['level'] =
           Variable<int>($LogsTableTable.$converterlevel.toSql(level.value));
     }
+    if (stackTrace.present) {
+      map['stack_trace'] = Variable<String>(
+          $LogsTableTable.$converterstackTracen.toSql(stackTrace.value));
+    }
     return map;
   }
 
@@ -258,7 +301,8 @@ class LogsTableCompanion extends UpdateCompanion<LogsTableData> {
           ..write('id: $id, ')
           ..write('message: $message, ')
           ..write('time: $time, ')
-          ..write('level: $level')
+          ..write('level: $level, ')
+          ..write('stackTrace: $stackTrace')
           ..write(')'))
         .toString();
   }

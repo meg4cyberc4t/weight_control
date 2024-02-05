@@ -1,3 +1,5 @@
+// ignore_for_file: do_not_use_environment
+
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
@@ -7,7 +9,6 @@ abstract final class Config {
   /// The current [EnvironmentFlavor] of a running application.
   static final EnvironmentFlavor environmentFlavor =
       EnvironmentFlavor.fromString(
-    // ignore: do_not_use_environment
     const String.fromEnvironment(
       'ENVIRONMENT',
       defaultValue: 'DEVELOPMENT',
@@ -15,7 +16,13 @@ abstract final class Config {
   );
 
   /// The current [SupportedPlatform] of a running application.
-  static final SupportedPlatform platform = SupportedPlatform.create();
+  static final SupportedPlatform platform = SupportedPlatform.fromIO();
+
+  /// The source code of a running application.
+  static const String sourceCodeUrl = String.fromEnvironment(
+    'SOURCE_CODE_URL',
+    defaultValue: 'https://github.com/meg4cyberc4t/weight_control',
+  );
 }
 
 /// A list of flavors for the app.
@@ -72,6 +79,6 @@ enum SupportedPlatform {
   ios;
 
   /// Initialization of the platform from 'dart:io';
-  static SupportedPlatform create() =>
+  static SupportedPlatform fromIO() =>
       Platform.isIOS || Platform.isMacOS ? ios : android;
 }

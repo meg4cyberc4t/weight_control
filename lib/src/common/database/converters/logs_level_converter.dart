@@ -1,4 +1,3 @@
-// stores preferences as strings
 import 'package:drift/drift.dart';
 import 'package:weight_control/src/common/logger/logger.dart';
 

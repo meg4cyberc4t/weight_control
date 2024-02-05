@@ -5,6 +5,7 @@ import 'package:drift/native.dart';
 import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart';
 import 'package:weight_control/src/common/database/converters/logs_level_converter.dart';
+import 'package:weight_control/src/common/database/converters/stacktrace_converter.dart';
 import 'package:weight_control/src/common/database/tables/logs_table.dart';
 import 'package:weight_control/src/common/logger/logger.dart';
 
