@@ -110,6 +110,106 @@ class GeneratedLocalization {
       args: [],
     );
   }
+
+  /// `Create`
+  String get create {
+    return Intl.message(
+      'Create',
+      name: 'create',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dashboard`
+  String get dashboard {
+    return Intl.message(
+      'Dashboard',
+      name: 'dashboard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get settings {
+    return Intl.message(
+      'Settings',
+      name: 'settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `About app`
+  String get aboutApp {
+    return Intl.message(
+      'About app',
+      name: 'aboutApp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Version`
+  String get version {
+    return Intl.message(
+      'Version',
+      name: 'version',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rate the app`
+  String get rateTheApp {
+    return Intl.message(
+      'Rate the app',
+      name: 'rateTheApp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Licenses`
+  String get licenses {
+    return Intl.message(
+      'Licenses',
+      name: 'licenses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Additional`
+  String get additional {
+    return Intl.message(
+      'Additional',
+      name: 'additional',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Source code`
+  String get sourceCode {
+    return Intl.message(
+      'Source code',
+      name: 'sourceCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Report a bug`
+  String get reportABug {
+    return Intl.message(
+      'Report a bug',
+      name: 'reportABug',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate

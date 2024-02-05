@@ -22,13 +22,23 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "aboutApp": MessageLookupByLibrary.simpleMessage("About app"),
+        "additional": MessageLookupByLibrary.simpleMessage("Additional"),
+        "create": MessageLookupByLibrary.simpleMessage("Create"),
+        "dashboard": MessageLookupByLibrary.simpleMessage("Dashboard"),
         "language": MessageLookupByLibrary.simpleMessage("English"),
         "languageCode": MessageLookupByLibrary.simpleMessage("en"),
+        "licenses": MessageLookupByLibrary.simpleMessage("Licenses"),
         "localeCode": MessageLookupByLibrary.simpleMessage("en_US"),
+        "rateTheApp": MessageLookupByLibrary.simpleMessage("Rate the app"),
+        "reportABug": MessageLookupByLibrary.simpleMessage("Report a bug"),
+        "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "sourceCode": MessageLookupByLibrary.simpleMessage("Source code"),
         "title": MessageLookupByLibrary.simpleMessage("Weight Control"),
         "titleDevelopment":
             MessageLookupByLibrary.simpleMessage("Weight Control Development"),
         "titleStage":
-            MessageLookupByLibrary.simpleMessage("Weight Control Stage")
+            MessageLookupByLibrary.simpleMessage("Weight Control Stage"),
+        "version": MessageLookupByLibrary.simpleMessage("Version")
       };
 }

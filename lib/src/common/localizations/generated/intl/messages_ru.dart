@@ -22,13 +22,24 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "aboutApp": MessageLookupByLibrary.simpleMessage("О приложении"),
+        "additional": MessageLookupByLibrary.simpleMessage("Дополнительно"),
+        "create": MessageLookupByLibrary.simpleMessage("Создать"),
+        "dashboard": MessageLookupByLibrary.simpleMessage("Главная"),
         "language": MessageLookupByLibrary.simpleMessage("Russian"),
         "languageCode": MessageLookupByLibrary.simpleMessage("ru"),
+        "licenses": MessageLookupByLibrary.simpleMessage("Лицензии"),
         "localeCode": MessageLookupByLibrary.simpleMessage("ru_RU"),
+        "rateTheApp":
+            MessageLookupByLibrary.simpleMessage("Оценить приложение"),
+        "reportABug": MessageLookupByLibrary.simpleMessage("Сообщить о баге"),
+        "settings": MessageLookupByLibrary.simpleMessage("Настройки"),
+        "sourceCode": MessageLookupByLibrary.simpleMessage("Исходный код"),
         "title": MessageLookupByLibrary.simpleMessage("Weight Control"),
         "titleDevelopment":
             MessageLookupByLibrary.simpleMessage("Weight Control Development"),
         "titleStage":
-            MessageLookupByLibrary.simpleMessage("Weight Control Stage")
+            MessageLookupByLibrary.simpleMessage("Weight Control Stage"),
+        "version": MessageLookupByLibrary.simpleMessage("Версия")
       };
 }

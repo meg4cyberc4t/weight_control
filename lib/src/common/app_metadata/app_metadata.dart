@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:version/version.dart';
-import 'package:weight_control/src/common/config/config.dart';
 
 /// {@template AppMetadata}
 /// Application metadata
@@ -12,9 +11,7 @@ class AppMetadata {
   factory AppMetadata(
     final PackageInfo packageInfo,
   ) {
-    final SupportedPlatform operatingSystem = Platform.isMacOS || Platform.isIOS
-        ? SupportedPlatform.android
-        : SupportedPlatform.ios;
+    final String operatingSystem = Platform.operatingSystem;
     return AppMetadata._internal(
       appName: packageInfo.appName,
       operatingSystem: operatingSystem,
@@ -38,16 +35,16 @@ class AppMetadata {
   final Version appVersion;
 
   /// The running current operating system
-  final SupportedPlatform operatingSystem;
+  final String operatingSystem;
 
   /// Application launch time
   final DateTime appStartedTime;
 
-  /// {@nodoc}
+  /// @nodoc
   Map<String, String> toHeaders() => <String, String>{
         'X-Meta-App-Version': appVersion.toString(),
         'X-Meta-App-Name': appName,
-        'X-Meta-Operating-System': operatingSystem.name,
+        'X-Meta-Operating-System': operatingSystem,
         'X-Meta-App-Launched-Time': appStartedTime.toString(),
       };
 }
