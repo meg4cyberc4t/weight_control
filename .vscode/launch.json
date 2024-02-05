@@ -7,8 +7,8 @@
       "type": "dart",
       "flutterMode": "debug",
       "toolArgs": [
-        "--dart-define",
-        "ENVIRONMENT=PRODUCTION",
+        "--dart-define-from-file",
+        "config/production.json",
         "--flavor",
         "production"
       ]
@@ -19,8 +19,8 @@
       "type": "dart",
       "flutterMode": "profile",
       "toolArgs": [
-        "--dart-define",
-        "ENVIRONMENT=DEVELOPMENT",
+        "--dart-define-from-file",
+        "config/development.json",
         "--flavor",
         "development"
       ]
@@ -31,8 +31,8 @@
       "type": "dart",
       "flutterMode": "debug",
       "toolArgs": [
-        "--dart-define",
-        "ENVIRONMENT=DEVELOPMENT",
+        "--dart-define-from-file",
+        "config/development.json",
         "--flavor",
         "development"
       ]
@@ -42,7 +42,7 @@
       "request": "launch",
       "type": "dart",
       "flutterMode": "debug",
-      "toolArgs": ["--dart-define", "ENVIRONMENT=STAGE", "--flavor", "stage"]
+      "toolArgs": ["--dart-define-from-file", "config/stage.json", "--flavor", "stage"]
     }
   ]
 }

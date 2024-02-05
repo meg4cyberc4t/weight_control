@@ -38,6 +38,6 @@ build: get
 
 # Building apk, app bundle and ipa files for an application with setting ENVIRONMENT variable ENVIRONMENT=PRODUCTION
 app:
-	@fvm flutter build apk --dart-define "ENVIRONMENT=PRODUCTION" --flavor production
-	@fvm flutter build appbundle --dart-define "ENVIRONMENT=PRODUCTION" --flavor production
-	@fvm flutter build ipa --dart-define "ENVIRONMENT=PRODUCTION" --flavor production --no-codesign
+	@fvm flutter build apk --dart-define-from-file=production.json config/production.json --flavor production
+	@fvm flutter build appbundle --dart-define-from-file=production.json config/production.json --flavor production
+	@fvm flutter build ipa --dart-define-from-file=production.json config/production.json --flavor production --no-codesign

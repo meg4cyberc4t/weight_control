@@ -4,6 +4,7 @@ import 'package:weight_control/src/common/application/material_context.dart';
 import 'package:weight_control/src/common/config/config.dart';
 import 'package:weight_control/src/features/initialization/data/dependencies.dart';
 import 'package:weight_control/src/features/initialization/widget/inherited_dependencies.dart';
+import 'package:weight_control/src/features/measures/widget/measures_scope.dart';
 
 /// {@template Application}
 /// The Application class represents the root widget of the application.
@@ -26,9 +27,11 @@ class Application extends StatelessWidget {
   @override
   Widget build(final BuildContext context) => InheritedDependencies(
         dependencies: dependencies,
-        child: switch (Config.platform) {
-          SupportedPlatform.android => const MaterialContext(),
-          SupportedPlatform.ios => const CupertinoContext(),
-        },
+        child: MeasuresScope(
+          child: switch (Config.platform) {
+            SupportedPlatform.android => const MaterialContext(),
+            SupportedPlatform.ios => const CupertinoContext(),
+          },
+        ),
       );
 }

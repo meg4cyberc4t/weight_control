@@ -1,4 +1,4 @@
-import 'package:weight_control/main.dart';
+import 'package:weight_control/src/features/initialization/data/dependencies.dart';
 
 /// {@template InitializationResult}
 /// Result of initialization

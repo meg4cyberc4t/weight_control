@@ -1,5 +1,6 @@
 import 'package:drift/drift.dart';
 import 'package:weight_control/src/common/database/converters/logs_level_converter.dart';
+import 'package:weight_control/src/common/database/converters/stacktrace_converter.dart';
 
 /// Logs table definition
 class LogsTable extends Table {
@@ -16,4 +17,8 @@ class LogsTable extends Table {
   IntColumn get level => integer()
       .map(const LoggerLevelConverter())
       .withDefault(const Constant(200))();
+
+  /// The StackTrace of this logs
+  TextColumn get stackTrace =>
+      text().nullable().map(const StackTraceConverter())();
 }

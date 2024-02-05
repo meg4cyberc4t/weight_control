@@ -74,6 +74,7 @@ final class DatabaseTrackingManager extends TrackingManager {
             message: log.message,
             time: Value.ofNullable(log.time),
             level: Value(log.logLevel),
+            stackTrace: Value(log.stackTrace),
           ),
         );
   }
