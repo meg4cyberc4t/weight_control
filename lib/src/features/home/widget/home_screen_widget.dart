@@ -7,9 +7,11 @@ import 'package:weight_control/src/features/settings/widget/settings_screen.dart
 
 /// Home tabs. They will show which page needs to be kept open.
 enum HomeTabs {
+  // ignore: comment_references
   /// Create Tab, allows you to switch to [CreateScreenWidget]
   create('create'),
 
+  // ignore: comment_references
   /// Create Tab, allows you to switch to [DashboardScreenWidget]
   dashboard('dashboard'),
 
