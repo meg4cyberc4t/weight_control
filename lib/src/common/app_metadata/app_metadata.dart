@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:version/version.dart';
 
 /// {@template AppMetadata}
 /// Application metadata
@@ -15,7 +14,7 @@ class AppMetadata {
     return AppMetadata._internal(
       appName: packageInfo.appName,
       operatingSystem: operatingSystem,
-      appVersion: Version.parse(packageInfo.version),
+      appVersion: packageInfo.version,
       appStartedTime: DateTime.now(),
     );
   }
@@ -32,7 +31,7 @@ class AppMetadata {
   final String appName;
 
   /// Version of the application
-  final Version appVersion;
+  final String appVersion;
 
   /// The running current operating system
   final String operatingSystem;
@@ -42,7 +41,7 @@ class AppMetadata {
 
   /// @nodoc
   Map<String, String> toHeaders() => <String, String>{
-        'X-Meta-App-Version': appVersion.toString(),
+        'X-Meta-App-Version': appVersion,
         'X-Meta-App-Name': appName,
         'X-Meta-Operating-System': operatingSystem,
         'X-Meta-App-Launched-Time': appStartedTime.toString(),

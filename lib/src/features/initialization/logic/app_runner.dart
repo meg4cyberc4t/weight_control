@@ -9,9 +9,10 @@ import 'package:weight_control/src/common/application/application.dart';
 import 'package:weight_control/src/common/database/database.dart';
 import 'package:weight_control/src/common/logger/bloc_observer.dart';
 import 'package:weight_control/src/common/logger/logger.dart';
-import 'package:weight_control/src/common/tracking_manager/tracking_manager.dart';
 import 'package:weight_control/src/features/initialization/data/dependencies.dart';
 import 'package:weight_control/src/features/initialization/data/initialization_result.dart';
+import 'package:weight_control/src/features/measures/data/data_sources/measures_local_data_source.dart';
+import 'package:weight_control/src/features/measures/data/repository/measures_repository_impl.dart';
 
 /// The starting point of the application
 final class AppRunner {
@@ -55,8 +56,8 @@ final class AppRunner {
 
     final database = AppDatabase();
 
-    final trackingManager = DatabaseTrackingManager(database, logger);
-    await trackingManager.enableReporting();
+    // final trackingManager = DatabaseTrackingManager(database, logger);
+    // await trackingManager.enableReporting();
 
     const flutterSecureStorage = FlutterSecureStorage(
       aOptions: AndroidOptions(
@@ -69,10 +70,17 @@ final class AppRunner {
       packageInfo,
     );
 
+    final measuresRepository = MeasuresRepositoryImpl(
+      MeasuresLocalDataSource(
+        database,
+      ),
+    );
+
     return Dependencies(
       flutterSecureStorage: flutterSecureStorage,
       database: database,
       appMetadata: appMetadata,
+      measuresRepository: measuresRepository,
     );
   }
 }

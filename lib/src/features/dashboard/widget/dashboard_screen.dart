@@ -1,0 +1,21 @@
+import 'package:flutter/material.dart';
+import 'package:weight_control/src/common/config/config.dart';
+import 'package:weight_control/src/features/measures/widget/measures_scope.dart';
+
+part '_dashboard_screen_cupertino.dart';
+part '_dashboard_screen_material.dart';
+
+class DashboardScreenWidget extends StatefulWidget {
+  const DashboardScreenWidget({super.key});
+
+  @override
+  State<DashboardScreenWidget> createState() => _DashboardScreenWidgetState();
+}
+
+class _DashboardScreenWidgetState extends State<DashboardScreenWidget> {
+  @override
+  Widget build(final BuildContext context) => switch (Config.platform) {
+        SupportedPlatform.android => const _DashboardScreenWidget$Material(),
+        SupportedPlatform.ios => const _DashboardScreenWidget$Cupertino(),
+      };
+}

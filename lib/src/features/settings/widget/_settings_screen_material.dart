@@ -3,18 +3,17 @@ part of 'settings_screen.dart';
 /// {@template SettingsScreenWidget$Material}
 /// Presentation of the [SettingsScreenWidget] for Material Design
 /// {@endtemplate}
-class SettingsScreenWidget$Material extends StatelessWidget {
+class _SettingsScreenWidget$Material extends StatelessWidget {
   /// {@macro SettingsScreenController}
   final SettingsScreenController controller;
 
   /// {@macro SettingsScreenWidget$Material}
-  const SettingsScreenWidget$Material({
-    required this.controller,
-    super.key,
-  });
+  const _SettingsScreenWidget$Material({required this.controller});
 
   @override
-  Widget build(final BuildContext context) => Scaffold(
+  Widget build(final BuildContext context) {
+    final theme = Theme.of(context);
+    return Scaffold(
         body: CustomScrollView(
           slivers: [
             SliverAppBar.large(
@@ -22,6 +21,21 @@ class SettingsScreenWidget$Material extends StatelessWidget {
             ),
             SliverToBoxAdapter(
               child: _HeaderBlock(
+              name: context.localizations.data,
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: ListTile(
+              leading: Icon(
+                Icons.delete,
+                color: theme.colorScheme.error,
+              ),
+              title: Text(context.localizations.deleteAll),
+              onTap: () => controller.deleteAllData(context),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: _HeaderBlock(
                 name: context.localizations.aboutApp,
               ),
             ),
@@ -29,7 +43,7 @@ class SettingsScreenWidget$Material extends StatelessWidget {
               child: ListTile(
                 leading: const Icon(Icons.settings_applications),
                 title: Text(context.localizations.version),
-                trailing: Text(controller.version.toString()),
+              trailing: Text(controller.version),
                 onTap: controller.copyVersion,
               ),
             ),
@@ -69,6 +83,7 @@ class SettingsScreenWidget$Material extends StatelessWidget {
           ],
         ),
       );
+  }
 }
 
 class _HeaderBlock extends StatelessWidget {
