@@ -1,4 +1,5 @@
 import 'package:weight_control/src/features/measures/data/models/measure.dart';
+import 'package:weight_control/src/features/measures/data/models/weight.dart';
 
 abstract interface class MeasuresRepository {
   Future<List<Measure>> getAllMeasure();
@@ -6,7 +7,7 @@ abstract interface class MeasuresRepository {
   Future<Measure?> getLastMeasure();
 
   Future<void> createMeasure({
-    required final int weightInGrams,
+    required final Weight weight,
     required final String? comment,
   });
 

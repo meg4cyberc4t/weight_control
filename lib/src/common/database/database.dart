@@ -8,9 +8,11 @@ import 'package:path_provider/path_provider.dart' as pp;
 import 'package:sqlite3_flutter_libs/sqlite3_flutter_libs.dart';
 import 'package:weight_control/src/common/database/converters/logs_level_converter.dart';
 import 'package:weight_control/src/common/database/converters/stacktrace_converter.dart';
+import 'package:weight_control/src/common/database/converters/weight_converter.dart';
 import 'package:weight_control/src/common/database/tables/logs_table.dart';
-import 'package:weight_control/src/common/database/tables/weight_history_table.dart';
+import 'package:weight_control/src/common/database/tables/measures_table.dart';
 import 'package:weight_control/src/common/logger/logger.dart';
+import 'package:weight_control/src/features/measures/data/models/weight.dart';
 
 part 'database.g.dart';
 

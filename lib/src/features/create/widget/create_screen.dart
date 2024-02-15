@@ -5,7 +5,9 @@ import 'package:octopus/octopus.dart';
 import 'package:weight_control/src/common/config/config.dart';
 import 'package:weight_control/src/common/localizations/localizations_state_mixin.dart';
 import 'package:weight_control/src/features/create/data/create_screen_state.dart';
+import 'package:weight_control/src/features/create/widget/weight_difference.dart';
 import 'package:weight_control/src/features/home/widget/home_screen_widget.dart';
+import 'package:weight_control/src/features/measures/data/models/weight.dart';
 import 'package:weight_control/src/features/measures/logic/measures_bloc.dart';
 import 'package:weight_control/src/features/measures/widget/measures_scope.dart';
 
@@ -16,8 +18,8 @@ abstract interface class CreateScreenController {
   CreateScreenState get state;
 
   void create({
-    required final int weightInGrams,
-    required final String? comment,
+    required final Weight weight,
+    required final String comment,
   });
 
   void switchPageToDashboard();
@@ -62,16 +64,17 @@ class _CreateScreenWidgetState extends State<CreateScreenWidget>
         now.day > lastTime.day;
     if (isAvailable) {
       return CreateScreenState$Available(last);
+    } else {
+      return const CreateScreenState$NotAvailable();
     }
-    return const CreateScreenState$NotAvailable();
   }
 
   @override
   void create({
-    required final int weightInGrams,
-    required final String? comment,
+    required final Weight weight,
+    required final String comment,
   }) {
-    controller.create(weightInGrams: weightInGrams, comment: comment);
+    controller.create(weight: weight, comment: comment);
     switchPageToDashboard();
   }
 

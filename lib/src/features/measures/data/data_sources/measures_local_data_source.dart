@@ -1,7 +1,8 @@
 import 'package:drift/drift.dart';
 import 'package:weight_control/src/common/database/database.dart';
-import 'package:weight_control/src/common/database/tables/weight_history_table.dart';
+import 'package:weight_control/src/common/database/tables/measures_table.dart';
 import 'package:weight_control/src/features/measures/data/data_sources/measures_data_source.dart';
+import 'package:weight_control/src/features/measures/data/models/weight.dart';
 
 part 'measures_local_data_source.g.dart';
 
@@ -17,19 +18,20 @@ final class MeasuresLocalDataSource extends DatabaseAccessor<AppDatabase>
 
   @override
   Future<MeasuresTableData?> getLastMeasure() async => (select(measuresTable)
-        ..orderBy([(final t) => OrderingTerm.asc(t.time)])
+        ..orderBy([(final t) => OrderingTerm.desc(t.time)])
         ..limit(1))
       .getSingleOrNull();
 
   @override
   Future<void> createMeasure({
-    required final int weightInGrams,
+    required final Weight weight,
     required final String? comment,
   }) =>
       into(measuresTable).insert(
         MeasuresTableCompanion.insert(
           time: DateTime.now(),
-          weightInGrams: weightInGrams,
+          weight: weight,
+          comment: Value(comment),
         ),
       );
 

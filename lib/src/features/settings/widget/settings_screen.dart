@@ -5,6 +5,7 @@ import 'package:url_launcher/url_launcher_string.dart';
 import 'package:weight_control/src/common/config/config.dart';
 import 'package:weight_control/src/common/localizations/localizations_state_mixin.dart';
 import 'package:weight_control/src/features/initialization/data/dependencies.dart';
+import 'package:weight_control/src/features/measures/widget/measures_scope.dart';
 
 part '_settings_screen_cupertino.dart';
 part '_settings_screen_material.dart';
@@ -79,13 +80,13 @@ class _SettingsScreenWidgetState extends State<SettingsScreenWidget>
 
   @override
   Future<void> deleteAllData(final BuildContext context) async {
-    final measuresRepository = Dependencies.of(context).measuresRepository;
+    final measuresController = MeasuresScope.controllerOf(context);
     final showDialogFuture = switch (Config.platform) {
       SupportedPlatform.android => _showDeleteAllMaterialDialog(context),
       SupportedPlatform.ios => _showDeleteAllCupertinoDialog(context),
     };
     if (await showDialogFuture ?? false) {
-      await measuresRepository.deleteAll();
+      measuresController.deleteAll();
     }
   }
 

@@ -1,17 +1,20 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weight_control/src/features/initialization/data/dependencies.dart';
+import 'package:weight_control/src/features/measures/data/models/weight.dart';
 import 'package:weight_control/src/features/measures/logic/measures_bloc.dart';
 
 abstract interface class MeasureController {
   void create({
-    required final int weightInGrams,
-    required final String? comment,
+    required final Weight weight,
+    required final String comment,
   });
 
   void delete({
     required final int id,
   });
+
+  void deleteAll();
 }
 
 class MeasuresScope extends StatefulWidget {
@@ -76,15 +79,18 @@ class _MeasuresScopeState extends State<MeasuresScope>
 
   @override
   void create({
-    required final int weightInGrams,
-    required final String? comment,
+    required final Weight weight,
+    required final String comment,
   }) =>
       _measuresBloc.add(
         MeasuresEvent.create(
-          weightInGrams: weightInGrams,
+          weight: weight,
           comment: comment,
         ),
       );
+
+  @override
+  void deleteAll() => _measuresBloc.add(const MeasuresEvent.deleteAll());
 
   @override
   void delete({required final int id}) =>

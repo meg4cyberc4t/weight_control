@@ -330,12 +330,12 @@ class $MeasuresTableTable extends MeasuresTable
       type: DriftSqlType.dateTime,
       requiredDuringInsert: true,
       defaultConstraints: GeneratedColumn.constraintIsAlways('UNIQUE'));
-  static const VerificationMeta _weightInGramsMeta =
-      const VerificationMeta('weightInGrams');
+  static const VerificationMeta _weightMeta = const VerificationMeta('weight');
   @override
-  late final GeneratedColumn<int> weightInGrams = GeneratedColumn<int>(
-      'weight_in_grams', aliasedName, false,
-      type: DriftSqlType.int, requiredDuringInsert: true);
+  late final GeneratedColumnWithTypeConverter<Weight, int> weight =
+      GeneratedColumn<int>('weight', aliasedName, false,
+              type: DriftSqlType.int, requiredDuringInsert: true)
+          .withConverter<Weight>($MeasuresTableTable.$converterweight);
   static const VerificationMeta _commentMeta =
       const VerificationMeta('comment');
   @override
@@ -343,7 +343,7 @@ class $MeasuresTableTable extends MeasuresTable
       'comment', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
   @override
-  List<GeneratedColumn> get $columns => [id, time, weightInGrams, comment];
+  List<GeneratedColumn> get $columns => [id, time, weight, comment];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -363,14 +363,7 @@ class $MeasuresTableTable extends MeasuresTable
     } else if (isInserting) {
       context.missing(_timeMeta);
     }
-    if (data.containsKey('weight_in_grams')) {
-      context.handle(
-          _weightInGramsMeta,
-          weightInGrams.isAcceptableOrUnknown(
-              data['weight_in_grams']!, _weightInGramsMeta));
-    } else if (isInserting) {
-      context.missing(_weightInGramsMeta);
-    }
+    context.handle(_weightMeta, const VerificationResult.success());
     if (data.containsKey('comment')) {
       context.handle(_commentMeta,
           comment.isAcceptableOrUnknown(data['comment']!, _commentMeta));
@@ -388,8 +381,9 @@ class $MeasuresTableTable extends MeasuresTable
           .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
       time: attachedDatabase.typeMapping
           .read(DriftSqlType.dateTime, data['${effectivePrefix}time'])!,
-      weightInGrams: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}weight_in_grams'])!,
+      weight: $MeasuresTableTable.$converterweight.fromSql(attachedDatabase
+          .typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}weight'])!),
       comment: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}comment']),
     );
@@ -399,6 +393,8 @@ class $MeasuresTableTable extends MeasuresTable
   $MeasuresTableTable createAlias(String alias) {
     return $MeasuresTableTable(attachedDatabase, alias);
   }
+
+  static TypeConverter<Weight, int> $converterweight = const WeightConverter();
 }
 
 class MeasuresTableData extends DataClass
@@ -409,22 +405,25 @@ class MeasuresTableData extends DataClass
   /// The time of this measure.
   final DateTime time;
 
-  /// The weight of this measure in grams.
-  final int weightInGrams;
+  /// The weight of this measure.
+  final Weight weight;
 
   /// The comment of this measure.
   final String? comment;
   const MeasuresTableData(
       {required this.id,
       required this.time,
-      required this.weightInGrams,
+      required this.weight,
       this.comment});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
     map['id'] = Variable<int>(id);
     map['time'] = Variable<DateTime>(time);
-    map['weight_in_grams'] = Variable<int>(weightInGrams);
+    {
+      map['weight'] =
+          Variable<int>($MeasuresTableTable.$converterweight.toSql(weight));
+    }
     if (!nullToAbsent || comment != null) {
       map['comment'] = Variable<String>(comment);
     }
@@ -435,7 +434,7 @@ class MeasuresTableData extends DataClass
     return MeasuresTableCompanion(
       id: Value(id),
       time: Value(time),
-      weightInGrams: Value(weightInGrams),
+      weight: Value(weight),
       comment: comment == null && nullToAbsent
           ? const Value.absent()
           : Value(comment),
@@ -448,7 +447,7 @@ class MeasuresTableData extends DataClass
     return MeasuresTableData(
       id: serializer.fromJson<int>(json['id']),
       time: serializer.fromJson<DateTime>(json['time']),
-      weightInGrams: serializer.fromJson<int>(json['weightInGrams']),
+      weight: serializer.fromJson<Weight>(json['weight']),
       comment: serializer.fromJson<String?>(json['comment']),
     );
   }
@@ -458,7 +457,7 @@ class MeasuresTableData extends DataClass
     return <String, dynamic>{
       'id': serializer.toJson<int>(id),
       'time': serializer.toJson<DateTime>(time),
-      'weightInGrams': serializer.toJson<int>(weightInGrams),
+      'weight': serializer.toJson<Weight>(weight),
       'comment': serializer.toJson<String?>(comment),
     };
   }
@@ -466,12 +465,12 @@ class MeasuresTableData extends DataClass
   MeasuresTableData copyWith(
           {int? id,
           DateTime? time,
-          int? weightInGrams,
+          Weight? weight,
           Value<String?> comment = const Value.absent()}) =>
       MeasuresTableData(
         id: id ?? this.id,
         time: time ?? this.time,
-        weightInGrams: weightInGrams ?? this.weightInGrams,
+        weight: weight ?? this.weight,
         comment: comment.present ? comment.value : this.comment,
       );
   @override
@@ -479,52 +478,52 @@ class MeasuresTableData extends DataClass
     return (StringBuffer('MeasuresTableData(')
           ..write('id: $id, ')
           ..write('time: $time, ')
-          ..write('weightInGrams: $weightInGrams, ')
+          ..write('weight: $weight, ')
           ..write('comment: $comment')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(id, time, weightInGrams, comment);
+  int get hashCode => Object.hash(id, time, weight, comment);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is MeasuresTableData &&
           other.id == this.id &&
           other.time == this.time &&
-          other.weightInGrams == this.weightInGrams &&
+          other.weight == this.weight &&
           other.comment == this.comment);
 }
 
 class MeasuresTableCompanion extends UpdateCompanion<MeasuresTableData> {
   final Value<int> id;
   final Value<DateTime> time;
-  final Value<int> weightInGrams;
+  final Value<Weight> weight;
   final Value<String?> comment;
   const MeasuresTableCompanion({
     this.id = const Value.absent(),
     this.time = const Value.absent(),
-    this.weightInGrams = const Value.absent(),
+    this.weight = const Value.absent(),
     this.comment = const Value.absent(),
   });
   MeasuresTableCompanion.insert({
     this.id = const Value.absent(),
     required DateTime time,
-    required int weightInGrams,
+    required Weight weight,
     this.comment = const Value.absent(),
   })  : time = Value(time),
-        weightInGrams = Value(weightInGrams);
+        weight = Value(weight);
   static Insertable<MeasuresTableData> custom({
     Expression<int>? id,
     Expression<DateTime>? time,
-    Expression<int>? weightInGrams,
+    Expression<int>? weight,
     Expression<String>? comment,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
       if (time != null) 'time': time,
-      if (weightInGrams != null) 'weight_in_grams': weightInGrams,
+      if (weight != null) 'weight': weight,
       if (comment != null) 'comment': comment,
     });
   }
@@ -532,12 +531,12 @@ class MeasuresTableCompanion extends UpdateCompanion<MeasuresTableData> {
   MeasuresTableCompanion copyWith(
       {Value<int>? id,
       Value<DateTime>? time,
-      Value<int>? weightInGrams,
+      Value<Weight>? weight,
       Value<String?>? comment}) {
     return MeasuresTableCompanion(
       id: id ?? this.id,
       time: time ?? this.time,
-      weightInGrams: weightInGrams ?? this.weightInGrams,
+      weight: weight ?? this.weight,
       comment: comment ?? this.comment,
     );
   }
@@ -551,8 +550,9 @@ class MeasuresTableCompanion extends UpdateCompanion<MeasuresTableData> {
     if (time.present) {
       map['time'] = Variable<DateTime>(time.value);
     }
-    if (weightInGrams.present) {
-      map['weight_in_grams'] = Variable<int>(weightInGrams.value);
+    if (weight.present) {
+      map['weight'] = Variable<int>(
+          $MeasuresTableTable.$converterweight.toSql(weight.value));
     }
     if (comment.present) {
       map['comment'] = Variable<String>(comment.value);
@@ -565,7 +565,7 @@ class MeasuresTableCompanion extends UpdateCompanion<MeasuresTableData> {
     return (StringBuffer('MeasuresTableCompanion(')
           ..write('id: $id, ')
           ..write('time: $time, ')
-          ..write('weightInGrams: $weightInGrams, ')
+          ..write('weight: $weight, ')
           ..write('comment: $comment')
           ..write(')'))
         .toString();

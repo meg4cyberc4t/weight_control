@@ -20,9 +20,9 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ru';
 
-  static String m0(kg) => "Меньше, чем предидущее измерение на {${kg}} кг.";
+  static String m0(kg) => "Больше, чем предыдущее измерение ${kg} кг.";
 
-  static String m1(kg) => "Больше, чем предидущее измерение на {${kg}} кг.";
+  static String m1(kg) => "Меньше, чем предыдущее измерение ${kg} кг.";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -38,20 +38,24 @@ class MessageLookup extends MessageLookupByLibrary {
         "deleteAll": MessageLookupByLibrary.simpleMessage("Удалить данные"),
         "deleteAllContent": MessageLookupByLibrary.simpleMessage(
             "Это действие нельзя будет отменить!"),
+        "equalThanPrevious":
+            MessageLookupByLibrary.simpleMessage("Вес идентичен с предыдущим."),
         "goToDashboard":
             MessageLookupByLibrary.simpleMessage("Перейти к главной"),
+        "greaterThanPrevious": m0,
         "kg": MessageLookupByLibrary.simpleMessage("Кг"),
         "language": MessageLookupByLibrary.simpleMessage("Russian"),
         "languageCode": MessageLookupByLibrary.simpleMessage("ru"),
-        "lessThenPrevious": m0,
+        "lessThanPrevious": m1,
         "licenses": MessageLookupByLibrary.simpleMessage("Лицензии"),
         "localeCode": MessageLookupByLibrary.simpleMessage("ru_RU"),
-        "moreThenPrevious": m1,
         "notAvailableCreateMeasure": MessageLookupByLibrary.simpleMessage(
             "Вы уже отмеряли свой вес сегодня"),
         "notAvailableCreateMeasureDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Возвращайтесь завтра для новых измерений!"),
+        "notCalculated": MessageLookupByLibrary.simpleMessage(
+            "Используйте слайдеры для измерения веса."),
         "rateTheApp":
             MessageLookupByLibrary.simpleMessage("Оценить приложение"),
         "record": MessageLookupByLibrary.simpleMessage("Записать"),

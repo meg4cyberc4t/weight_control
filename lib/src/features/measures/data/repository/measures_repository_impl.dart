@@ -1,5 +1,6 @@
 import 'package:weight_control/src/features/measures/data/data_sources/measures_data_source.dart';
 import 'package:weight_control/src/features/measures/data/models/measure.dart';
+import 'package:weight_control/src/features/measures/data/models/weight.dart';
 import 'package:weight_control/src/features/measures/data/repository/measures_repository.dart';
 
 final class MeasuresRepositoryImpl implements MeasuresRepository {
@@ -21,11 +22,11 @@ final class MeasuresRepositoryImpl implements MeasuresRepository {
 
   @override
   Future<void> createMeasure({
-    required final int weightInGrams,
+    required final Weight weight,
     required final String? comment,
   }) async {
     await _localDs.createMeasure(
-      weightInGrams: weightInGrams,
+      weight: weight,
       comment: comment,
     );
   }

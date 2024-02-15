@@ -20,9 +20,9 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
-  static String m0(kg) => "Less than the previous measurements by {${kg}} kg.";
+  static String m0(kg) => "More than the previous measurements by ${kg} kg.";
 
-  static String m1(kg) => "More than the previous measurements by {${kg}} kg.";
+  static String m1(kg) => "Less than the previous measurements by ${kg} kg.";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -38,20 +38,24 @@ class MessageLookup extends MessageLookupByLibrary {
         "deleteAll": MessageLookupByLibrary.simpleMessage("Delete data"),
         "deleteAllContent": MessageLookupByLibrary.simpleMessage(
             "This action cannot be undone!"),
+        "equalThanPrevious":
+            MessageLookupByLibrary.simpleMessage("The weight is equal."),
         "goToDashboard":
             MessageLookupByLibrary.simpleMessage("Go to the dashboard"),
+        "greaterThanPrevious": m0,
         "kg": MessageLookupByLibrary.simpleMessage("Kg"),
         "language": MessageLookupByLibrary.simpleMessage("English"),
         "languageCode": MessageLookupByLibrary.simpleMessage("en"),
-        "lessThenPrevious": m0,
+        "lessThanPrevious": m1,
         "licenses": MessageLookupByLibrary.simpleMessage("Licenses"),
         "localeCode": MessageLookupByLibrary.simpleMessage("en_US"),
-        "moreThenPrevious": m1,
         "notAvailableCreateMeasure": MessageLookupByLibrary.simpleMessage(
             "Have you already lost your weight today"),
         "notAvailableCreateMeasureDescription":
             MessageLookupByLibrary.simpleMessage(
                 "Come back tomorrow for new measurements!"),
+        "notCalculated":
+            MessageLookupByLibrary.simpleMessage("Use the sliders to measure."),
         "rateTheApp": MessageLookupByLibrary.simpleMessage("Rate the app"),
         "record": MessageLookupByLibrary.simpleMessage("Record"),
         "reportABug": MessageLookupByLibrary.simpleMessage("Report a bug"),

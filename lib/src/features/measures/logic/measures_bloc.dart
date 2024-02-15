@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:weight_control/src/features/measures/data/models/measure.dart';
+import 'package:weight_control/src/features/measures/data/models/weight.dart';
 import 'package:weight_control/src/features/measures/data/repository/measures_repository.dart';
 
 part 'measures_bloc.freezed.dart';
@@ -23,6 +24,7 @@ class MeasuresBloc extends Bloc<MeasuresEvent, MeasuresState> {
         started: (final event) => _onStarted(event, emit),
         create: (final event) => _onCreate(event, emit),
         delete: (final event) => _onDelete(event, emit),
+        deleteAll: (final event) => _onDeleteAll(event, emit),
       ),
     );
   }
@@ -68,9 +70,10 @@ class MeasuresBloc extends Bloc<MeasuresEvent, MeasuresState> {
       ),
     );
     try {
+      final comment = event.comment.trim();
       await _measuresRepository.createMeasure(
-        weightInGrams: event.weightInGrams,
-        comment: event.comment,
+        weight: event.weight,
+        comment: comment.isNotEmpty ? comment : null,
       );
       final measures = await _measuresRepository.getAllMeasure();
       final lastMeasure = await _measuresRepository.getLastMeasure();
@@ -109,6 +112,35 @@ class MeasuresBloc extends Bloc<MeasuresEvent, MeasuresState> {
         MeasuresState.idle(
           measures: measures,
           last: lastMeasure,
+        ),
+      );
+    } on Exception catch (exception) {
+      emit(
+        MeasuresState.error(
+          measures: state.measures,
+          exception: exception,
+          last: state.last,
+        ),
+      );
+    }
+  }
+
+  Future<void> _onDeleteAll(
+    final _MeasuresEvent$DeleteAll event,
+    final Emitter<MeasuresState> emit,
+  ) async {
+    emit(
+      MeasuresState.processing(
+        measures: state.measures,
+        last: state.last,
+      ),
+    );
+    try {
+      await _measuresRepository.deleteAll();
+      emit(
+        const MeasuresState.idle(
+          measures: [],
+          last: null,
         ),
       );
     } on Exception catch (exception) {

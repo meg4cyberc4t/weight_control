@@ -311,23 +311,43 @@ class GeneratedLocalization {
     );
   }
 
-  /// `More than the previous measurements by {{kg}} kg.`
-  String moreThenPrevious(Object kg) {
+  /// `More than the previous measurements by {kg} kg.`
+  String greaterThanPrevious(Object kg) {
     return Intl.message(
-      'More than the previous measurements by {$kg} kg.',
-      name: 'moreThenPrevious',
+      'More than the previous measurements by $kg kg.',
+      name: 'greaterThanPrevious',
       desc: '',
       args: [kg],
     );
   }
 
-  /// `Less than the previous measurements by {{kg}} kg.`
-  String lessThenPrevious(Object kg) {
+  /// `Less than the previous measurements by {kg} kg.`
+  String lessThanPrevious(Object kg) {
     return Intl.message(
-      'Less than the previous measurements by {$kg} kg.',
-      name: 'lessThenPrevious',
+      'Less than the previous measurements by $kg kg.',
+      name: 'lessThanPrevious',
       desc: '',
       args: [kg],
+    );
+  }
+
+  /// `The weight is equal.`
+  String get equalThanPrevious {
+    return Intl.message(
+      'The weight is equal.',
+      name: 'equalThanPrevious',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Use the sliders to measure.`
+  String get notCalculated {
+    return Intl.message(
+      'Use the sliders to measure.',
+      name: 'notCalculated',
+      desc: '',
+      args: [],
     );
   }
 
