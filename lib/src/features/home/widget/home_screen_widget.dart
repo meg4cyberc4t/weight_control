@@ -102,13 +102,11 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
             activeTab: _tab,
             onSwitchTab: _switchTab,
             key: ValueKey(_tab),
-            
           ),
         SupportedPlatform.ios => _HomeScreenWidget$Cupertino(
             activeTab: _tab,
             onSwitchTab: _switchTab,
             key: ValueKey(_tab),
-
           ),
       };
 }

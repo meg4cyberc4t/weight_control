@@ -14,13 +14,13 @@ class _SettingsScreenWidget$Material extends StatelessWidget {
   Widget build(final BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-        body: CustomScrollView(
-          slivers: [
-            SliverAppBar.large(
-              title: Text(context.localizations.settings),
-            ),
-            SliverToBoxAdapter(
-              child: _HeaderBlock(
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar.large(
+            title: Text(context.localizations.settings),
+          ),
+          SliverToBoxAdapter(
+            child: _HeaderBlock(
               name: context.localizations.data,
             ),
           ),
@@ -36,53 +36,53 @@ class _SettingsScreenWidget$Material extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: _HeaderBlock(
-                name: context.localizations.aboutApp,
-              ),
+              name: context.localizations.aboutApp,
             ),
-            SliverToBoxAdapter(
-              child: ListTile(
-                leading: const Icon(Icons.settings_applications),
-                title: Text(context.localizations.version),
+          ),
+          SliverToBoxAdapter(
+            child: ListTile(
+              leading: const Icon(Icons.settings_applications),
+              title: Text(context.localizations.version),
               trailing: Text(controller.version),
-                onTap: controller.copyVersion,
-              ),
+              onTap: controller.copyVersion,
             ),
-            SliverToBoxAdapter(
-              child: ListTile(
-                leading: const Icon(Icons.star),
-                title: Text(context.localizations.rateTheApp),
-                onTap: controller.rateTheApp,
-              ),
+          ),
+          SliverToBoxAdapter(
+            child: ListTile(
+              leading: const Icon(Icons.star),
+              title: Text(context.localizations.rateTheApp),
+              onTap: controller.rateTheApp,
             ),
-            SliverToBoxAdapter(
-              child: ListTile(
-                leading: const Icon(Icons.document_scanner),
-                title: Text(context.localizations.licenses),
-                onTap: controller.openLicenses,
-              ),
+          ),
+          SliverToBoxAdapter(
+            child: ListTile(
+              leading: const Icon(Icons.document_scanner),
+              title: Text(context.localizations.licenses),
+              onTap: controller.openLicenses,
             ),
-            SliverToBoxAdapter(
-              child: _HeaderBlock(
-                name: context.localizations.additional,
-              ),
+          ),
+          SliverToBoxAdapter(
+            child: _HeaderBlock(
+              name: context.localizations.additional,
             ),
-            SliverToBoxAdapter(
-              child: ListTile(
-                leading: const Icon(Icons.source),
-                title: Text(context.localizations.sourceCode),
-                onTap: controller.openSourceCode,
-              ),
+          ),
+          SliverToBoxAdapter(
+            child: ListTile(
+              leading: const Icon(Icons.source),
+              title: Text(context.localizations.sourceCode),
+              onTap: controller.openSourceCode,
             ),
-            SliverToBoxAdapter(
-              child: ListTile(
-                leading: const Icon(Icons.bug_report_outlined),
-                title: Text(context.localizations.reportABug),
-                onTap: controller.reportABug,
-              ),
+          ),
+          SliverToBoxAdapter(
+            child: ListTile(
+              leading: const Icon(Icons.bug_report_outlined),
+              title: Text(context.localizations.reportABug),
+              onTap: controller.reportABug,
             ),
-          ],
-        ),
-      );
+          ),
+        ],
+      ),
+    );
   }
 }
 
