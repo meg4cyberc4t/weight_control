@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:octopus/octopus.dart';
-import 'package:weight_control/src/common/config/config.dart';
 import 'package:weight_control/src/common/localizations/localizations_state_mixin.dart';
 import 'package:weight_control/src/features/create/data/create_screen_state.dart';
 import 'package:weight_control/src/features/create/widget/weight_difference.dart';
@@ -10,6 +9,8 @@ import 'package:weight_control/src/features/home/widget/home_screen_widget.dart'
 import 'package:weight_control/src/features/measures/data/models/weight.dart';
 import 'package:weight_control/src/features/measures/logic/measures_bloc.dart';
 import 'package:weight_control/src/features/measures/widget/measures_scope.dart';
+import 'package:weight_control/src/features/settings/data/enums/design_mode.dart';
+import 'package:weight_control/src/features/settings/widget/settings_scope.dart';
 
 part '_create_screen_cupertino.dart';
 part '_create_screen_material.dart';
@@ -83,10 +84,9 @@ class _CreateScreenWidgetState extends State<CreateScreenWidget>
       .setArguments((final args) => args['tab'] = HomeTabs.dashboard.name);
 
   @override
-  Widget build(final BuildContext context) => switch (Config.platform) {
-        SupportedPlatform.android =>
-          _CreateScreenWidget$Material(controller: this),
-        SupportedPlatform.ios =>
-          _CreateScreenWidget$Cupertino(controller: this),
+  Widget build(final BuildContext context) =>
+      switch (SettingsScope.stateOf(context, listen: true).designMode) {
+        DesignMode.material => _CreateScreenWidget$Material(controller: this),
+        DesignMode.cupertino => _CreateScreenWidget$Cupertino(controller: this),
       };
 }

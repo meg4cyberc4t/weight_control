@@ -1,7 +1,5 @@
 // ignore_for_file: do_not_use_environment
 
-import 'dart:io';
-
 import 'package:flutter/foundation.dart';
 
 /// Application configuration.
@@ -14,9 +12,6 @@ abstract final class Config {
       defaultValue: 'DEVELOPMENT',
     ),
   );
-
-  /// The current [SupportedPlatform] of a running application.
-  static final SupportedPlatform platform = SupportedPlatform.fromIO();
 
   /// The source code of a running application.
   static const String sourceCodeUrl = String.fromEnvironment(
@@ -68,17 +63,4 @@ enum EnvironmentFlavor {
 
   /// Whether the environment is stage.
   bool get isStage => this == stage;
-}
-
-/// Enum of expected platforms for the application
-enum SupportedPlatform {
-  /// An iOS android. Used by default.
-  android,
-
-  /// An iOS device. It will also be when launching the application on mac os.
-  ios;
-
-  /// Initialization of the platform from 'dart:io';
-  static SupportedPlatform fromIO() =>
-      Platform.isIOS || Platform.isMacOS ? ios : android;
 }

@@ -22,6 +22,7 @@ class _SettingsScreenWidget$Cupertino extends StatelessWidget {
               child: CupertinoListSection.insetGrouped(
                 header: Text(context.localizations.data),
                 children: [
+                  const _SettingsDesignModeSwitch$Cupertino(),
                   const _SettingsThemeModeSwitch$Cupertino(),
                   CupertinoListTile.notched(
                     leading: const Icon(
@@ -79,6 +80,22 @@ class _SettingsScreenWidget$Cupertino extends StatelessWidget {
           ],
         ),
       );
+}
+
+class _SettingsDesignModeSwitch$Cupertino extends StatelessWidget {
+  const _SettingsDesignModeSwitch$Cupertino();
+
+  @override
+  Widget build(final BuildContext context) {
+    final themeMode = SettingsScope.stateOf(context, listen: true).designMode;
+
+    return CupertinoListTile.notched(
+      leading: const Icon(CupertinoIcons.selection_pin_in_out),
+      title: Text(context.localizations.designMode),
+      trailing: Text(themeMode.name),
+      onTap: SettingsScope.controllerOf(context).nextDesignMode,
+    );
+  }
 }
 
 class _SettingsThemeModeSwitch$Cupertino extends StatelessWidget {

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weight_control/src/features/initialization/data/dependencies.dart';
+import 'package:weight_control/src/features/settings/data/enums/design_mode.dart';
 import 'package:weight_control/src/features/settings/logic/settings_bloc.dart';
 
 abstract interface class SettingsController {
   void updateThemeMode(final ThemeMode mode);
   void nextThemeMode();
+  void nextDesignMode();
 }
 
 class SettingsScope extends StatefulWidget {
@@ -68,6 +70,15 @@ class _SettingsScopeState extends State<SettingsScope>
       ThemeMode.dark => ThemeMode.system,
     };
     _settingsBloc.add(SettingsEvent.updateThemeMode(next));
+  }
+
+  @override
+  void nextDesignMode() {
+    final mode = switch (_settingsBloc.state.designMode) {
+      DesignMode.material => DesignMode.cupertino,
+      DesignMode.cupertino => DesignMode.material,
+    };
+    _settingsBloc.add(SettingsEvent.updateDesignMode(mode));
   }
 
   @override

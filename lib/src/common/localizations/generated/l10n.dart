@@ -221,6 +221,16 @@ class GeneratedLocalization {
     );
   }
 
+  /// `Design Mode`
+  String get designMode {
+    return Intl.message(
+      'Design Mode',
+      name: 'designMode',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Delete data`
   String get deleteAll {
     return Intl.message(

@@ -87,7 +87,10 @@ final class AppRunner {
     );
 
     final SettingsBloc settingsBloc = SettingsBloc(
-      SettingsState.idle(themeMode: await settingsRepository.getThemeMode()),
+      SettingsState.idle(
+        themeMode: await settingsRepository.getThemeMode(),
+        designMode: await settingsRepository.getDesignMode(),
+      ),
       settingsRepository,
     );
 

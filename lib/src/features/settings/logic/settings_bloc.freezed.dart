@@ -16,42 +16,45 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SettingsEvent {
-  ThemeMode get themeMode => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ThemeMode themeMode) updateThemeMode,
+    required TResult Function(DesignMode designMode) updateDesignMode,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ThemeMode themeMode)? updateThemeMode,
+    TResult? Function(DesignMode designMode)? updateDesignMode,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ThemeMode themeMode)? updateThemeMode,
+    TResult Function(DesignMode designMode)? updateDesignMode,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_UpdateThemeMode value) updateThemeMode,
+    required TResult Function(_SettingsEvent$UpdateThemeMode value)
+        updateThemeMode,
+    required TResult Function(_SettingsEvent$UpdateDesignMode value)
+        updateDesignMode,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_UpdateThemeMode value)? updateThemeMode,
+    TResult? Function(_SettingsEvent$UpdateThemeMode value)? updateThemeMode,
+    TResult? Function(_SettingsEvent$UpdateDesignMode value)? updateDesignMode,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_UpdateThemeMode value)? updateThemeMode,
+    TResult Function(_SettingsEvent$UpdateThemeMode value)? updateThemeMode,
+    TResult Function(_SettingsEvent$UpdateDesignMode value)? updateDesignMode,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $SettingsEventCopyWith<SettingsEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,8 +63,6 @@ abstract class $SettingsEventCopyWith<$Res> {
   factory $SettingsEventCopyWith(
           SettingsEvent value, $Res Function(SettingsEvent) then) =
       _$SettingsEventCopyWithImpl<$Res, SettingsEvent>;
-  @useResult
-  $Res call({ThemeMode themeMode});
 }
 
 /// @nodoc
@@ -73,38 +74,26 @@ class _$SettingsEventCopyWithImpl<$Res, $Val extends SettingsEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? themeMode = null,
-  }) {
-    return _then(_value.copyWith(
-      themeMode: null == themeMode
-          ? _value.themeMode
-          : themeMode // ignore: cast_nullable_to_non_nullable
-              as ThemeMode,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$UpdateThemeModeImplCopyWith<$Res>
-    implements $SettingsEventCopyWith<$Res> {
-  factory _$$UpdateThemeModeImplCopyWith(_$UpdateThemeModeImpl value,
-          $Res Function(_$UpdateThemeModeImpl) then) =
-      __$$UpdateThemeModeImplCopyWithImpl<$Res>;
-  @override
+abstract class _$$SettingsEvent$UpdateThemeModeImplCopyWith<$Res> {
+  factory _$$SettingsEvent$UpdateThemeModeImplCopyWith(
+          _$SettingsEvent$UpdateThemeModeImpl value,
+          $Res Function(_$SettingsEvent$UpdateThemeModeImpl) then) =
+      __$$SettingsEvent$UpdateThemeModeImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ThemeMode themeMode});
 }
 
 /// @nodoc
-class __$$UpdateThemeModeImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$UpdateThemeModeImpl>
-    implements _$$UpdateThemeModeImplCopyWith<$Res> {
-  __$$UpdateThemeModeImplCopyWithImpl(
-      _$UpdateThemeModeImpl _value, $Res Function(_$UpdateThemeModeImpl) _then)
+class __$$SettingsEvent$UpdateThemeModeImplCopyWithImpl<$Res>
+    extends _$SettingsEventCopyWithImpl<$Res,
+        _$SettingsEvent$UpdateThemeModeImpl>
+    implements _$$SettingsEvent$UpdateThemeModeImplCopyWith<$Res> {
+  __$$SettingsEvent$UpdateThemeModeImplCopyWithImpl(
+      _$SettingsEvent$UpdateThemeModeImpl _value,
+      $Res Function(_$SettingsEvent$UpdateThemeModeImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -112,7 +101,7 @@ class __$$UpdateThemeModeImplCopyWithImpl<$Res>
   $Res call({
     Object? themeMode = null,
   }) {
-    return _then(_$UpdateThemeModeImpl(
+    return _then(_$SettingsEvent$UpdateThemeModeImpl(
       null == themeMode
           ? _value.themeMode
           : themeMode // ignore: cast_nullable_to_non_nullable
@@ -123,8 +112,9 @@ class __$$UpdateThemeModeImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UpdateThemeModeImpl implements _UpdateThemeMode {
-  const _$UpdateThemeModeImpl(this.themeMode);
+class _$SettingsEvent$UpdateThemeModeImpl
+    implements _SettingsEvent$UpdateThemeMode {
+  const _$SettingsEvent$UpdateThemeModeImpl(this.themeMode);
 
   @override
   final ThemeMode themeMode;
@@ -138,7 +128,7 @@ class _$UpdateThemeModeImpl implements _UpdateThemeMode {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UpdateThemeModeImpl &&
+            other is _$SettingsEvent$UpdateThemeModeImpl &&
             (identical(other.themeMode, themeMode) ||
                 other.themeMode == themeMode));
   }
@@ -149,14 +139,16 @@ class _$UpdateThemeModeImpl implements _UpdateThemeMode {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UpdateThemeModeImplCopyWith<_$UpdateThemeModeImpl> get copyWith =>
-      __$$UpdateThemeModeImplCopyWithImpl<_$UpdateThemeModeImpl>(
-          this, _$identity);
+  _$$SettingsEvent$UpdateThemeModeImplCopyWith<
+          _$SettingsEvent$UpdateThemeModeImpl>
+      get copyWith => __$$SettingsEvent$UpdateThemeModeImplCopyWithImpl<
+          _$SettingsEvent$UpdateThemeModeImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ThemeMode themeMode) updateThemeMode,
+    required TResult Function(DesignMode designMode) updateDesignMode,
   }) {
     return updateThemeMode(themeMode);
   }
@@ -165,6 +157,7 @@ class _$UpdateThemeModeImpl implements _UpdateThemeMode {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ThemeMode themeMode)? updateThemeMode,
+    TResult? Function(DesignMode designMode)? updateDesignMode,
   }) {
     return updateThemeMode?.call(themeMode);
   }
@@ -173,6 +166,7 @@ class _$UpdateThemeModeImpl implements _UpdateThemeMode {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ThemeMode themeMode)? updateThemeMode,
+    TResult Function(DesignMode designMode)? updateDesignMode,
     required TResult orElse(),
   }) {
     if (updateThemeMode != null) {
@@ -184,7 +178,10 @@ class _$UpdateThemeModeImpl implements _UpdateThemeMode {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_UpdateThemeMode value) updateThemeMode,
+    required TResult Function(_SettingsEvent$UpdateThemeMode value)
+        updateThemeMode,
+    required TResult Function(_SettingsEvent$UpdateDesignMode value)
+        updateDesignMode,
   }) {
     return updateThemeMode(this);
   }
@@ -192,7 +189,8 @@ class _$UpdateThemeModeImpl implements _UpdateThemeMode {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_UpdateThemeMode value)? updateThemeMode,
+    TResult? Function(_SettingsEvent$UpdateThemeMode value)? updateThemeMode,
+    TResult? Function(_SettingsEvent$UpdateDesignMode value)? updateDesignMode,
   }) {
     return updateThemeMode?.call(this);
   }
@@ -200,7 +198,8 @@ class _$UpdateThemeModeImpl implements _UpdateThemeMode {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_UpdateThemeMode value)? updateThemeMode,
+    TResult Function(_SettingsEvent$UpdateThemeMode value)? updateThemeMode,
+    TResult Function(_SettingsEvent$UpdateDesignMode value)? updateDesignMode,
     required TResult orElse(),
   }) {
     if (updateThemeMode != null) {
@@ -210,40 +209,191 @@ class _$UpdateThemeModeImpl implements _UpdateThemeMode {
   }
 }
 
-abstract class _UpdateThemeMode implements SettingsEvent {
-  const factory _UpdateThemeMode(final ThemeMode themeMode) =
-      _$UpdateThemeModeImpl;
+abstract class _SettingsEvent$UpdateThemeMode implements SettingsEvent {
+  const factory _SettingsEvent$UpdateThemeMode(final ThemeMode themeMode) =
+      _$SettingsEvent$UpdateThemeModeImpl;
+
+  ThemeMode get themeMode;
+  @JsonKey(ignore: true)
+  _$$SettingsEvent$UpdateThemeModeImplCopyWith<
+          _$SettingsEvent$UpdateThemeModeImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SettingsEvent$UpdateDesignModeImplCopyWith<$Res> {
+  factory _$$SettingsEvent$UpdateDesignModeImplCopyWith(
+          _$SettingsEvent$UpdateDesignModeImpl value,
+          $Res Function(_$SettingsEvent$UpdateDesignModeImpl) then) =
+      __$$SettingsEvent$UpdateDesignModeImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DesignMode designMode});
+}
+
+/// @nodoc
+class __$$SettingsEvent$UpdateDesignModeImplCopyWithImpl<$Res>
+    extends _$SettingsEventCopyWithImpl<$Res,
+        _$SettingsEvent$UpdateDesignModeImpl>
+    implements _$$SettingsEvent$UpdateDesignModeImplCopyWith<$Res> {
+  __$$SettingsEvent$UpdateDesignModeImplCopyWithImpl(
+      _$SettingsEvent$UpdateDesignModeImpl _value,
+      $Res Function(_$SettingsEvent$UpdateDesignModeImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? designMode = null,
+  }) {
+    return _then(_$SettingsEvent$UpdateDesignModeImpl(
+      null == designMode
+          ? _value.designMode
+          : designMode // ignore: cast_nullable_to_non_nullable
+              as DesignMode,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SettingsEvent$UpdateDesignModeImpl
+    implements _SettingsEvent$UpdateDesignMode {
+  const _$SettingsEvent$UpdateDesignModeImpl(this.designMode);
 
   @override
-  ThemeMode get themeMode;
+  final DesignMode designMode;
+
   @override
+  String toString() {
+    return 'SettingsEvent.updateDesignMode(designMode: $designMode)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SettingsEvent$UpdateDesignModeImpl &&
+            (identical(other.designMode, designMode) ||
+                other.designMode == designMode));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, designMode);
+
   @JsonKey(ignore: true)
-  _$$UpdateThemeModeImplCopyWith<_$UpdateThemeModeImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SettingsEvent$UpdateDesignModeImplCopyWith<
+          _$SettingsEvent$UpdateDesignModeImpl>
+      get copyWith => __$$SettingsEvent$UpdateDesignModeImplCopyWithImpl<
+          _$SettingsEvent$UpdateDesignModeImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ThemeMode themeMode) updateThemeMode,
+    required TResult Function(DesignMode designMode) updateDesignMode,
+  }) {
+    return updateDesignMode(designMode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ThemeMode themeMode)? updateThemeMode,
+    TResult? Function(DesignMode designMode)? updateDesignMode,
+  }) {
+    return updateDesignMode?.call(designMode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ThemeMode themeMode)? updateThemeMode,
+    TResult Function(DesignMode designMode)? updateDesignMode,
+    required TResult orElse(),
+  }) {
+    if (updateDesignMode != null) {
+      return updateDesignMode(designMode);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SettingsEvent$UpdateThemeMode value)
+        updateThemeMode,
+    required TResult Function(_SettingsEvent$UpdateDesignMode value)
+        updateDesignMode,
+  }) {
+    return updateDesignMode(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SettingsEvent$UpdateThemeMode value)? updateThemeMode,
+    TResult? Function(_SettingsEvent$UpdateDesignMode value)? updateDesignMode,
+  }) {
+    return updateDesignMode?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SettingsEvent$UpdateThemeMode value)? updateThemeMode,
+    TResult Function(_SettingsEvent$UpdateDesignMode value)? updateDesignMode,
+    required TResult orElse(),
+  }) {
+    if (updateDesignMode != null) {
+      return updateDesignMode(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SettingsEvent$UpdateDesignMode implements SettingsEvent {
+  const factory _SettingsEvent$UpdateDesignMode(final DesignMode designMode) =
+      _$SettingsEvent$UpdateDesignModeImpl;
+
+  DesignMode get designMode;
+  @JsonKey(ignore: true)
+  _$$SettingsEvent$UpdateDesignModeImplCopyWith<
+          _$SettingsEvent$UpdateDesignModeImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$SettingsState {
   ThemeMode get themeMode => throw _privateConstructorUsedError;
+  DesignMode get designMode => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ThemeMode themeMode) idle,
-    required TResult Function(ThemeMode themeMode) processing,
-    required TResult Function(ThemeMode themeMode, Exception exception) error,
+    required TResult Function(ThemeMode themeMode, DesignMode designMode) idle,
+    required TResult Function(ThemeMode themeMode, DesignMode designMode)
+        processing,
+    required TResult Function(
+            ThemeMode themeMode, DesignMode designMode, Exception exception)
+        error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ThemeMode themeMode)? idle,
-    TResult? Function(ThemeMode themeMode)? processing,
-    TResult? Function(ThemeMode themeMode, Exception exception)? error,
+    TResult? Function(ThemeMode themeMode, DesignMode designMode)? idle,
+    TResult? Function(ThemeMode themeMode, DesignMode designMode)? processing,
+    TResult? Function(
+            ThemeMode themeMode, DesignMode designMode, Exception exception)?
+        error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ThemeMode themeMode)? idle,
-    TResult Function(ThemeMode themeMode)? processing,
-    TResult Function(ThemeMode themeMode, Exception exception)? error,
+    TResult Function(ThemeMode themeMode, DesignMode designMode)? idle,
+    TResult Function(ThemeMode themeMode, DesignMode designMode)? processing,
+    TResult Function(
+            ThemeMode themeMode, DesignMode designMode, Exception exception)?
+        error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -281,7 +431,7 @@ abstract class $SettingsStateCopyWith<$Res> {
           SettingsState value, $Res Function(SettingsState) then) =
       _$SettingsStateCopyWithImpl<$Res, SettingsState>;
   @useResult
-  $Res call({ThemeMode themeMode});
+  $Res call({ThemeMode themeMode, DesignMode designMode});
 }
 
 /// @nodoc
@@ -298,12 +448,17 @@ class _$SettingsStateCopyWithImpl<$Res, $Val extends SettingsState>
   @override
   $Res call({
     Object? themeMode = null,
+    Object? designMode = null,
   }) {
     return _then(_value.copyWith(
       themeMode: null == themeMode
           ? _value.themeMode
           : themeMode // ignore: cast_nullable_to_non_nullable
               as ThemeMode,
+      designMode: null == designMode
+          ? _value.designMode
+          : designMode // ignore: cast_nullable_to_non_nullable
+              as DesignMode,
     ) as $Val);
   }
 }
@@ -316,7 +471,7 @@ abstract class _$$SettingsState$IdleImplCopyWith<$Res>
       __$$SettingsState$IdleImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ThemeMode themeMode});
+  $Res call({ThemeMode themeMode, DesignMode designMode});
 }
 
 /// @nodoc
@@ -331,12 +486,17 @@ class __$$SettingsState$IdleImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? themeMode = null,
+    Object? designMode = null,
   }) {
     return _then(_$SettingsState$IdleImpl(
       themeMode: null == themeMode
           ? _value.themeMode
           : themeMode // ignore: cast_nullable_to_non_nullable
               as ThemeMode,
+      designMode: null == designMode
+          ? _value.designMode
+          : designMode // ignore: cast_nullable_to_non_nullable
+              as DesignMode,
     ));
   }
 }
@@ -344,14 +504,17 @@ class __$$SettingsState$IdleImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SettingsState$IdleImpl implements SettingsState$Idle {
-  const _$SettingsState$IdleImpl({required this.themeMode});
+  const _$SettingsState$IdleImpl(
+      {required this.themeMode, required this.designMode});
 
   @override
   final ThemeMode themeMode;
+  @override
+  final DesignMode designMode;
 
   @override
   String toString() {
-    return 'SettingsState.idle(themeMode: $themeMode)';
+    return 'SettingsState.idle(themeMode: $themeMode, designMode: $designMode)';
   }
 
   @override
@@ -360,11 +523,13 @@ class _$SettingsState$IdleImpl implements SettingsState$Idle {
         (other.runtimeType == runtimeType &&
             other is _$SettingsState$IdleImpl &&
             (identical(other.themeMode, themeMode) ||
-                other.themeMode == themeMode));
+                other.themeMode == themeMode) &&
+            (identical(other.designMode, designMode) ||
+                other.designMode == designMode));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, themeMode);
+  int get hashCode => Object.hash(runtimeType, themeMode, designMode);
 
   @JsonKey(ignore: true)
   @override
@@ -376,33 +541,40 @@ class _$SettingsState$IdleImpl implements SettingsState$Idle {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ThemeMode themeMode) idle,
-    required TResult Function(ThemeMode themeMode) processing,
-    required TResult Function(ThemeMode themeMode, Exception exception) error,
+    required TResult Function(ThemeMode themeMode, DesignMode designMode) idle,
+    required TResult Function(ThemeMode themeMode, DesignMode designMode)
+        processing,
+    required TResult Function(
+            ThemeMode themeMode, DesignMode designMode, Exception exception)
+        error,
   }) {
-    return idle(themeMode);
+    return idle(themeMode, designMode);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ThemeMode themeMode)? idle,
-    TResult? Function(ThemeMode themeMode)? processing,
-    TResult? Function(ThemeMode themeMode, Exception exception)? error,
+    TResult? Function(ThemeMode themeMode, DesignMode designMode)? idle,
+    TResult? Function(ThemeMode themeMode, DesignMode designMode)? processing,
+    TResult? Function(
+            ThemeMode themeMode, DesignMode designMode, Exception exception)?
+        error,
   }) {
-    return idle?.call(themeMode);
+    return idle?.call(themeMode, designMode);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ThemeMode themeMode)? idle,
-    TResult Function(ThemeMode themeMode)? processing,
-    TResult Function(ThemeMode themeMode, Exception exception)? error,
+    TResult Function(ThemeMode themeMode, DesignMode designMode)? idle,
+    TResult Function(ThemeMode themeMode, DesignMode designMode)? processing,
+    TResult Function(
+            ThemeMode themeMode, DesignMode designMode, Exception exception)?
+        error,
     required TResult orElse(),
   }) {
     if (idle != null) {
-      return idle(themeMode);
+      return idle(themeMode, designMode);
     }
     return orElse();
   }
@@ -443,11 +615,14 @@ class _$SettingsState$IdleImpl implements SettingsState$Idle {
 }
 
 abstract class SettingsState$Idle implements SettingsState {
-  const factory SettingsState$Idle({required final ThemeMode themeMode}) =
-      _$SettingsState$IdleImpl;
+  const factory SettingsState$Idle(
+      {required final ThemeMode themeMode,
+      required final DesignMode designMode}) = _$SettingsState$IdleImpl;
 
   @override
   ThemeMode get themeMode;
+  @override
+  DesignMode get designMode;
   @override
   @JsonKey(ignore: true)
   _$$SettingsState$IdleImplCopyWith<_$SettingsState$IdleImpl> get copyWith =>
@@ -463,7 +638,7 @@ abstract class _$$SettingsState$ProcessingImplCopyWith<$Res>
       __$$SettingsState$ProcessingImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ThemeMode themeMode});
+  $Res call({ThemeMode themeMode, DesignMode designMode});
 }
 
 /// @nodoc
@@ -479,12 +654,17 @@ class __$$SettingsState$ProcessingImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? themeMode = null,
+    Object? designMode = null,
   }) {
     return _then(_$SettingsState$ProcessingImpl(
       themeMode: null == themeMode
           ? _value.themeMode
           : themeMode // ignore: cast_nullable_to_non_nullable
               as ThemeMode,
+      designMode: null == designMode
+          ? _value.designMode
+          : designMode // ignore: cast_nullable_to_non_nullable
+              as DesignMode,
     ));
   }
 }
@@ -492,14 +672,17 @@ class __$$SettingsState$ProcessingImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SettingsState$ProcessingImpl implements SettingsState$Processing {
-  const _$SettingsState$ProcessingImpl({required this.themeMode});
+  const _$SettingsState$ProcessingImpl(
+      {required this.themeMode, required this.designMode});
 
   @override
   final ThemeMode themeMode;
+  @override
+  final DesignMode designMode;
 
   @override
   String toString() {
-    return 'SettingsState.processing(themeMode: $themeMode)';
+    return 'SettingsState.processing(themeMode: $themeMode, designMode: $designMode)';
   }
 
   @override
@@ -508,11 +691,13 @@ class _$SettingsState$ProcessingImpl implements SettingsState$Processing {
         (other.runtimeType == runtimeType &&
             other is _$SettingsState$ProcessingImpl &&
             (identical(other.themeMode, themeMode) ||
-                other.themeMode == themeMode));
+                other.themeMode == themeMode) &&
+            (identical(other.designMode, designMode) ||
+                other.designMode == designMode));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, themeMode);
+  int get hashCode => Object.hash(runtimeType, themeMode, designMode);
 
   @JsonKey(ignore: true)
   @override
@@ -524,33 +709,40 @@ class _$SettingsState$ProcessingImpl implements SettingsState$Processing {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ThemeMode themeMode) idle,
-    required TResult Function(ThemeMode themeMode) processing,
-    required TResult Function(ThemeMode themeMode, Exception exception) error,
+    required TResult Function(ThemeMode themeMode, DesignMode designMode) idle,
+    required TResult Function(ThemeMode themeMode, DesignMode designMode)
+        processing,
+    required TResult Function(
+            ThemeMode themeMode, DesignMode designMode, Exception exception)
+        error,
   }) {
-    return processing(themeMode);
+    return processing(themeMode, designMode);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ThemeMode themeMode)? idle,
-    TResult? Function(ThemeMode themeMode)? processing,
-    TResult? Function(ThemeMode themeMode, Exception exception)? error,
+    TResult? Function(ThemeMode themeMode, DesignMode designMode)? idle,
+    TResult? Function(ThemeMode themeMode, DesignMode designMode)? processing,
+    TResult? Function(
+            ThemeMode themeMode, DesignMode designMode, Exception exception)?
+        error,
   }) {
-    return processing?.call(themeMode);
+    return processing?.call(themeMode, designMode);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ThemeMode themeMode)? idle,
-    TResult Function(ThemeMode themeMode)? processing,
-    TResult Function(ThemeMode themeMode, Exception exception)? error,
+    TResult Function(ThemeMode themeMode, DesignMode designMode)? idle,
+    TResult Function(ThemeMode themeMode, DesignMode designMode)? processing,
+    TResult Function(
+            ThemeMode themeMode, DesignMode designMode, Exception exception)?
+        error,
     required TResult orElse(),
   }) {
     if (processing != null) {
-      return processing(themeMode);
+      return processing(themeMode, designMode);
     }
     return orElse();
   }
@@ -591,11 +783,14 @@ class _$SettingsState$ProcessingImpl implements SettingsState$Processing {
 }
 
 abstract class SettingsState$Processing implements SettingsState {
-  const factory SettingsState$Processing({required final ThemeMode themeMode}) =
-      _$SettingsState$ProcessingImpl;
+  const factory SettingsState$Processing(
+      {required final ThemeMode themeMode,
+      required final DesignMode designMode}) = _$SettingsState$ProcessingImpl;
 
   @override
   ThemeMode get themeMode;
+  @override
+  DesignMode get designMode;
   @override
   @JsonKey(ignore: true)
   _$$SettingsState$ProcessingImplCopyWith<_$SettingsState$ProcessingImpl>
@@ -610,7 +805,7 @@ abstract class _$$SettingsState$ErrorImplCopyWith<$Res>
       __$$SettingsState$ErrorImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ThemeMode themeMode, Exception exception});
+  $Res call({ThemeMode themeMode, DesignMode designMode, Exception exception});
 }
 
 /// @nodoc
@@ -625,6 +820,7 @@ class __$$SettingsState$ErrorImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? themeMode = null,
+    Object? designMode = null,
     Object? exception = null,
   }) {
     return _then(_$SettingsState$ErrorImpl(
@@ -632,6 +828,10 @@ class __$$SettingsState$ErrorImplCopyWithImpl<$Res>
           ? _value.themeMode
           : themeMode // ignore: cast_nullable_to_non_nullable
               as ThemeMode,
+      designMode: null == designMode
+          ? _value.designMode
+          : designMode // ignore: cast_nullable_to_non_nullable
+              as DesignMode,
       exception: null == exception
           ? _value.exception
           : exception // ignore: cast_nullable_to_non_nullable
@@ -644,16 +844,20 @@ class __$$SettingsState$ErrorImplCopyWithImpl<$Res>
 
 class _$SettingsState$ErrorImpl implements SettingsState$Error {
   const _$SettingsState$ErrorImpl(
-      {required this.themeMode, required this.exception});
+      {required this.themeMode,
+      required this.designMode,
+      required this.exception});
 
   @override
   final ThemeMode themeMode;
+  @override
+  final DesignMode designMode;
   @override
   final Exception exception;
 
   @override
   String toString() {
-    return 'SettingsState.error(themeMode: $themeMode, exception: $exception)';
+    return 'SettingsState.error(themeMode: $themeMode, designMode: $designMode, exception: $exception)';
   }
 
   @override
@@ -663,12 +867,15 @@ class _$SettingsState$ErrorImpl implements SettingsState$Error {
             other is _$SettingsState$ErrorImpl &&
             (identical(other.themeMode, themeMode) ||
                 other.themeMode == themeMode) &&
+            (identical(other.designMode, designMode) ||
+                other.designMode == designMode) &&
             (identical(other.exception, exception) ||
                 other.exception == exception));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, themeMode, exception);
+  int get hashCode =>
+      Object.hash(runtimeType, themeMode, designMode, exception);
 
   @JsonKey(ignore: true)
   @override
@@ -680,33 +887,40 @@ class _$SettingsState$ErrorImpl implements SettingsState$Error {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ThemeMode themeMode) idle,
-    required TResult Function(ThemeMode themeMode) processing,
-    required TResult Function(ThemeMode themeMode, Exception exception) error,
+    required TResult Function(ThemeMode themeMode, DesignMode designMode) idle,
+    required TResult Function(ThemeMode themeMode, DesignMode designMode)
+        processing,
+    required TResult Function(
+            ThemeMode themeMode, DesignMode designMode, Exception exception)
+        error,
   }) {
-    return error(themeMode, exception);
+    return error(themeMode, designMode, exception);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ThemeMode themeMode)? idle,
-    TResult? Function(ThemeMode themeMode)? processing,
-    TResult? Function(ThemeMode themeMode, Exception exception)? error,
+    TResult? Function(ThemeMode themeMode, DesignMode designMode)? idle,
+    TResult? Function(ThemeMode themeMode, DesignMode designMode)? processing,
+    TResult? Function(
+            ThemeMode themeMode, DesignMode designMode, Exception exception)?
+        error,
   }) {
-    return error?.call(themeMode, exception);
+    return error?.call(themeMode, designMode, exception);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ThemeMode themeMode)? idle,
-    TResult Function(ThemeMode themeMode)? processing,
-    TResult Function(ThemeMode themeMode, Exception exception)? error,
+    TResult Function(ThemeMode themeMode, DesignMode designMode)? idle,
+    TResult Function(ThemeMode themeMode, DesignMode designMode)? processing,
+    TResult Function(
+            ThemeMode themeMode, DesignMode designMode, Exception exception)?
+        error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(themeMode, exception);
+      return error(themeMode, designMode, exception);
     }
     return orElse();
   }
@@ -749,10 +963,13 @@ class _$SettingsState$ErrorImpl implements SettingsState$Error {
 abstract class SettingsState$Error implements SettingsState {
   const factory SettingsState$Error(
       {required final ThemeMode themeMode,
+      required final DesignMode designMode,
       required final Exception exception}) = _$SettingsState$ErrorImpl;
 
   @override
   ThemeMode get themeMode;
+  @override
+  DesignMode get designMode;
   Exception get exception;
   @override
   @JsonKey(ignore: true)

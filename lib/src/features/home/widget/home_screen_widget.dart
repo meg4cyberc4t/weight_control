@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:octopus/octopus.dart';
-import 'package:weight_control/src/common/config/config.dart';
 import 'package:weight_control/src/common/localizations/localizations_state_mixin.dart';
 import 'package:weight_control/src/features/create/widget/create_screen.dart';
 import 'package:weight_control/src/features/dashboard/widget/dashboard_screen.dart';
+import 'package:weight_control/src/features/settings/data/enums/design_mode.dart';
+import 'package:weight_control/src/features/settings/widget/settings_scope.dart';
 import 'package:weight_control/src/features/settings/widget/settings_screen.dart';
 
 /// Home tabs. They will show which page needs to be kept open.
@@ -97,13 +98,14 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
   }
 
   @override
-  Widget build(final BuildContext context) => switch (Config.platform) {
-        SupportedPlatform.android => _HomeScreenWidget$Material(
+  Widget build(final BuildContext context) =>
+      switch (SettingsScope.stateOf(context, listen: true).designMode) {
+        DesignMode.material => _HomeScreenWidget$Material(
             activeTab: _tab,
             onSwitchTab: _switchTab,
             key: ValueKey(_tab),
           ),
-        SupportedPlatform.ios => _HomeScreenWidget$Cupertino(
+        DesignMode.cupertino => _HomeScreenWidget$Cupertino(
             activeTab: _tab,
             onSwitchTab: _switchTab,
             key: ValueKey(_tab),

@@ -20,6 +20,7 @@
   "sourceCode": "Source code",
   "reportABug": "Report a bug",
   "themeMode": "Theme Mode",
+  "designMode": "Design Mode",
   "deleteAll": "Delete data",
   "deleteAllContent": "This action cannot be undone!",
   "data": "Data",
