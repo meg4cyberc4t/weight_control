@@ -14,6 +14,9 @@ import 'package:weight_control/src/features/initialization/data/dependencies.dar
 import 'package:weight_control/src/features/initialization/data/initialization_result.dart';
 import 'package:weight_control/src/features/measures/data/data_sources/measures_local_data_source.dart';
 import 'package:weight_control/src/features/measures/data/repository/measures_repository_impl.dart';
+import 'package:weight_control/src/features/settings/data/data_sources/local/settings_local_ds.dart';
+import 'package:weight_control/src/features/settings/data/repository/settings_repository_impl.dart';
+import 'package:weight_control/src/features/settings/logic/settings_bloc.dart';
 
 /// The starting point of the application
 final class AppRunner {
@@ -77,11 +80,26 @@ final class AppRunner {
       ),
     );
 
+    const settingsRepository = SettingsRepositoryImpl(
+      SettingsLocalDataSourceImpl(
+        flutterSecureStorage,
+      ),
+    );
+
+    final SettingsBloc settingsBloc = SettingsBloc(
+      SettingsState.idle(
+        themeMode: await settingsRepository.getThemeMode(),
+        designMode: await settingsRepository.getDesignMode(),
+      ),
+      settingsRepository,
+    );
+
     return Dependencies(
       flutterSecureStorage: flutterSecureStorage,
       database: database,
       appMetadata: appMetadata,
       measuresRepository: measuresRepository,
+      settingsBloc: settingsBloc,
     );
   }
 }

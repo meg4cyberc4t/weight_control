@@ -24,6 +24,12 @@ class _SettingsScreenWidget$Material extends StatelessWidget {
               name: context.localizations.data,
             ),
           ),
+          const SliverToBoxAdapter(
+            child: _SettingsDesignModeSwitch$Material(),
+          ),
+          const SliverToBoxAdapter(
+            child: _SettingsThemeModeSwitch$Material(),
+          ),
           SliverToBoxAdapter(
             child: ListTile(
               leading: Icon(
@@ -103,6 +109,48 @@ class _HeaderBlock extends StatelessWidget {
         style: theme.textTheme.titleSmall
             ?.copyWith(color: theme.colorScheme.primary),
       ),
+    );
+  }
+}
+
+class _SettingsDesignModeSwitch$Material extends StatelessWidget {
+  const _SettingsDesignModeSwitch$Material();
+
+  @override
+  Widget build(final BuildContext context) {
+    final themeMode = SettingsScope.stateOf(context, listen: true).designMode;
+
+    return ListTile(
+      leading: Icon(
+        switch (themeMode) {
+          DesignMode.material => Icons.android,
+          DesignMode.cupertino => Icons.apple,
+        },
+      ),
+      title: Text(context.localizations.themeMode),
+      trailing: Text(themeMode.name),
+      onTap: SettingsScope.controllerOf(context).nextDesignMode,
+    );
+  }
+}
+
+class _SettingsThemeModeSwitch$Material extends StatelessWidget {
+  const _SettingsThemeModeSwitch$Material();
+
+  @override
+  Widget build(final BuildContext context) {
+    final themeMode = SettingsScope.stateOf(context, listen: true).themeMode;
+
+    return ListTile(
+      leading: Icon(
+        switch (themeMode) {
+          ThemeMode.system => Icons.all_out_rounded,
+          ThemeMode.light => Icons.wb_sunny_rounded,
+          ThemeMode.dark => Icons.nightlight_rounded,
+        },
+      ),
+      title: Text(context.localizations.designMode),
+      onTap: SettingsScope.controllerOf(context).nextThemeMode,
     );
   }
 }

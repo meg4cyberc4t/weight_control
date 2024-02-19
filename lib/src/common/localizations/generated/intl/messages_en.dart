@@ -40,6 +40,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "deleteAll": MessageLookupByLibrary.simpleMessage("Delete data"),
         "deleteAllContent": MessageLookupByLibrary.simpleMessage(
             "This action cannot be undone!"),
+        "designMode": MessageLookupByLibrary.simpleMessage("Design Mode"),
         "equalThanPrevious":
             MessageLookupByLibrary.simpleMessage("The weight is equal."),
         "goToDashboard":
@@ -66,6 +67,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sourceCode": MessageLookupByLibrary.simpleMessage("Source code"),
         "specifyTheWeight":
             MessageLookupByLibrary.simpleMessage("Specify the weight"),
+        "themeMode": MessageLookupByLibrary.simpleMessage("Theme Mode"),
         "title": MessageLookupByLibrary.simpleMessage("Weight Control"),
         "titleDevelopment":
             MessageLookupByLibrary.simpleMessage("Weight Control Development"),

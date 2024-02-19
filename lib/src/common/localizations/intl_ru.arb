@@ -19,6 +19,8 @@
   "additional": "Дополнительно",
   "sourceCode": "Исходный код",
   "reportABug": "Сообщить о баге",
+  "themeMode": "Тема приложения",
+  "designMode": "Стиль приложения",
   "deleteAll": "Удалить данные",
   "deleteAllContent": "Это действие нельзя будет отменить!",
   "data": "Данные",

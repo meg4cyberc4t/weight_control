@@ -211,6 +211,26 @@ class GeneratedLocalization {
     );
   }
 
+  /// `Theme Mode`
+  String get themeMode {
+    return Intl.message(
+      'Theme Mode',
+      name: 'themeMode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Design Mode`
+  String get designMode {
+    return Intl.message(
+      'Design Mode',
+      name: 'designMode',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Delete data`
   String get deleteAll {
     return Intl.message(

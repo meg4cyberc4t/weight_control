@@ -6,6 +6,8 @@ import 'package:weight_control/src/common/config/config.dart';
 import 'package:weight_control/src/common/localizations/localizations_state_mixin.dart';
 import 'package:weight_control/src/features/initialization/data/dependencies.dart';
 import 'package:weight_control/src/features/measures/widget/measures_scope.dart';
+import 'package:weight_control/src/features/settings/data/enums/design_mode.dart';
+import 'package:weight_control/src/features/settings/widget/settings_scope.dart';
 
 part '_settings_screen_cupertino.dart';
 part '_settings_screen_material.dart';
@@ -81,9 +83,10 @@ class _SettingsScreenWidgetState extends State<SettingsScreenWidget>
   @override
   Future<void> deleteAllData(final BuildContext context) async {
     final measuresController = MeasuresScope.controllerOf(context);
-    final showDialogFuture = switch (Config.platform) {
-      SupportedPlatform.android => _showDeleteAllMaterialDialog(context),
-      SupportedPlatform.ios => _showDeleteAllCupertinoDialog(context),
+    final showDialogFuture =
+        switch (SettingsScope.stateOf(context).designMode) {
+      DesignMode.material => _showDeleteAllMaterialDialog(context),
+      DesignMode.cupertino => _showDeleteAllCupertinoDialog(context),
     };
     if (await showDialogFuture ?? false) {
       measuresController.deleteAll();
@@ -144,10 +147,10 @@ class _SettingsScreenWidgetState extends State<SettingsScreenWidget>
   late final String _version;
 
   @override
-  Widget build(final BuildContext context) => switch (Config.platform) {
-        SupportedPlatform.android =>
-          _SettingsScreenWidget$Material(controller: this),
-        SupportedPlatform.ios =>
+  Widget build(final BuildContext context) =>
+      switch (SettingsScope.stateOf(context, listen: true).designMode) {
+        DesignMode.material => _SettingsScreenWidget$Material(controller: this),
+        DesignMode.cupertino =>
           _SettingsScreenWidget$Cupertino(controller: this),
       };
 }
