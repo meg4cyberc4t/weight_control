@@ -6,6 +6,7 @@ import 'package:weight_control/src/common/config/config.dart';
 import 'package:weight_control/src/common/localizations/localizations_state_mixin.dart';
 import 'package:weight_control/src/features/initialization/data/dependencies.dart';
 import 'package:weight_control/src/features/measures/widget/measures_scope.dart';
+import 'package:weight_control/src/features/settings/widget/settings_scope.dart';
 
 part '_settings_screen_cupertino.dart';
 part '_settings_screen_material.dart';

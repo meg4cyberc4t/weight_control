@@ -19,6 +19,7 @@
   "additional": "Additional",
   "sourceCode": "Source code",
   "reportABug": "Report a bug",
+  "themeMode": "Theme Mode",
   "deleteAll": "Delete data",
   "deleteAllContent": "This action cannot be undone!",
   "data": "Data",

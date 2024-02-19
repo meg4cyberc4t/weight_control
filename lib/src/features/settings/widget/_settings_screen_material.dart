@@ -24,6 +24,9 @@ class _SettingsScreenWidget$Material extends StatelessWidget {
               name: context.localizations.data,
             ),
           ),
+          const SliverToBoxAdapter(
+            child: _SettingsThemeModeSwitch$Material(),
+          ),
           SliverToBoxAdapter(
             child: ListTile(
               leading: Icon(
@@ -103,6 +106,27 @@ class _HeaderBlock extends StatelessWidget {
         style: theme.textTheme.titleSmall
             ?.copyWith(color: theme.colorScheme.primary),
       ),
+    );
+  }
+}
+
+class _SettingsThemeModeSwitch$Material extends StatelessWidget {
+  const _SettingsThemeModeSwitch$Material();
+
+  @override
+  Widget build(final BuildContext context) {
+    final themeMode = SettingsScope.stateOf(context, listen: true).themeMode;
+
+    return ListTile(
+      leading: Icon(
+        switch (themeMode) {
+          ThemeMode.system => Icons.all_out_rounded,
+          ThemeMode.light => Icons.wb_sunny_rounded,
+          ThemeMode.dark => Icons.nightlight_rounded,
+        },
+      ),
+      title: Text(context.localizations.themeMode),
+      onTap: SettingsScope.controllerOf(context).nextThemeMode,
     );
   }
 }

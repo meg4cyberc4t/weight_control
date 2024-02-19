@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:weight_control/src/common/localizations/localizations_state_mixin.dart';
 import 'package:weight_control/src/common/navigation/router_state_mixin.dart';
+import 'package:weight_control/src/features/settings/widget/settings_scope.dart';
 
 /// [CupertinoContext] is an entry point to the cupertino context.
 ///
@@ -21,6 +23,14 @@ class _CupertinoContextState extends State<CupertinoContext>
         routerConfig: router.config,
         onGenerateTitle: onGenerateTitle,
         supportedLocales: localizationDelegate.supportedLocales,
+        theme: CupertinoThemeData(
+          brightness: switch (
+              SettingsScope.stateOf(context, listen: true).themeMode) {
+            ThemeMode.system => Theme.of(context).brightness,
+            ThemeMode.light => Brightness.light,
+            ThemeMode.dark => Brightness.dark,
+          },
+        ),
         localizationsDelegates: localizationsDelegate,
         builder: (final context, final child) {
           final MediaQueryData mediaQueryData = MediaQuery.of(context);

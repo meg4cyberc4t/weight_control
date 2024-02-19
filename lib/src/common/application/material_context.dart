@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weight_control/src/common/localizations/localizations_state_mixin.dart';
 import 'package:weight_control/src/common/navigation/router_state_mixin.dart';
+import 'package:weight_control/src/features/settings/widget/settings_scope.dart';
 
 /// [MaterialContext] is an entry point to the material context.
 ///
@@ -22,6 +23,9 @@ class _MaterialContextState extends State<MaterialContext>
         onGenerateTitle: onGenerateTitle,
         supportedLocales: localizationDelegate.supportedLocales,
         localizationsDelegates: localizationsDelegate,
+        theme: ThemeData.light(),
+        darkTheme: ThemeData.dark(),
+        themeMode: SettingsScope.stateOf(context, listen: true).themeMode,
         builder: (final context, final child) {
           final MediaQueryData mediaQueryData = MediaQuery.of(context);
           return MediaQuery(

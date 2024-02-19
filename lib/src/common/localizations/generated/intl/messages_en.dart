@@ -66,6 +66,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sourceCode": MessageLookupByLibrary.simpleMessage("Source code"),
         "specifyTheWeight":
             MessageLookupByLibrary.simpleMessage("Specify the weight"),
+        "themeMode": MessageLookupByLibrary.simpleMessage("Theme Mode"),
         "title": MessageLookupByLibrary.simpleMessage("Weight Control"),
         "titleDevelopment":
             MessageLookupByLibrary.simpleMessage("Weight Control Development"),
