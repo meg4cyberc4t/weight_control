@@ -3,72 +3,87 @@ part of 'settings_screen.dart';
 /// {@template SettingsScreenWidget$Material}
 /// Presentation of the [SettingsScreenWidget] for Material Design
 /// {@endtemplate}
-class SettingsScreenWidget$Material extends StatelessWidget {
+class _SettingsScreenWidget$Material extends StatelessWidget {
   /// {@macro SettingsScreenController}
   final SettingsScreenController controller;
 
   /// {@macro SettingsScreenWidget$Material}
-  const SettingsScreenWidget$Material({
-    required this.controller,
-    super.key,
-  });
+  const _SettingsScreenWidget$Material({required this.controller});
 
   @override
-  Widget build(final BuildContext context) => Scaffold(
-        body: CustomScrollView(
-          slivers: [
-            SliverAppBar.large(
-              title: Text(context.localizations.settings),
+  Widget build(final BuildContext context) {
+    final theme = Theme.of(context);
+    return Scaffold(
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar.large(
+            title: Text(context.localizations.settings),
+          ),
+          SliverToBoxAdapter(
+            child: _HeaderBlock(
+              name: context.localizations.data,
             ),
-            SliverToBoxAdapter(
-              child: _HeaderBlock(
-                name: context.localizations.aboutApp,
+          ),
+          SliverToBoxAdapter(
+            child: ListTile(
+              leading: Icon(
+                Icons.delete,
+                color: theme.colorScheme.error,
               ),
+              title: Text(context.localizations.deleteAll),
+              onTap: () => controller.deleteAllData(context),
             ),
-            SliverToBoxAdapter(
-              child: ListTile(
-                leading: const Icon(Icons.settings_applications),
-                title: Text(context.localizations.version),
-                trailing: Text(controller.version.toString()),
-                onTap: controller.copyVersion,
-              ),
+          ),
+          SliverToBoxAdapter(
+            child: _HeaderBlock(
+              name: context.localizations.aboutApp,
             ),
-            SliverToBoxAdapter(
-              child: ListTile(
-                leading: const Icon(Icons.star),
-                title: Text(context.localizations.rateTheApp),
-                onTap: controller.rateTheApp,
-              ),
+          ),
+          SliverToBoxAdapter(
+            child: ListTile(
+              leading: const Icon(Icons.settings_applications),
+              title: Text(context.localizations.version),
+              trailing: Text(controller.version),
+              onTap: controller.copyVersion,
             ),
-            SliverToBoxAdapter(
-              child: ListTile(
-                leading: const Icon(Icons.document_scanner),
-                title: Text(context.localizations.licenses),
-                onTap: controller.openLicenses,
-              ),
+          ),
+          SliverToBoxAdapter(
+            child: ListTile(
+              leading: const Icon(Icons.star),
+              title: Text(context.localizations.rateTheApp),
+              onTap: controller.rateTheApp,
             ),
-            SliverToBoxAdapter(
-              child: _HeaderBlock(
-                name: context.localizations.additional,
-              ),
+          ),
+          SliverToBoxAdapter(
+            child: ListTile(
+              leading: const Icon(Icons.document_scanner),
+              title: Text(context.localizations.licenses),
+              onTap: controller.openLicenses,
             ),
-            SliverToBoxAdapter(
-              child: ListTile(
-                leading: const Icon(Icons.source),
-                title: Text(context.localizations.sourceCode),
-                onTap: controller.openSourceCode,
-              ),
+          ),
+          SliverToBoxAdapter(
+            child: _HeaderBlock(
+              name: context.localizations.additional,
             ),
-            SliverToBoxAdapter(
-              child: ListTile(
-                leading: const Icon(Icons.bug_report_outlined),
-                title: Text(context.localizations.reportABug),
-                onTap: controller.reportABug,
-              ),
+          ),
+          SliverToBoxAdapter(
+            child: ListTile(
+              leading: const Icon(Icons.source),
+              title: Text(context.localizations.sourceCode),
+              onTap: controller.openSourceCode,
             ),
-          ],
-        ),
-      );
+          ),
+          SliverToBoxAdapter(
+            child: ListTile(
+              leading: const Icon(Icons.bug_report_outlined),
+              title: Text(context.localizations.reportABug),
+              onTap: controller.reportABug,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class _HeaderBlock extends StatelessWidget {

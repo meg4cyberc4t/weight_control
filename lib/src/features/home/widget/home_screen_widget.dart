@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:octopus/octopus.dart';
 import 'package:weight_control/src/common/config/config.dart';
 import 'package:weight_control/src/common/localizations/localizations_state_mixin.dart';
+import 'package:weight_control/src/features/create/widget/create_screen.dart';
+import 'package:weight_control/src/features/dashboard/widget/dashboard_screen.dart';
 import 'package:weight_control/src/features/settings/widget/settings_screen.dart';
 
 /// Home tabs. They will show which page needs to be kept open.
@@ -83,6 +85,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
     if (_tab == tab) {
       return;
     }
+
     context.octopus.setArguments((final args) => args['tab'] = tab.name);
     setState(() => _tab = tab);
   }
@@ -98,10 +101,12 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
         SupportedPlatform.android => _HomeScreenWidget$Material(
             activeTab: _tab,
             onSwitchTab: _switchTab,
+            key: ValueKey(_tab),
           ),
         SupportedPlatform.ios => _HomeScreenWidget$Cupertino(
             activeTab: _tab,
             onSwitchTab: _switchTab,
+            key: ValueKey(_tab),
           ),
       };
 }
@@ -113,15 +118,15 @@ class _HomeScreenWidget$Material extends StatelessWidget {
   const _HomeScreenWidget$Material({
     required this.activeTab,
     required this.onSwitchTab,
+    super.key,
   });
 
   @override
   Widget build(final BuildContext context) => Scaffold(
         body: switch (activeTab) {
-          HomeTabs.create ||
-          HomeTabs.settings ||
-          HomeTabs.dashboard =>
-            const SettingsScreenWidget(),
+          HomeTabs.create => const CreateScreenWidget(),
+          HomeTabs.dashboard => const DashboardScreenWidget(),
+          HomeTabs.settings => const SettingsScreenWidget(),
         },
         bottomNavigationBar: NavigationBar(
           onDestinationSelected: (final value) =>
@@ -155,11 +160,13 @@ class _HomeScreenWidget$Cupertino extends StatelessWidget {
   const _HomeScreenWidget$Cupertino({
     required this.activeTab,
     required this.onSwitchTab,
+    super.key,
   });
 
   @override
   Widget build(final BuildContext context) => CupertinoTabScaffold(
         tabBar: CupertinoTabBar(
+          currentIndex: activeTab.index,
           onTap: (final value) => onSwitchTab(HomeTabs.values[value]),
           items: [
             BottomNavigationBarItem(
@@ -180,14 +187,11 @@ class _HomeScreenWidget$Cupertino extends StatelessWidget {
         ),
         tabBuilder: (final context, final index) {
           final tab = HomeTabs.values[index];
-          switch (tab) {
-            case HomeTabs.create:
-            // TODO(meg4cyberc4t): CreateScreenWidget
-            case HomeTabs.dashboard:
-            // TODO(meg4cyberc4t): DashboardScreenWidget
-            case HomeTabs.settings:
-              return const SettingsScreenWidget();
-          }
+          return switch (tab) {
+            HomeTabs.create => const CreateScreenWidget(),
+            HomeTabs.dashboard => const DashboardScreenWidget(),
+            HomeTabs.settings => const SettingsScreenWidget(),
+          };
         },
       );
 }

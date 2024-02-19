@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher_string.dart';
-import 'package:version/version.dart';
 import 'package:weight_control/src/common/config/config.dart';
 import 'package:weight_control/src/common/localizations/localizations_state_mixin.dart';
 import 'package:weight_control/src/features/initialization/data/dependencies.dart';
+import 'package:weight_control/src/features/measures/widget/measures_scope.dart';
 
 part '_settings_screen_cupertino.dart';
 part '_settings_screen_material.dart';
@@ -16,7 +16,9 @@ part '_settings_screen_material.dart';
 /// {@endtemplate}
 abstract interface class SettingsScreenController {
   /// The current version of the application
-  abstract final Version version;
+  abstract final String version;
+
+  Future<void> deleteAllData(final BuildContext context);
 
   /// Copy the current version of the application to the clipboard
   Future<void> copyVersion();
@@ -35,8 +37,8 @@ abstract interface class SettingsScreenController {
 }
 
 /// {@template SettingsScreenWidget}
-/// The settings screen in the app. Provides [SettingsScreenWidget$Cupertino]
-/// and [SettingsScreenWidget$Material] implementations depending on the
+/// The settings screen in the app. Provides [_SettingsScreenWidget$Cupertino]
+/// and [_SettingsScreenWidget$Material] implementations depending on the
 /// running platform.
 /// {@endtemplate}
 class SettingsScreenWidget extends StatefulWidget {
@@ -57,7 +59,7 @@ class _SettingsScreenWidgetState extends State<SettingsScreenWidget>
 
   @override
   Future<void> copyVersion() async =>
-      Clipboard.setData(ClipboardData(text: _version.toString()));
+      Clipboard.setData(ClipboardData(text: _version));
 
   @override
   Future<void> openLicenses() async {
@@ -77,14 +79,75 @@ class _SettingsScreenWidgetState extends State<SettingsScreenWidget>
   Future<void> reportABug() async => openSourceCode();
 
   @override
-  Version get version => _version;
-  late final Version _version;
+  Future<void> deleteAllData(final BuildContext context) async {
+    final measuresController = MeasuresScope.controllerOf(context);
+    final showDialogFuture = switch (Config.platform) {
+      SupportedPlatform.android => _showDeleteAllMaterialDialog(context),
+      SupportedPlatform.ios => _showDeleteAllCupertinoDialog(context),
+    };
+    if (await showDialogFuture ?? false) {
+      measuresController.deleteAll();
+    }
+  }
+
+  Future<bool?> _showDeleteAllCupertinoDialog(
+    final BuildContext context,
+  ) async =>
+      showCupertinoModalPopup<bool>(
+        context: context,
+        builder: (final context) => CupertinoActionSheet(
+          title: Text(context.localizations.deleteAll),
+          message: Text(context.localizations.deleteAllContent),
+          actions: [
+            CupertinoActionSheetAction(
+              onPressed: () => Navigator.of(context).pop(true),
+              isDestructiveAction: true,
+              child: Text(context.localizations.delete),
+            ),
+            CupertinoActionSheetAction(
+              onPressed: Navigator.of(context).pop,
+              isDefaultAction: true,
+              child: Text(context.localizations.cancel),
+            ),
+          ],
+        ),
+      );
+
+  Future<bool?> _showDeleteAllMaterialDialog(
+    final BuildContext context,
+  ) async {
+    final theme = Theme.of(context);
+    return showDialog<bool>(
+      context: context,
+      builder: (final context) => AlertDialog(
+        title: Text(context.localizations.deleteAll),
+        content: Text(context.localizations.deleteAllContent),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: Text(
+              context.localizations.delete,
+              style: TextStyle(color: theme.colorScheme.error),
+            ),
+          ),
+          TextButton(
+            onPressed: Navigator.of(context).pop,
+            child: Text(context.localizations.cancel),
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  String get version => _version;
+  late final String _version;
 
   @override
   Widget build(final BuildContext context) => switch (Config.platform) {
         SupportedPlatform.android =>
-          SettingsScreenWidget$Material(controller: this),
+          _SettingsScreenWidget$Material(controller: this),
         SupportedPlatform.ios =>
-          SettingsScreenWidget$Cupertino(controller: this),
+          _SettingsScreenWidget$Cupertino(controller: this),
       };
 }

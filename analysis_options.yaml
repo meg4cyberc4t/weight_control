@@ -33,7 +33,7 @@ analyzer:
 
 linter:
   rules:
-    public_member_api_docs: true
+    public_member_api_docs: false # TODO(meg4cyberc4t): remove
     avoid_returning_null_for_void: false
     prefer_final_fields: true
     always_declare_return_types: true

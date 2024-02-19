@@ -18,5 +18,36 @@
   "licenses": "Licenses",
   "additional": "Additional",
   "sourceCode": "Source code",
-  "reportABug": "Report a bug"
+  "reportABug": "Report a bug",
+  "deleteAll": "Delete data",
+  "deleteAllContent": "This action cannot be undone!",
+  "data": "Data",
+  "@ Create": {},
+  "notAvailableCreateMeasure": "Have you already lost your weight today",
+  "notAvailableCreateMeasureDescription": "Come back tomorrow for new measurements!",
+  "goToDashboard": "Go to the dashboard",
+  "specifyTheWeight": "Specify the weight",
+  "weight": "Weight",
+  "comment": "Comment",
+  "addAComment": "Add...",
+  "greaterThanPrevious": "More than the previous measurements by {kg}",
+  "lessThanPrevious": "Less than the previous measurements by {kg}",
+  "equalThanPrevious": "The weight is equal.",
+  "notCalculated": "Use the sliders to measure.",
+  "record": "Record",
+  "@ Measurements": {},
+  "yourMeasurements": "Your measurements",
+  "@ Placeholders": {},
+  "cancel": "Cancel",
+  "delete": "Delete",
+  "kg": "kg.",
+  "numberKg": "{weight} kg.",
+  "@numberKg": {
+      "placeholders": {
+          "weight": {
+            "type": "double",
+            "format": "compact"
+          }
+      }
+  }
 }

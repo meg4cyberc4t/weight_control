@@ -210,6 +210,211 @@ class GeneratedLocalization {
       args: [],
     );
   }
+
+  /// `Delete data`
+  String get deleteAll {
+    return Intl.message(
+      'Delete data',
+      name: 'deleteAll',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This action cannot be undone!`
+  String get deleteAllContent {
+    return Intl.message(
+      'This action cannot be undone!',
+      name: 'deleteAllContent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Data`
+  String get data {
+    return Intl.message(
+      'Data',
+      name: 'data',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Have you already lost your weight today`
+  String get notAvailableCreateMeasure {
+    return Intl.message(
+      'Have you already lost your weight today',
+      name: 'notAvailableCreateMeasure',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Come back tomorrow for new measurements!`
+  String get notAvailableCreateMeasureDescription {
+    return Intl.message(
+      'Come back tomorrow for new measurements!',
+      name: 'notAvailableCreateMeasureDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Go to the dashboard`
+  String get goToDashboard {
+    return Intl.message(
+      'Go to the dashboard',
+      name: 'goToDashboard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Specify the weight`
+  String get specifyTheWeight {
+    return Intl.message(
+      'Specify the weight',
+      name: 'specifyTheWeight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Weight`
+  String get weight {
+    return Intl.message(
+      'Weight',
+      name: 'weight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Comment`
+  String get comment {
+    return Intl.message(
+      'Comment',
+      name: 'comment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add...`
+  String get addAComment {
+    return Intl.message(
+      'Add...',
+      name: 'addAComment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `More than the previous measurements by {kg}`
+  String greaterThanPrevious(Object kg) {
+    return Intl.message(
+      'More than the previous measurements by $kg',
+      name: 'greaterThanPrevious',
+      desc: '',
+      args: [kg],
+    );
+  }
+
+  /// `Less than the previous measurements by {kg}`
+  String lessThanPrevious(Object kg) {
+    return Intl.message(
+      'Less than the previous measurements by $kg',
+      name: 'lessThanPrevious',
+      desc: '',
+      args: [kg],
+    );
+  }
+
+  /// `The weight is equal.`
+  String get equalThanPrevious {
+    return Intl.message(
+      'The weight is equal.',
+      name: 'equalThanPrevious',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Use the sliders to measure.`
+  String get notCalculated {
+    return Intl.message(
+      'Use the sliders to measure.',
+      name: 'notCalculated',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Record`
+  String get record {
+    return Intl.message(
+      'Record',
+      name: 'record',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your measurements`
+  String get yourMeasurements {
+    return Intl.message(
+      'Your measurements',
+      name: 'yourMeasurements',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete`
+  String get delete {
+    return Intl.message(
+      'Delete',
+      name: 'delete',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `kg.`
+  String get kg {
+    return Intl.message(
+      'kg.',
+      name: 'kg',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{weight} kg.`
+  String numberKg(double weight) {
+    final NumberFormat weightNumberFormat = NumberFormat.compact(
+      locale: Intl.getCurrentLocale(),
+    );
+    final String weightString = weightNumberFormat.format(weight);
+
+    return Intl.message(
+      '$weightString kg.',
+      name: 'numberKg',
+      desc: '',
+      args: [weightString],
+    );
+  }
 }
 
 class AppLocalizationDelegate

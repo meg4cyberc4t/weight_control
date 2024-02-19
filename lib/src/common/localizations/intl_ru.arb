@@ -18,5 +18,36 @@
   "licenses": "Лицензии",
   "additional": "Дополнительно",
   "sourceCode": "Исходный код",
-  "reportABug": "Сообщить о баге"
+  "reportABug": "Сообщить о баге",
+  "deleteAll": "Удалить данные",
+  "deleteAllContent": "Это действие нельзя будет отменить!",
+  "data": "Данные",
+  "@ Create": {},
+  "notAvailableCreateMeasure": "Вы уже отмеряли свой вес сегодня",
+  "notAvailableCreateMeasureDescription": "Возвращайтесь завтра для новых измерений!",
+  "goToDashboard": "Перейти к главной",
+  "specifyTheWeight": "Указать вес",
+  "weight": "Вес",
+  "comment": "Комментарий",
+  "addAComment": "Добавить...",
+  "greaterThanPrevious": "Больше, чем предыдущее измерение {kg}",
+  "lessThanPrevious": "Меньше, чем предыдущее измерение {kg}",
+  "equalThanPrevious": "Вес идентичен с предыдущим.",
+  "notCalculated": "Используйте слайдеры для измерения веса.",
+  "record": "Записать",
+  "@ Measurements": {},
+  "yourMeasurements": "Ваши измерения",
+  "@ Placeholders": {},
+  "cancel": "Отмена",
+  "delete": "Удалить",
+  "kg": "кг.",
+  "numberKg": "{weight} кг.",
+  "@numberKg": {
+      "placeholders": {
+          "weight": {
+            "type": "double",
+            "format": "compact"
+          }
+      }
+  }
 }
