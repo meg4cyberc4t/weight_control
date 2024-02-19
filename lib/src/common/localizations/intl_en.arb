@@ -30,13 +30,24 @@
   "weight": "Weight",
   "comment": "Comment",
   "addAComment": "Add...",
-  "greaterThanPrevious": "More than the previous measurements by {kg} kg.",
-  "lessThanPrevious": "Less than the previous measurements by {kg} kg.",
+  "greaterThanPrevious": "More than the previous measurements by {kg}",
+  "lessThanPrevious": "Less than the previous measurements by {kg}",
   "equalThanPrevious": "The weight is equal.",
   "notCalculated": "Use the sliders to measure.",
   "record": "Record",
+  "@ Measurements": {},
+  "yourMeasurements": "Your measurements",
   "@ Placeholders": {},
   "cancel": "Cancel",
   "delete": "Delete",
-  "kg": "Kg"
+  "kg": "kg.",
+  "numberKg": "{weight} kg.",
+  "@numberKg": {
+      "placeholders": {
+          "weight": {
+            "type": "double",
+            "format": "compact"
+          }
+      }
+  }
 }

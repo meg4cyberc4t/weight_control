@@ -1,5 +1,7 @@
 // ignore_for_file: do_not_use_environment
 
+import 'dart:io';
+
 import 'package:flutter/foundation.dart';
 
 /// Application configuration.
@@ -78,6 +80,5 @@ enum SupportedPlatform {
 
   /// Initialization of the platform from 'dart:io';
   static SupportedPlatform fromIO() =>
-      // Platform.isIOS || Platform.isMacOS ? ios : android;
-      android;
+      Platform.isIOS || Platform.isMacOS ? ios : android;
 }

@@ -11,7 +11,7 @@ final class MeasuresRepositoryImpl implements MeasuresRepository {
   @override
   Future<List<Measure>> getAllMeasure() async {
     final measures = await _localDs.getAllMeasures();
-    return measures.map(Measure.fromTableData).toList();
+    return measures.reversed.map(Measure.fromTableData).toList();
   }
 
   @override

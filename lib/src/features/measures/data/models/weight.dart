@@ -17,10 +17,15 @@ final class Weight {
             grams;
 
   int get inGrams => _grams ~/ 1;
+  double get grams => _grams;
   int get inKilograms => _grams ~/ gramsPerKilograms;
+  double get kilograms => _grams / gramsPerKilograms;
   int get inOunces => _grams ~/ ouncesPerGrams;
+  double get ounces => _grams / ouncesPerGrams;
   int get inPounds => inOunces ~/ ouncesPerPounds;
+  double get pounds => inOunces / ouncesPerPounds;
   int get inStone => inPounds ~/ poundsPerStone;
+  double get stone => inPounds / poundsPerStone;
 
   static const int gramsPerKilograms = 1000;
   static const double ouncesPerGrams = 28.35;
@@ -51,6 +56,20 @@ final class Weight {
   bool operator >=(final Weight other) => _grams >= other._grams;
   bool operator >(final Weight other) => _grams > other._grams;
 
+  WeightDifferenceMode difference(final Weight? other) {
+    if (other == null) {
+      return WeightDifferenceMode.notCalculated;
+    } else if (this == other) {
+      return WeightDifferenceMode.equal;
+    }
+    if (this > other) {
+      return WeightDifferenceMode.greaterthan;
+    } else if (this < other) {
+      return WeightDifferenceMode.less;
+    }
+    return WeightDifferenceMode.notCalculated;
+  }
+
   @override
   String toString() => 'Weight{$_grams grams}';
 
@@ -60,4 +79,11 @@ final class Weight {
 
   @override
   int get hashCode => _grams.hashCode;
+}
+
+enum WeightDifferenceMode {
+  less,
+  equal,
+  greaterthan,
+  notCalculated,
 }

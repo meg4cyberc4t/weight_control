@@ -20,9 +20,11 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
-  static String m0(kg) => "More than the previous measurements by ${kg} kg.";
+  static String m0(kg) => "More than the previous measurements by ${kg}";
 
-  static String m1(kg) => "Less than the previous measurements by ${kg} kg.";
+  static String m1(kg) => "Less than the previous measurements by ${kg}";
+
+  static String m2(weight) => "${weight} kg.";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -43,7 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "goToDashboard":
             MessageLookupByLibrary.simpleMessage("Go to the dashboard"),
         "greaterThanPrevious": m0,
-        "kg": MessageLookupByLibrary.simpleMessage("Kg"),
+        "kg": MessageLookupByLibrary.simpleMessage("kg."),
         "language": MessageLookupByLibrary.simpleMessage("English"),
         "languageCode": MessageLookupByLibrary.simpleMessage("en"),
         "lessThanPrevious": m1,
@@ -56,6 +58,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Come back tomorrow for new measurements!"),
         "notCalculated":
             MessageLookupByLibrary.simpleMessage("Use the sliders to measure."),
+        "numberKg": m2,
         "rateTheApp": MessageLookupByLibrary.simpleMessage("Rate the app"),
         "record": MessageLookupByLibrary.simpleMessage("Record"),
         "reportABug": MessageLookupByLibrary.simpleMessage("Report a bug"),
@@ -69,6 +72,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "titleStage":
             MessageLookupByLibrary.simpleMessage("Weight Control Stage"),
         "version": MessageLookupByLibrary.simpleMessage("Version"),
-        "weight": MessageLookupByLibrary.simpleMessage("Weight")
+        "weight": MessageLookupByLibrary.simpleMessage("Weight"),
+        "yourMeasurements":
+            MessageLookupByLibrary.simpleMessage("Your measurements")
       };
 }

@@ -311,20 +311,20 @@ class GeneratedLocalization {
     );
   }
 
-  /// `More than the previous measurements by {kg} kg.`
+  /// `More than the previous measurements by {kg}`
   String greaterThanPrevious(Object kg) {
     return Intl.message(
-      'More than the previous measurements by $kg kg.',
+      'More than the previous measurements by $kg',
       name: 'greaterThanPrevious',
       desc: '',
       args: [kg],
     );
   }
 
-  /// `Less than the previous measurements by {kg} kg.`
+  /// `Less than the previous measurements by {kg}`
   String lessThanPrevious(Object kg) {
     return Intl.message(
-      'Less than the previous measurements by $kg kg.',
+      'Less than the previous measurements by $kg',
       name: 'lessThanPrevious',
       desc: '',
       args: [kg],
@@ -361,6 +361,16 @@ class GeneratedLocalization {
     );
   }
 
+  /// `Your measurements`
+  String get yourMeasurements {
+    return Intl.message(
+      'Your measurements',
+      name: 'yourMeasurements',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Cancel`
   String get cancel {
     return Intl.message(
@@ -381,13 +391,28 @@ class GeneratedLocalization {
     );
   }
 
-  /// `Kg`
+  /// `kg.`
   String get kg {
     return Intl.message(
-      'Kg',
+      'kg.',
       name: 'kg',
       desc: '',
       args: [],
+    );
+  }
+
+  /// `{weight} kg.`
+  String numberKg(double weight) {
+    final NumberFormat weightNumberFormat = NumberFormat.compact(
+      locale: Intl.getCurrentLocale(),
+    );
+    final String weightString = weightNumberFormat.format(weight);
+
+    return Intl.message(
+      '$weightString kg.',
+      name: 'numberKg',
+      desc: '',
+      args: [weightString],
     );
   }
 }

@@ -20,9 +20,11 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ru';
 
-  static String m0(kg) => "Больше, чем предыдущее измерение ${kg} кг.";
+  static String m0(kg) => "Больше, чем предыдущее измерение ${kg}";
 
-  static String m1(kg) => "Меньше, чем предыдущее измерение ${kg} кг.";
+  static String m1(kg) => "Меньше, чем предыдущее измерение ${kg}";
+
+  static String m2(weight) => "${weight} кг.";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -43,7 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "goToDashboard":
             MessageLookupByLibrary.simpleMessage("Перейти к главной"),
         "greaterThanPrevious": m0,
-        "kg": MessageLookupByLibrary.simpleMessage("Кг"),
+        "kg": MessageLookupByLibrary.simpleMessage("кг."),
         "language": MessageLookupByLibrary.simpleMessage("Russian"),
         "languageCode": MessageLookupByLibrary.simpleMessage("ru"),
         "lessThanPrevious": m1,
@@ -56,6 +58,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Возвращайтесь завтра для новых измерений!"),
         "notCalculated": MessageLookupByLibrary.simpleMessage(
             "Используйте слайдеры для измерения веса."),
+        "numberKg": m2,
         "rateTheApp":
             MessageLookupByLibrary.simpleMessage("Оценить приложение"),
         "record": MessageLookupByLibrary.simpleMessage("Записать"),
@@ -69,6 +72,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "titleStage":
             MessageLookupByLibrary.simpleMessage("Weight Control Stage"),
         "version": MessageLookupByLibrary.simpleMessage("Версия"),
-        "weight": MessageLookupByLibrary.simpleMessage("Вес")
+        "weight": MessageLookupByLibrary.simpleMessage("Вес"),
+        "yourMeasurements":
+            MessageLookupByLibrary.simpleMessage("Ваши измерения")
       };
 }

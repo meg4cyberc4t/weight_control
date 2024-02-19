@@ -30,13 +30,24 @@
   "weight": "Вес",
   "comment": "Комментарий",
   "addAComment": "Добавить...",
-  "greaterThanPrevious": "Больше, чем предыдущее измерение {kg} кг.",
-  "lessThanPrevious": "Меньше, чем предыдущее измерение {kg} кг.",
+  "greaterThanPrevious": "Больше, чем предыдущее измерение {kg}",
+  "lessThanPrevious": "Меньше, чем предыдущее измерение {kg}",
   "equalThanPrevious": "Вес идентичен с предыдущим.",
   "notCalculated": "Используйте слайдеры для измерения веса.",
   "record": "Записать",
+  "@ Measurements": {},
+  "yourMeasurements": "Ваши измерения",
   "@ Placeholders": {},
   "cancel": "Отмена",
   "delete": "Удалить",
-  "kg": "Кг"
+  "kg": "кг.",
+  "numberKg": "{weight} кг.",
+  "@numberKg": {
+      "placeholders": {
+          "weight": {
+            "type": "double",
+            "format": "compact"
+          }
+      }
+  }
 }
