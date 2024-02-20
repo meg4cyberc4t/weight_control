@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:weight_control/src/features/settings/data/data_sources/local/settings_local_ds.dart';
 import 'package:weight_control/src/features/settings/data/enums/design_mode.dart';
@@ -13,10 +15,19 @@ final class SettingsRepositoryImpl implements SettingsRepository {
       _localDs.setThemeMode(value);
 
   @override
-  Future<ThemeMode> getThemeMode() async => _localDs.getThemeMode();
+  Future<ThemeMode> getThemeMode() async {
+    final value = await _localDs.getThemeMode();
+    return value ?? ThemeMode.system;
+  }
 
   @override
-  Future<DesignMode> getDesignMode() async => _localDs.getDesignMode();
+  Future<DesignMode> getDesignMode() async {
+    final value = await _localDs.getDesignMode();
+    return value ??
+        (Platform.isMacOS || Platform.isIOS
+            ? DesignMode.cupertino
+            : DesignMode.material);
+  }
 
   @override
   Future<void> setDesignMode(final DesignMode mode) async =>

@@ -4,10 +4,10 @@ import 'package:weight_control/src/features/settings/data/codecs/theme_mode_code
 import 'package:weight_control/src/features/settings/data/enums/design_mode.dart';
 
 abstract interface class SettingsLocalDataSource {
-  Future<ThemeMode> getThemeMode();
+  Future<ThemeMode?> getThemeMode();
   Future<void> setThemeMode(final ThemeMode mode);
 
-  Future<DesignMode> getDesignMode();
+  Future<DesignMode?> getDesignMode();
   Future<void> setDesignMode(final DesignMode mode);
 }
 
@@ -17,10 +17,10 @@ final class SettingsLocalDataSourceImpl implements SettingsLocalDataSource {
   const SettingsLocalDataSourceImpl(this._storage);
 
   @override
-  Future<ThemeMode> getThemeMode() async {
+  Future<ThemeMode?> getThemeMode() async {
     final value = await _storage.read(key: 'settings.theme_mode');
     if (value == null) {
-      return ThemeMode.system;
+      return null;
     }
     return themeModeCodec.decode(value);
   }
@@ -34,10 +34,10 @@ final class SettingsLocalDataSourceImpl implements SettingsLocalDataSource {
   }
 
   @override
-  Future<DesignMode> getDesignMode() async {
+  Future<DesignMode?> getDesignMode() async {
     final value = await _storage.read(key: 'settings.design_mode');
     if (value == null) {
-      return DesignMode.material;
+      return null;
     }
     return DesignMode.fromString(value, fallback: DesignMode.material);
   }
