@@ -210,9 +210,7 @@ class __CreateContentWidget$MaterialState
                   ),
                   Text(
                     context.localizations.kg,
-                    style: CupertinoTheme.of(context)
-                        .textTheme
-                        .dateTimePickerTextStyle,
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ],
               ),
