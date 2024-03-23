@@ -42,6 +42,7 @@ dev_dependencies:
   drift_dev: ^2.15.0
   intl_utils: ^2.8.7
   freezed: ^2.4.7
+  flutter_launcher_icons: ^0.13.1
 
 flutter:
   uses-material-design: true
@@ -53,3 +54,9 @@ flutter_intl:
   arb_dir: lib/src/common/localizations
   output_dir: lib/src/common/localizations/generated
   use_deferred_loading: false
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  image_path: "assets/icon_source.jpeg"
+  min_sdk_android: 21
+  ios: true
