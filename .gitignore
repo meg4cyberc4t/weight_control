@@ -30,3 +30,6 @@ doc/api/
 **/.DS_Store
 
 report.xml
+
+# FVM Version Cache
+.fvm/
