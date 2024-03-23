@@ -10,6 +10,11 @@ abstract interface class MeasureController {
     required final String comment,
   });
 
+  void editLast({
+    required final Weight weight,
+    required final String comment,
+  });
+
   void delete({
     required final int id,
   });
@@ -95,6 +100,18 @@ class _MeasuresScopeState extends State<MeasuresScope>
   @override
   void delete({required final int id}) =>
       _measuresBloc.add(MeasuresEvent.delete(id: id));
+
+  @override
+  void editLast({
+    required final Weight weight,
+    required final String comment,
+  }) =>
+      _measuresBloc.add(
+        MeasuresEvent.editLast(
+          weight: weight,
+          comment: comment,
+        ),
+      );
 
   @override
   Widget build(final BuildContext context) =>

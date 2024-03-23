@@ -25,6 +25,7 @@ class MeasuresBloc extends Bloc<MeasuresEvent, MeasuresState> {
         create: (final event) => _onCreate(event, emit),
         delete: (final event) => _onDelete(event, emit),
         deleteAll: (final event) => _onDeleteAll(event, emit),
+        editLast: (final event) => _onEditLast(event, emit),
       ),
     );
   }
@@ -72,6 +73,41 @@ class MeasuresBloc extends Bloc<MeasuresEvent, MeasuresState> {
     try {
       final comment = event.comment.trim();
       await _measuresRepository.createMeasure(
+        weight: event.weight,
+        comment: comment.isNotEmpty ? comment : null,
+      );
+      final measures = await _measuresRepository.getAllMeasure();
+      final lastMeasure = await _measuresRepository.getLastMeasure();
+      emit(
+        MeasuresState.idle(
+          measures: measures,
+          last: lastMeasure,
+        ),
+      );
+    } on Exception catch (exception) {
+      emit(
+        MeasuresState.error(
+          measures: state.measures,
+          exception: exception,
+          last: state.last,
+        ),
+      );
+    }
+  }
+
+  Future<void> _onEditLast(
+    final _MeasuresEvent$EditLast event,
+    final Emitter<MeasuresState> emit,
+  ) async {
+    emit(
+      MeasuresState.processing(
+        measures: state.measures,
+        last: state.last,
+      ),
+    );
+    try {
+      final comment = event.comment.trim();
+      await _measuresRepository.editLastMeasure(
         weight: event.weight,
         comment: comment.isNotEmpty ? comment : null,
       );

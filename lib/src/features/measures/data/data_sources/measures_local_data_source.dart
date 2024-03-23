@@ -41,4 +41,18 @@ final class MeasuresLocalDataSource extends DatabaseAccessor<AppDatabase>
 
   @override
   Future<void> deleteAll() => delete(measuresTable).go();
+
+  @override
+  Future<bool> editMeasure({
+    required final int id,
+    required final Weight weight,
+    required final String? comment,
+  }) async =>
+      (update(measuresTable)..where((final tbl) => tbl.id.equals(id))).replace(
+        MeasuresTableCompanion.insert(
+          time: DateTime.now(),
+          weight: weight,
+          comment: Value(comment),
+        ),
+      );
 }
