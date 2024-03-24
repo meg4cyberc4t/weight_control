@@ -48,8 +48,9 @@ final class MeasuresLocalDataSource extends DatabaseAccessor<AppDatabase>
     required final Weight weight,
     required final String? comment,
   }) async =>
-      (update(measuresTable)..where((final tbl) => tbl.id.equals(id))).replace(
+      update(measuresTable).replace(
         MeasuresTableCompanion.insert(
+          id: Value(id),
           time: DateTime.now(),
           weight: weight,
           comment: Value(comment),

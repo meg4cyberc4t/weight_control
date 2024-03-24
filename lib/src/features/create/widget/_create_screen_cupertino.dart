@@ -1,104 +1,35 @@
 part of 'create_screen.dart';
 
-class _CreateScreenWidget$Cupertino extends StatelessWidget {
-  final CreateScreenController controller;
+class _CreateScreenWidget$Cupertino extends StatefulWidget {
+  final Measure? lastMeasure;
+  final void Function({
+    required Weight weight,
+    required String comment,
+  }) onAction;
+  final bool isEditing;
 
-  const _CreateScreenWidget$Cupertino({required this.controller});
-
-  @override
-  Widget build(final BuildContext context) => CupertinoPageScaffold(
-        backgroundColor: CupertinoColors.systemGroupedBackground,
-        navigationBar: CupertinoNavigationBar(
-          middle: Text(context.localizations.specifyTheWeight),
-        ),
-        child: Center(
-          child: switch (controller.state) {
-            final CreateScreenState$NotAvailable state =>
-              _StopToCreateWidget$Cupertino(
-                state: state,
-                switchPageToDashboard: controller.switchPageToDashboard,
-              ),
-            final CreateScreenState$Available state =>
-              _CreateContentWidget$Cupertino(
-                state: state,
-                controller: controller,
-              ),
-          },
-        ),
-      );
-}
-
-class _StopToCreateWidget$Cupertino extends StatelessWidget {
-  final CreateScreenState$NotAvailable state;
-  final VoidCallback switchPageToDashboard;
-
-  const _StopToCreateWidget$Cupertino({
-    required this.state,
-    required this.switchPageToDashboard,
+  const _CreateScreenWidget$Cupertino({
+    required this.isEditing,
+    required this.lastMeasure,
+    required this.onAction,
   });
 
   @override
-  Widget build(final BuildContext context) {
-    final theme = CupertinoTheme.of(context);
-
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: theme.primaryContrastingColor,
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              context.localizations.notAvailableCreateMeasure,
-              style: theme.textTheme.navTitleTextStyle,
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 8),
-            Text(
-              context.localizations.notAvailableCreateMeasureDescription,
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 16),
-            CupertinoButton.filled(
-              onPressed: switchPageToDashboard,
-              child: Text(context.localizations.goToDashboard),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+  State<StatefulWidget> createState() => _CreateScreenWidgetState$Cupertino();
 }
 
-class _CreateContentWidget$Cupertino extends StatefulWidget {
-  final CreateScreenState$Available state;
-  final CreateScreenController controller;
-
-  const _CreateContentWidget$Cupertino({
-    required this.state,
-    required this.controller,
-  });
-
-  @override
-  State<_CreateContentWidget$Cupertino> createState() =>
-      __CreateContentWidget$CupertinoState();
-}
-
-class __CreateContentWidget$CupertinoState
-    extends State<_CreateContentWidget$Cupertino> {
+class _CreateScreenWidgetState$Cupertino
+    extends State<_CreateScreenWidget$Cupertino> {
   late final FixedExtentScrollController _gramsController;
   late final FixedExtentScrollController _kilogramsController;
-  final TextEditingController _commentTextController = TextEditingController();
+  late final TextEditingController _commentTextController =
+      TextEditingController(text: widget.lastMeasure?.comment);
 
   Weight _weight = const Weight();
 
   @override
   void initState() {
-    final lastMeasure = widget.state.lastMeasure;
+    final lastMeasure = widget.lastMeasure;
     _weight = Weight(grams: lastMeasure?.weight.inGrams ?? 0);
     _gramsController = FixedExtentScrollController(
       initialItem: (_weight.inGrams % 1000) ~/ 100,
@@ -137,7 +68,7 @@ class __CreateContentWidget$CupertinoState
   void _create() {
     final grams = (_gramsController.selectedItem % 10) * 100 +
         (_kilogramsController.selectedItem * 1000);
-    widget.controller.create(
+    widget.onAction(
       weight: Weight(grams: grams),
       comment: _commentTextController.text,
     );
@@ -147,94 +78,106 @@ class __CreateContentWidget$CupertinoState
   Widget build(final BuildContext context) {
     final theme = CupertinoTheme.of(context);
 
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: theme.primaryContrastingColor,
-        borderRadius: BorderRadius.circular(16),
+    return CupertinoPageScaffold(
+      backgroundColor: CupertinoColors.systemGroupedBackground,
+      navigationBar: CupertinoNavigationBar(
+        middle: Text(context.localizations.specifyTheWeight),
       ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const SizedBox(height: 8),
-          WeightDifference(
-            lastWeight: widget.state.lastMeasure?.weight,
-            weight: _weight,
-            builder: (final _, final mode, final formattedString) =>
-                _WeightDifference$Cupertino(
-              mode: mode,
-              formattedString: formattedString,
-            ),
+      child: Center(
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: theme.primaryContrastingColor,
+            borderRadius: BorderRadius.circular(16),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              const SizedBox(width: 24),
-              SizedBox(
-                width: 80,
-                height: 128,
-                child: CupertinoPicker(
-                  magnification: 1.1,
-                  useMagnifier: true,
-                  itemExtent: 50,
-                  scrollController: _kilogramsController,
-                  onSelectedItemChanged: (final selectedItem) async {
-                    _onKilogramsUpdate(selectedItem);
-                    await HapticFeedback.selectionClick();
-                  },
-                  children: List.generate(
-                    200,
-                    (final index) => SizedBox(
-                      height: 50,
-                      child: Center(child: Text('$index')),
-                    ),
-                  ),
+              const SizedBox(height: 8),
+              WeightDifference(
+                lastWeight: widget.lastMeasure?.weight,
+                weight: _weight,
+                builder: (final _, final mode, final formattedString) =>
+                    _WeightDifference$Cupertino(
+                  mode: mode,
+                  formattedString: formattedString,
                 ),
               ),
-              SizedBox(
-                width: 80,
-                height: 128,
-                child: CupertinoPicker(
-                  magnification: 1.1,
-                  itemExtent: 50,
-                  scrollController: _gramsController,
-                  onSelectedItemChanged: (final selectedItem) async {
-                    _onGramsUpdate(selectedItem);
-                    await HapticFeedback.selectionClick();
-                  },
-                  looping: true,
-                  useMagnifier: true,
-                  children: List.generate(
-                    10,
-                    (final index) => SizedBox(
-                      height: 50,
-                      child: Center(child: Text('.$index')),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const SizedBox(width: 24),
+                  SizedBox(
+                    width: 80,
+                    height: 128,
+                    child: CupertinoPicker(
+                      magnification: 1.1,
+                      useMagnifier: true,
+                      itemExtent: 50,
+                      scrollController: _kilogramsController,
+                      onSelectedItemChanged: (final selectedItem) async {
+                        _onKilogramsUpdate(selectedItem);
+                        await HapticFeedback.selectionClick();
+                      },
+                      children: List.generate(
+                        200,
+                        (final index) => SizedBox(
+                          height: 50,
+                          child: Center(child: Text('$index')),
+                        ),
+                      ),
                     ),
                   ),
+                  SizedBox(
+                    width: 80,
+                    height: 128,
+                    child: CupertinoPicker(
+                      magnification: 1.1,
+                      itemExtent: 50,
+                      scrollController: _gramsController,
+                      onSelectedItemChanged: (final selectedItem) async {
+                        _onGramsUpdate(selectedItem);
+                        await HapticFeedback.selectionClick();
+                      },
+                      looping: true,
+                      useMagnifier: true,
+                      children: List.generate(
+                        10,
+                        (final index) => SizedBox(
+                          height: 50,
+                          child: Center(child: Text('.$index')),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Text(
+                    'кг',
+                    style: CupertinoTheme.of(context)
+                        .textTheme
+                        .dateTimePickerTextStyle,
+                  ),
+                ],
+              ),
+              CupertinoListTile.notched(
+                title: Text(context.localizations.comment),
+                subtitle: CupertinoTextField(
+                  controller: _commentTextController,
+                  placeholder: context.localizations.addAComment,
                 ),
               ),
-              Text(
-                'кг',
-                style: CupertinoTheme.of(context)
-                    .textTheme
-                    .dateTimePickerTextStyle,
+              Padding(
+                padding: const EdgeInsets.all(16),
+                child: CupertinoButton.filled(
+                  onPressed: _create,
+                  child: Text(
+                    widget.isEditing
+                        ? context.localizations.edit
+                        : context.localizations.record,
+                  ),
+                ),
               ),
             ],
           ),
-          CupertinoListTile.notched(
-            title: Text(context.localizations.comment),
-            subtitle: CupertinoTextField(
-              controller: _commentTextController,
-              placeholder: context.localizations.addAComment,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: CupertinoButton.filled(
-              onPressed: _create,
-              child: Text(context.localizations.record),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }

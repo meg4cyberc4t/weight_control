@@ -5,12 +5,7 @@ import 'package:weight_control/src/features/measures/data/models/weight.dart';
 import 'package:weight_control/src/features/measures/logic/measures_bloc.dart';
 
 abstract interface class MeasureController {
-  void create({
-    required final Weight weight,
-    required final String comment,
-  });
-
-  void editLast({
+  void createOrEditTodays({
     required final Weight weight,
     required final String comment,
   });
@@ -83,12 +78,12 @@ class _MeasuresScopeState extends State<MeasuresScope>
   }
 
   @override
-  void create({
+  void createOrEditTodays({
     required final Weight weight,
     required final String comment,
   }) =>
       _measuresBloc.add(
-        MeasuresEvent.create(
+        MeasuresEvent.createOrEditTodays(
           weight: weight,
           comment: comment,
         ),
@@ -100,18 +95,6 @@ class _MeasuresScopeState extends State<MeasuresScope>
   @override
   void delete({required final int id}) =>
       _measuresBloc.add(MeasuresEvent.delete(id: id));
-
-  @override
-  void editLast({
-    required final Weight weight,
-    required final String comment,
-  }) =>
-      _measuresBloc.add(
-        MeasuresEvent.editLast(
-          weight: weight,
-          comment: comment,
-        ),
-      );
 
   @override
   Widget build(final BuildContext context) =>

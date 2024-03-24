@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:octopus/octopus.dart';
 import 'package:weight_control/src/common/localizations/localizations_state_mixin.dart';
-import 'package:weight_control/src/features/create/data/create_screen_state.dart';
 import 'package:weight_control/src/features/create/widget/weight_difference.dart';
 import 'package:weight_control/src/features/home/widget/home_screen_widget.dart';
+import 'package:weight_control/src/features/measures/data/models/measure.dart';
 import 'package:weight_control/src/features/measures/data/models/weight.dart';
 import 'package:weight_control/src/features/measures/logic/measures_bloc.dart';
 import 'package:weight_control/src/features/measures/widget/measures_scope.dart';
@@ -15,17 +15,6 @@ import 'package:weight_control/src/features/settings/widget/settings_scope.dart'
 part '_create_screen_cupertino.dart';
 part '_create_screen_material.dart';
 
-abstract interface class CreateScreenController {
-  CreateScreenState get state;
-
-  void create({
-    required final Weight weight,
-    required final String comment,
-  });
-
-  void switchPageToDashboard();
-}
-
 class CreateScreenWidget extends StatefulWidget {
   const CreateScreenWidget({super.key});
 
@@ -33,9 +22,7 @@ class CreateScreenWidget extends StatefulWidget {
   State<CreateScreenWidget> createState() => _CreateScreenWidgetState();
 }
 
-class _CreateScreenWidgetState extends State<CreateScreenWidget>
-    implements CreateScreenController {
-  late CreateScreenState screenState;
+class _CreateScreenWidgetState extends State<CreateScreenWidget> {
   late MeasuresState measuresState;
   late final MeasureController controller;
 
@@ -52,41 +39,33 @@ class _CreateScreenWidgetState extends State<CreateScreenWidget>
     super.didChangeDependencies();
   }
 
-  @override
-  CreateScreenState get state {
-    final last = measuresState.last;
-    if (last == null) {
-      return CreateScreenState$Available(last);
-    }
-    final lastTime = last.time;
-    final now = DateTime.now();
-    final bool isAvailable = now.year >= lastTime.year &&
-        now.month >= lastTime.month &&
-        now.day > lastTime.day;
-    if (isAvailable) {
-      return CreateScreenState$Available(last);
-    } else {
-      return const CreateScreenState$NotAvailable();
-    }
-  }
+  void switchPageToDashboard() => context.octopus
+      .setArguments((final args) => args['tab'] = HomeTabs.dashboard.name);
 
-  @override
-  void create({
+  void createOrEditTodays({
     required final Weight weight,
     required final String comment,
   }) {
-    controller.create(weight: weight, comment: comment);
+    controller.createOrEditTodays(weight: weight, comment: comment);
     switchPageToDashboard();
   }
 
   @override
-  void switchPageToDashboard() => context.octopus
-      .setArguments((final args) => args['tab'] = HomeTabs.dashboard.name);
-
-  @override
-  Widget build(final BuildContext context) =>
-      switch (SettingsScope.stateOf(context, listen: true).designMode) {
-        DesignMode.material => _CreateScreenWidget$Material(controller: this),
-        DesignMode.cupertino => _CreateScreenWidget$Cupertino(controller: this),
-      };
+  Widget build(final BuildContext context) {
+    final lastMeasure = MeasuresScope.stateOf(context, listen: true).last;
+    final bool isEditing =
+        DateUtils.isSameDay(lastMeasure?.time, DateTime.now());
+    return switch (SettingsScope.stateOf(context, listen: true).designMode) {
+      DesignMode.material => _CreateScreenWidget$Material(
+          isEditing: isEditing,
+          lastMeasure: lastMeasure,
+          onAction: createOrEditTodays,
+        ),
+      DesignMode.cupertino => _CreateScreenWidget$Cupertino(
+          isEditing: isEditing,
+          lastMeasure: lastMeasure,
+          onAction: createOrEditTodays,
+        ),
+    };
+  }
 }

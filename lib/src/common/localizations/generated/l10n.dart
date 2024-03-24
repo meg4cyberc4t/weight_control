@@ -381,6 +381,16 @@ class GeneratedLocalization {
     );
   }
 
+  /// `Edit`
+  String get edit {
+    return Intl.message(
+      'Edit',
+      name: 'edit',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Your measurements`
   String get yourMeasurements {
     return Intl.message(

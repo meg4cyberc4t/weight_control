@@ -19,27 +19,24 @@ mixin _$MeasuresEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(Weight weight, String comment) create,
+    required TResult Function(Weight weight, String comment) createOrEditTodays,
     required TResult Function(int id) delete,
-    required TResult Function(Weight weight, String comment) editLast,
     required TResult Function() deleteAll,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(Weight weight, String comment)? create,
+    TResult? Function(Weight weight, String comment)? createOrEditTodays,
     TResult? Function(int id)? delete,
-    TResult? Function(Weight weight, String comment)? editLast,
     TResult? Function()? deleteAll,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(Weight weight, String comment)? create,
+    TResult Function(Weight weight, String comment)? createOrEditTodays,
     TResult Function(int id)? delete,
-    TResult Function(Weight weight, String comment)? editLast,
     TResult Function()? deleteAll,
     required TResult orElse(),
   }) =>
@@ -47,27 +44,27 @@ mixin _$MeasuresEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_MeasuresEvent$Started value) started,
-    required TResult Function(_MeasuresEvent$Create value) create,
+    required TResult Function(_MeasuresEvent$CreateOrEditTodays value)
+        createOrEditTodays,
     required TResult Function(_MeasuresEvent$Delete value) delete,
-    required TResult Function(_MeasuresEvent$EditLast value) editLast,
     required TResult Function(_MeasuresEvent$DeleteAll value) deleteAll,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_MeasuresEvent$Started value)? started,
-    TResult? Function(_MeasuresEvent$Create value)? create,
+    TResult? Function(_MeasuresEvent$CreateOrEditTodays value)?
+        createOrEditTodays,
     TResult? Function(_MeasuresEvent$Delete value)? delete,
-    TResult? Function(_MeasuresEvent$EditLast value)? editLast,
     TResult? Function(_MeasuresEvent$DeleteAll value)? deleteAll,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MeasuresEvent$Started value)? started,
-    TResult Function(_MeasuresEvent$Create value)? create,
+    TResult Function(_MeasuresEvent$CreateOrEditTodays value)?
+        createOrEditTodays,
     TResult Function(_MeasuresEvent$Delete value)? delete,
-    TResult Function(_MeasuresEvent$EditLast value)? editLast,
     TResult Function(_MeasuresEvent$DeleteAll value)? deleteAll,
     required TResult orElse(),
   }) =>
@@ -133,9 +130,8 @@ class _$MeasuresEvent$StartedImpl implements _MeasuresEvent$Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(Weight weight, String comment) create,
+    required TResult Function(Weight weight, String comment) createOrEditTodays,
     required TResult Function(int id) delete,
-    required TResult Function(Weight weight, String comment) editLast,
     required TResult Function() deleteAll,
   }) {
     return started();
@@ -145,9 +141,8 @@ class _$MeasuresEvent$StartedImpl implements _MeasuresEvent$Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(Weight weight, String comment)? create,
+    TResult? Function(Weight weight, String comment)? createOrEditTodays,
     TResult? Function(int id)? delete,
-    TResult? Function(Weight weight, String comment)? editLast,
     TResult? Function()? deleteAll,
   }) {
     return started?.call();
@@ -157,9 +152,8 @@ class _$MeasuresEvent$StartedImpl implements _MeasuresEvent$Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(Weight weight, String comment)? create,
+    TResult Function(Weight weight, String comment)? createOrEditTodays,
     TResult Function(int id)? delete,
-    TResult Function(Weight weight, String comment)? editLast,
     TResult Function()? deleteAll,
     required TResult orElse(),
   }) {
@@ -173,9 +167,9 @@ class _$MeasuresEvent$StartedImpl implements _MeasuresEvent$Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_MeasuresEvent$Started value) started,
-    required TResult Function(_MeasuresEvent$Create value) create,
+    required TResult Function(_MeasuresEvent$CreateOrEditTodays value)
+        createOrEditTodays,
     required TResult Function(_MeasuresEvent$Delete value) delete,
-    required TResult Function(_MeasuresEvent$EditLast value) editLast,
     required TResult Function(_MeasuresEvent$DeleteAll value) deleteAll,
   }) {
     return started(this);
@@ -185,9 +179,9 @@ class _$MeasuresEvent$StartedImpl implements _MeasuresEvent$Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_MeasuresEvent$Started value)? started,
-    TResult? Function(_MeasuresEvent$Create value)? create,
+    TResult? Function(_MeasuresEvent$CreateOrEditTodays value)?
+        createOrEditTodays,
     TResult? Function(_MeasuresEvent$Delete value)? delete,
-    TResult? Function(_MeasuresEvent$EditLast value)? editLast,
     TResult? Function(_MeasuresEvent$DeleteAll value)? deleteAll,
   }) {
     return started?.call(this);
@@ -197,9 +191,9 @@ class _$MeasuresEvent$StartedImpl implements _MeasuresEvent$Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MeasuresEvent$Started value)? started,
-    TResult Function(_MeasuresEvent$Create value)? create,
+    TResult Function(_MeasuresEvent$CreateOrEditTodays value)?
+        createOrEditTodays,
     TResult Function(_MeasuresEvent$Delete value)? delete,
-    TResult Function(_MeasuresEvent$EditLast value)? editLast,
     TResult Function(_MeasuresEvent$DeleteAll value)? deleteAll,
     required TResult orElse(),
   }) {
@@ -215,20 +209,23 @@ abstract class _MeasuresEvent$Started implements MeasuresEvent {
 }
 
 /// @nodoc
-abstract class _$$MeasuresEvent$CreateImplCopyWith<$Res> {
-  factory _$$MeasuresEvent$CreateImplCopyWith(_$MeasuresEvent$CreateImpl value,
-          $Res Function(_$MeasuresEvent$CreateImpl) then) =
-      __$$MeasuresEvent$CreateImplCopyWithImpl<$Res>;
+abstract class _$$MeasuresEvent$CreateOrEditTodaysImplCopyWith<$Res> {
+  factory _$$MeasuresEvent$CreateOrEditTodaysImplCopyWith(
+          _$MeasuresEvent$CreateOrEditTodaysImpl value,
+          $Res Function(_$MeasuresEvent$CreateOrEditTodaysImpl) then) =
+      __$$MeasuresEvent$CreateOrEditTodaysImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Weight weight, String comment});
 }
 
 /// @nodoc
-class __$$MeasuresEvent$CreateImplCopyWithImpl<$Res>
-    extends _$MeasuresEventCopyWithImpl<$Res, _$MeasuresEvent$CreateImpl>
-    implements _$$MeasuresEvent$CreateImplCopyWith<$Res> {
-  __$$MeasuresEvent$CreateImplCopyWithImpl(_$MeasuresEvent$CreateImpl _value,
-      $Res Function(_$MeasuresEvent$CreateImpl) _then)
+class __$$MeasuresEvent$CreateOrEditTodaysImplCopyWithImpl<$Res>
+    extends _$MeasuresEventCopyWithImpl<$Res,
+        _$MeasuresEvent$CreateOrEditTodaysImpl>
+    implements _$$MeasuresEvent$CreateOrEditTodaysImplCopyWith<$Res> {
+  __$$MeasuresEvent$CreateOrEditTodaysImplCopyWithImpl(
+      _$MeasuresEvent$CreateOrEditTodaysImpl _value,
+      $Res Function(_$MeasuresEvent$CreateOrEditTodaysImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -237,7 +234,7 @@ class __$$MeasuresEvent$CreateImplCopyWithImpl<$Res>
     Object? weight = null,
     Object? comment = null,
   }) {
-    return _then(_$MeasuresEvent$CreateImpl(
+    return _then(_$MeasuresEvent$CreateOrEditTodaysImpl(
       weight: null == weight
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
@@ -252,8 +249,9 @@ class __$$MeasuresEvent$CreateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$MeasuresEvent$CreateImpl implements _MeasuresEvent$Create {
-  const _$MeasuresEvent$CreateImpl(
+class _$MeasuresEvent$CreateOrEditTodaysImpl
+    implements _MeasuresEvent$CreateOrEditTodays {
+  const _$MeasuresEvent$CreateOrEditTodaysImpl(
       {required this.weight, required this.comment});
 
   @override
@@ -263,14 +261,14 @@ class _$MeasuresEvent$CreateImpl implements _MeasuresEvent$Create {
 
   @override
   String toString() {
-    return 'MeasuresEvent.create(weight: $weight, comment: $comment)';
+    return 'MeasuresEvent.createOrEditTodays(weight: $weight, comment: $comment)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MeasuresEvent$CreateImpl &&
+            other is _$MeasuresEvent$CreateOrEditTodaysImpl &&
             (identical(other.weight, weight) || other.weight == weight) &&
             (identical(other.comment, comment) || other.comment == comment));
   }
@@ -281,47 +279,44 @@ class _$MeasuresEvent$CreateImpl implements _MeasuresEvent$Create {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$MeasuresEvent$CreateImplCopyWith<_$MeasuresEvent$CreateImpl>
-      get copyWith =>
-          __$$MeasuresEvent$CreateImplCopyWithImpl<_$MeasuresEvent$CreateImpl>(
-              this, _$identity);
+  _$$MeasuresEvent$CreateOrEditTodaysImplCopyWith<
+          _$MeasuresEvent$CreateOrEditTodaysImpl>
+      get copyWith => __$$MeasuresEvent$CreateOrEditTodaysImplCopyWithImpl<
+          _$MeasuresEvent$CreateOrEditTodaysImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(Weight weight, String comment) create,
+    required TResult Function(Weight weight, String comment) createOrEditTodays,
     required TResult Function(int id) delete,
-    required TResult Function(Weight weight, String comment) editLast,
     required TResult Function() deleteAll,
   }) {
-    return create(weight, comment);
+    return createOrEditTodays(weight, comment);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(Weight weight, String comment)? create,
+    TResult? Function(Weight weight, String comment)? createOrEditTodays,
     TResult? Function(int id)? delete,
-    TResult? Function(Weight weight, String comment)? editLast,
     TResult? Function()? deleteAll,
   }) {
-    return create?.call(weight, comment);
+    return createOrEditTodays?.call(weight, comment);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(Weight weight, String comment)? create,
+    TResult Function(Weight weight, String comment)? createOrEditTodays,
     TResult Function(int id)? delete,
-    TResult Function(Weight weight, String comment)? editLast,
     TResult Function()? deleteAll,
     required TResult orElse(),
   }) {
-    if (create != null) {
-      return create(weight, comment);
+    if (createOrEditTodays != null) {
+      return createOrEditTodays(weight, comment);
     }
     return orElse();
   }
@@ -330,52 +325,53 @@ class _$MeasuresEvent$CreateImpl implements _MeasuresEvent$Create {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_MeasuresEvent$Started value) started,
-    required TResult Function(_MeasuresEvent$Create value) create,
+    required TResult Function(_MeasuresEvent$CreateOrEditTodays value)
+        createOrEditTodays,
     required TResult Function(_MeasuresEvent$Delete value) delete,
-    required TResult Function(_MeasuresEvent$EditLast value) editLast,
     required TResult Function(_MeasuresEvent$DeleteAll value) deleteAll,
   }) {
-    return create(this);
+    return createOrEditTodays(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_MeasuresEvent$Started value)? started,
-    TResult? Function(_MeasuresEvent$Create value)? create,
+    TResult? Function(_MeasuresEvent$CreateOrEditTodays value)?
+        createOrEditTodays,
     TResult? Function(_MeasuresEvent$Delete value)? delete,
-    TResult? Function(_MeasuresEvent$EditLast value)? editLast,
     TResult? Function(_MeasuresEvent$DeleteAll value)? deleteAll,
   }) {
-    return create?.call(this);
+    return createOrEditTodays?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MeasuresEvent$Started value)? started,
-    TResult Function(_MeasuresEvent$Create value)? create,
+    TResult Function(_MeasuresEvent$CreateOrEditTodays value)?
+        createOrEditTodays,
     TResult Function(_MeasuresEvent$Delete value)? delete,
-    TResult Function(_MeasuresEvent$EditLast value)? editLast,
     TResult Function(_MeasuresEvent$DeleteAll value)? deleteAll,
     required TResult orElse(),
   }) {
-    if (create != null) {
-      return create(this);
+    if (createOrEditTodays != null) {
+      return createOrEditTodays(this);
     }
     return orElse();
   }
 }
 
-abstract class _MeasuresEvent$Create implements MeasuresEvent {
-  const factory _MeasuresEvent$Create(
+abstract class _MeasuresEvent$CreateOrEditTodays implements MeasuresEvent {
+  const factory _MeasuresEvent$CreateOrEditTodays(
       {required final Weight weight,
-      required final String comment}) = _$MeasuresEvent$CreateImpl;
+      required final String comment}) = _$MeasuresEvent$CreateOrEditTodaysImpl;
 
   Weight get weight;
   String get comment;
   @JsonKey(ignore: true)
-  _$$MeasuresEvent$CreateImplCopyWith<_$MeasuresEvent$CreateImpl>
+  _$$MeasuresEvent$CreateOrEditTodaysImplCopyWith<
+          _$MeasuresEvent$CreateOrEditTodaysImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -446,9 +442,8 @@ class _$MeasuresEvent$DeleteImpl implements _MeasuresEvent$Delete {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(Weight weight, String comment) create,
+    required TResult Function(Weight weight, String comment) createOrEditTodays,
     required TResult Function(int id) delete,
-    required TResult Function(Weight weight, String comment) editLast,
     required TResult Function() deleteAll,
   }) {
     return delete(id);
@@ -458,9 +453,8 @@ class _$MeasuresEvent$DeleteImpl implements _MeasuresEvent$Delete {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(Weight weight, String comment)? create,
+    TResult? Function(Weight weight, String comment)? createOrEditTodays,
     TResult? Function(int id)? delete,
-    TResult? Function(Weight weight, String comment)? editLast,
     TResult? Function()? deleteAll,
   }) {
     return delete?.call(id);
@@ -470,9 +464,8 @@ class _$MeasuresEvent$DeleteImpl implements _MeasuresEvent$Delete {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(Weight weight, String comment)? create,
+    TResult Function(Weight weight, String comment)? createOrEditTodays,
     TResult Function(int id)? delete,
-    TResult Function(Weight weight, String comment)? editLast,
     TResult Function()? deleteAll,
     required TResult orElse(),
   }) {
@@ -486,9 +479,9 @@ class _$MeasuresEvent$DeleteImpl implements _MeasuresEvent$Delete {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_MeasuresEvent$Started value) started,
-    required TResult Function(_MeasuresEvent$Create value) create,
+    required TResult Function(_MeasuresEvent$CreateOrEditTodays value)
+        createOrEditTodays,
     required TResult Function(_MeasuresEvent$Delete value) delete,
-    required TResult Function(_MeasuresEvent$EditLast value) editLast,
     required TResult Function(_MeasuresEvent$DeleteAll value) deleteAll,
   }) {
     return delete(this);
@@ -498,9 +491,9 @@ class _$MeasuresEvent$DeleteImpl implements _MeasuresEvent$Delete {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_MeasuresEvent$Started value)? started,
-    TResult? Function(_MeasuresEvent$Create value)? create,
+    TResult? Function(_MeasuresEvent$CreateOrEditTodays value)?
+        createOrEditTodays,
     TResult? Function(_MeasuresEvent$Delete value)? delete,
-    TResult? Function(_MeasuresEvent$EditLast value)? editLast,
     TResult? Function(_MeasuresEvent$DeleteAll value)? deleteAll,
   }) {
     return delete?.call(this);
@@ -510,9 +503,9 @@ class _$MeasuresEvent$DeleteImpl implements _MeasuresEvent$Delete {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MeasuresEvent$Started value)? started,
-    TResult Function(_MeasuresEvent$Create value)? create,
+    TResult Function(_MeasuresEvent$CreateOrEditTodays value)?
+        createOrEditTodays,
     TResult Function(_MeasuresEvent$Delete value)? delete,
-    TResult Function(_MeasuresEvent$EditLast value)? editLast,
     TResult Function(_MeasuresEvent$DeleteAll value)? deleteAll,
     required TResult orElse(),
   }) {
@@ -530,172 +523,6 @@ abstract class _MeasuresEvent$Delete implements MeasuresEvent {
   int get id;
   @JsonKey(ignore: true)
   _$$MeasuresEvent$DeleteImplCopyWith<_$MeasuresEvent$DeleteImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$MeasuresEvent$EditLastImplCopyWith<$Res> {
-  factory _$$MeasuresEvent$EditLastImplCopyWith(
-          _$MeasuresEvent$EditLastImpl value,
-          $Res Function(_$MeasuresEvent$EditLastImpl) then) =
-      __$$MeasuresEvent$EditLastImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Weight weight, String comment});
-}
-
-/// @nodoc
-class __$$MeasuresEvent$EditLastImplCopyWithImpl<$Res>
-    extends _$MeasuresEventCopyWithImpl<$Res, _$MeasuresEvent$EditLastImpl>
-    implements _$$MeasuresEvent$EditLastImplCopyWith<$Res> {
-  __$$MeasuresEvent$EditLastImplCopyWithImpl(
-      _$MeasuresEvent$EditLastImpl _value,
-      $Res Function(_$MeasuresEvent$EditLastImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? weight = null,
-    Object? comment = null,
-  }) {
-    return _then(_$MeasuresEvent$EditLastImpl(
-      weight: null == weight
-          ? _value.weight
-          : weight // ignore: cast_nullable_to_non_nullable
-              as Weight,
-      comment: null == comment
-          ? _value.comment
-          : comment // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$MeasuresEvent$EditLastImpl implements _MeasuresEvent$EditLast {
-  const _$MeasuresEvent$EditLastImpl(
-      {required this.weight, required this.comment});
-
-  @override
-  final Weight weight;
-  @override
-  final String comment;
-
-  @override
-  String toString() {
-    return 'MeasuresEvent.editLast(weight: $weight, comment: $comment)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$MeasuresEvent$EditLastImpl &&
-            (identical(other.weight, weight) || other.weight == weight) &&
-            (identical(other.comment, comment) || other.comment == comment));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, weight, comment);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$MeasuresEvent$EditLastImplCopyWith<_$MeasuresEvent$EditLastImpl>
-      get copyWith => __$$MeasuresEvent$EditLastImplCopyWithImpl<
-          _$MeasuresEvent$EditLastImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function(Weight weight, String comment) create,
-    required TResult Function(int id) delete,
-    required TResult Function(Weight weight, String comment) editLast,
-    required TResult Function() deleteAll,
-  }) {
-    return editLast(weight, comment);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function(Weight weight, String comment)? create,
-    TResult? Function(int id)? delete,
-    TResult? Function(Weight weight, String comment)? editLast,
-    TResult? Function()? deleteAll,
-  }) {
-    return editLast?.call(weight, comment);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(Weight weight, String comment)? create,
-    TResult Function(int id)? delete,
-    TResult Function(Weight weight, String comment)? editLast,
-    TResult Function()? deleteAll,
-    required TResult orElse(),
-  }) {
-    if (editLast != null) {
-      return editLast(weight, comment);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_MeasuresEvent$Started value) started,
-    required TResult Function(_MeasuresEvent$Create value) create,
-    required TResult Function(_MeasuresEvent$Delete value) delete,
-    required TResult Function(_MeasuresEvent$EditLast value) editLast,
-    required TResult Function(_MeasuresEvent$DeleteAll value) deleteAll,
-  }) {
-    return editLast(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_MeasuresEvent$Started value)? started,
-    TResult? Function(_MeasuresEvent$Create value)? create,
-    TResult? Function(_MeasuresEvent$Delete value)? delete,
-    TResult? Function(_MeasuresEvent$EditLast value)? editLast,
-    TResult? Function(_MeasuresEvent$DeleteAll value)? deleteAll,
-  }) {
-    return editLast?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_MeasuresEvent$Started value)? started,
-    TResult Function(_MeasuresEvent$Create value)? create,
-    TResult Function(_MeasuresEvent$Delete value)? delete,
-    TResult Function(_MeasuresEvent$EditLast value)? editLast,
-    TResult Function(_MeasuresEvent$DeleteAll value)? deleteAll,
-    required TResult orElse(),
-  }) {
-    if (editLast != null) {
-      return editLast(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _MeasuresEvent$EditLast implements MeasuresEvent {
-  const factory _MeasuresEvent$EditLast(
-      {required final Weight weight,
-      required final String comment}) = _$MeasuresEvent$EditLastImpl;
-
-  Weight get weight;
-  String get comment;
-  @JsonKey(ignore: true)
-  _$$MeasuresEvent$EditLastImplCopyWith<_$MeasuresEvent$EditLastImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -741,9 +568,8 @@ class _$MeasuresEvent$DeleteAllImpl implements _MeasuresEvent$DeleteAll {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(Weight weight, String comment) create,
+    required TResult Function(Weight weight, String comment) createOrEditTodays,
     required TResult Function(int id) delete,
-    required TResult Function(Weight weight, String comment) editLast,
     required TResult Function() deleteAll,
   }) {
     return deleteAll();
@@ -753,9 +579,8 @@ class _$MeasuresEvent$DeleteAllImpl implements _MeasuresEvent$DeleteAll {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(Weight weight, String comment)? create,
+    TResult? Function(Weight weight, String comment)? createOrEditTodays,
     TResult? Function(int id)? delete,
-    TResult? Function(Weight weight, String comment)? editLast,
     TResult? Function()? deleteAll,
   }) {
     return deleteAll?.call();
@@ -765,9 +590,8 @@ class _$MeasuresEvent$DeleteAllImpl implements _MeasuresEvent$DeleteAll {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(Weight weight, String comment)? create,
+    TResult Function(Weight weight, String comment)? createOrEditTodays,
     TResult Function(int id)? delete,
-    TResult Function(Weight weight, String comment)? editLast,
     TResult Function()? deleteAll,
     required TResult orElse(),
   }) {
@@ -781,9 +605,9 @@ class _$MeasuresEvent$DeleteAllImpl implements _MeasuresEvent$DeleteAll {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_MeasuresEvent$Started value) started,
-    required TResult Function(_MeasuresEvent$Create value) create,
+    required TResult Function(_MeasuresEvent$CreateOrEditTodays value)
+        createOrEditTodays,
     required TResult Function(_MeasuresEvent$Delete value) delete,
-    required TResult Function(_MeasuresEvent$EditLast value) editLast,
     required TResult Function(_MeasuresEvent$DeleteAll value) deleteAll,
   }) {
     return deleteAll(this);
@@ -793,9 +617,9 @@ class _$MeasuresEvent$DeleteAllImpl implements _MeasuresEvent$DeleteAll {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_MeasuresEvent$Started value)? started,
-    TResult? Function(_MeasuresEvent$Create value)? create,
+    TResult? Function(_MeasuresEvent$CreateOrEditTodays value)?
+        createOrEditTodays,
     TResult? Function(_MeasuresEvent$Delete value)? delete,
-    TResult? Function(_MeasuresEvent$EditLast value)? editLast,
     TResult? Function(_MeasuresEvent$DeleteAll value)? deleteAll,
   }) {
     return deleteAll?.call(this);
@@ -805,9 +629,9 @@ class _$MeasuresEvent$DeleteAllImpl implements _MeasuresEvent$DeleteAll {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MeasuresEvent$Started value)? started,
-    TResult Function(_MeasuresEvent$Create value)? create,
+    TResult Function(_MeasuresEvent$CreateOrEditTodays value)?
+        createOrEditTodays,
     TResult Function(_MeasuresEvent$Delete value)? delete,
-    TResult Function(_MeasuresEvent$EditLast value)? editLast,
     TResult Function(_MeasuresEvent$DeleteAll value)? deleteAll,
     required TResult orElse(),
   }) {

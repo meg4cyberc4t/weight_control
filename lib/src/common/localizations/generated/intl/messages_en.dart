@@ -41,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "deleteAllContent": MessageLookupByLibrary.simpleMessage(
             "This action cannot be undone!"),
         "designMode": MessageLookupByLibrary.simpleMessage("Design Mode"),
+        "edit": MessageLookupByLibrary.simpleMessage("Edit"),
         "equalThanPrevious":
             MessageLookupByLibrary.simpleMessage("The weight is equal."),
         "goToDashboard":

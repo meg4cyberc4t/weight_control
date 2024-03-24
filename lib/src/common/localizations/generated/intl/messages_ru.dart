@@ -41,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "deleteAllContent": MessageLookupByLibrary.simpleMessage(
             "Это действие нельзя будет отменить!"),
         "designMode": MessageLookupByLibrary.simpleMessage("Стиль приложения"),
+        "edit": MessageLookupByLibrary.simpleMessage("Изменить"),
         "equalThanPrevious":
             MessageLookupByLibrary.simpleMessage("Вес идентичен с предыдущим."),
         "goToDashboard":
