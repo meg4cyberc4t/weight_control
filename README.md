@@ -1,8 +1,7 @@
 <div align="center">
 <h2>Weight Control</h2>
 <h3>An application for tracking your weight.</h3>
-
-<img style="max-height:96px;" src="assets/icon_source.jpeg"/>
+<img height=96 src="assets/icon_source.jpeg"/>
 
 <table>
     <tr>
