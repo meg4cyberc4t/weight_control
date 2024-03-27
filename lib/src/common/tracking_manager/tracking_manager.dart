@@ -72,7 +72,7 @@ final class DatabaseTrackingManager extends TrackingManager {
     await _database.into(_database.logsTable).insert(
           LogsTableCompanion.insert(
             message: log.message,
-            time: Value.ofNullable(log.time),
+            time: Value.absentIfNull(log.time),
             level: Value(log.logLevel),
             stackTrace: Value(log.stackTrace),
           ),
