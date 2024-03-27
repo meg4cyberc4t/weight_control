@@ -22,9 +22,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m0(kg) => "More than the previous measurements by ${kg}";
 
-  static String m1(kg) => "Less than the previous measurements by ${kg}";
+  static String m1(weight) => "${weight} kg.";
 
-  static String m2(weight) => "${weight} kg.";
+  static String m2(kg) => "Less than the previous measurements by ${kg}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -41,15 +41,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "deleteAllContent": MessageLookupByLibrary.simpleMessage(
             "This action cannot be undone!"),
         "designMode": MessageLookupByLibrary.simpleMessage("Design Mode"),
+        "edit": MessageLookupByLibrary.simpleMessage("Edit"),
         "equalThanPrevious":
             MessageLookupByLibrary.simpleMessage("The weight is equal."),
         "goToDashboard":
             MessageLookupByLibrary.simpleMessage("Go to the dashboard"),
         "greaterThanPrevious": m0,
-        "kg": MessageLookupByLibrary.simpleMessage("kg."),
+        "kilogramsNumber": m1,
+        "kilogramsShort": MessageLookupByLibrary.simpleMessage("kg."),
         "language": MessageLookupByLibrary.simpleMessage("English"),
         "languageCode": MessageLookupByLibrary.simpleMessage("en"),
-        "lessThanPrevious": m1,
+        "lessThanPrevious": m2,
         "licenses": MessageLookupByLibrary.simpleMessage("Licenses"),
         "localeCode": MessageLookupByLibrary.simpleMessage("en_US"),
         "notAvailableCreateMeasure": MessageLookupByLibrary.simpleMessage(
@@ -59,7 +61,6 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Come back tomorrow for new measurements!"),
         "notCalculated":
             MessageLookupByLibrary.simpleMessage("Use the sliders to measure."),
-        "numberKg": m2,
         "rateTheApp": MessageLookupByLibrary.simpleMessage("Rate the app"),
         "record": MessageLookupByLibrary.simpleMessage("Record"),
         "reportABug": MessageLookupByLibrary.simpleMessage("Report a bug"),
@@ -75,6 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Weight Control Stage"),
         "version": MessageLookupByLibrary.simpleMessage("Version"),
         "weight": MessageLookupByLibrary.simpleMessage("Weight"),
+        "weightMode": MessageLookupByLibrary.simpleMessage("Unit of mass"),
         "yourMeasurements":
             MessageLookupByLibrary.simpleMessage("Your measurements")
       };

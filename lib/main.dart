@@ -5,12 +5,10 @@ import 'package:weight_control/src/features/initialization/logic/app_runner.dart
 
 void main() {
   logger.runLogging(
-    () {
-      runZonedGuarded(
-        () async => AppRunner().initializeAndRun(),
-        logger.logZoneError,
-      );
-    },
+    () => runZonedGuarded(
+      () async => AppRunner().initializeAndRun(),
+      logger.logZoneError,
+    ),
     const LogOptions(),
   );
 }

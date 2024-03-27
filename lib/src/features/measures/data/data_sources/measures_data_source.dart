@@ -11,6 +11,12 @@ abstract interface class MeasuresDataSource {
     required final String? comment,
   });
 
+  Future<bool> editMeasure({
+    required final int id,
+    required final Weight weight,
+    required final String? comment,
+  });
+
   Future<void> deleteMeasure(final int id);
 
   Future<void> deleteAll();

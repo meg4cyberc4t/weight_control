@@ -28,6 +28,8 @@ final class AppRunner {
     FlutterError.onError = logger.logFlutterError;
     PlatformDispatcher.instance.onError = logger.logPlatformDispatcherError;
 
+    Bloc.observer = LoggerBlocObserver();
+
     final InitializationResult result = await processInitialization();
 
     bindings.allowFirstFrame();
@@ -56,8 +58,6 @@ final class AppRunner {
   }
 
   Future<Dependencies> _$initializationDependencies() async {
-    Bloc.observer = const LoggerBlocObserver();
-
     final database = AppDatabase();
 
     final trackingManager = DatabaseTrackingManager(database, logger);

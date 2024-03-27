@@ -6,6 +6,11 @@ abstract interface class MeasuresRepository {
 
   Future<Measure?> getLastMeasure();
 
+  Future<void> editLastMeasure({
+    required final Weight weight,
+    required final String? comment,
+  });
+
   Future<void> createMeasure({
     required final Weight weight,
     required final String? comment,

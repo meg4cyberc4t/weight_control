@@ -99,7 +99,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
 
   @override
   Widget build(final BuildContext context) =>
-      switch (SettingsScope.stateOf(context, listen: true).designMode) {
+      switch (SettingsScope.designModeOf(context)) {
         DesignMode.material => _HomeScreenWidget$Material(
             activeTab: _tab,
             onSwitchTab: _switchTab,

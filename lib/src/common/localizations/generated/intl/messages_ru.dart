@@ -22,9 +22,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m0(kg) => "Больше, чем предыдущее измерение ${kg}";
 
-  static String m1(kg) => "Меньше, чем предыдущее измерение ${kg}";
+  static String m1(weight) => "${weight} кг.";
 
-  static String m2(weight) => "${weight} кг.";
+  static String m2(kg) => "Меньше, чем предыдущее измерение ${kg}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -41,15 +41,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "deleteAllContent": MessageLookupByLibrary.simpleMessage(
             "Это действие нельзя будет отменить!"),
         "designMode": MessageLookupByLibrary.simpleMessage("Стиль приложения"),
+        "edit": MessageLookupByLibrary.simpleMessage("Изменить"),
         "equalThanPrevious":
             MessageLookupByLibrary.simpleMessage("Вес идентичен с предыдущим."),
         "goToDashboard":
             MessageLookupByLibrary.simpleMessage("Перейти к главной"),
         "greaterThanPrevious": m0,
-        "kg": MessageLookupByLibrary.simpleMessage("кг."),
+        "kilogramsNumber": m1,
+        "kilogramsShort": MessageLookupByLibrary.simpleMessage("кг."),
         "language": MessageLookupByLibrary.simpleMessage("Russian"),
         "languageCode": MessageLookupByLibrary.simpleMessage("ru"),
-        "lessThanPrevious": m1,
+        "lessThanPrevious": m2,
         "licenses": MessageLookupByLibrary.simpleMessage("Лицензии"),
         "localeCode": MessageLookupByLibrary.simpleMessage("ru_RU"),
         "notAvailableCreateMeasure": MessageLookupByLibrary.simpleMessage(
@@ -59,7 +61,6 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Возвращайтесь завтра для новых измерений!"),
         "notCalculated": MessageLookupByLibrary.simpleMessage(
             "Используйте слайдеры для измерения веса."),
-        "numberKg": m2,
         "rateTheApp":
             MessageLookupByLibrary.simpleMessage("Оценить приложение"),
         "record": MessageLookupByLibrary.simpleMessage("Записать"),
@@ -75,6 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Weight Control Stage"),
         "version": MessageLookupByLibrary.simpleMessage("Версия"),
         "weight": MessageLookupByLibrary.simpleMessage("Вес"),
+        "weightMode": MessageLookupByLibrary.simpleMessage("Единица массы"),
         "yourMeasurements":
             MessageLookupByLibrary.simpleMessage("Ваши измерения")
       };

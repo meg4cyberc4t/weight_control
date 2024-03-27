@@ -25,7 +25,7 @@ class _MaterialContextState extends State<MaterialContext>
         localizationsDelegates: localizationsDelegate,
         theme: ThemeData.light(),
         darkTheme: ThemeData.dark(),
-        themeMode: SettingsScope.stateOf(context, listen: true).themeMode,
+        themeMode: SettingsScope.themeModeOf(context),
         builder: (final context, final child) {
           final MediaQueryData mediaQueryData = MediaQuery.of(context);
           return MediaQuery(

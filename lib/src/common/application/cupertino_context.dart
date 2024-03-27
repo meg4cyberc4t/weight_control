@@ -24,8 +24,7 @@ class _CupertinoContextState extends State<CupertinoContext>
         onGenerateTitle: onGenerateTitle,
         supportedLocales: localizationDelegate.supportedLocales,
         theme: CupertinoThemeData(
-          brightness: switch (
-              SettingsScope.stateOf(context, listen: true).themeMode) {
+          brightness: switch (SettingsScope.themeModeOf(context)) {
             ThemeMode.system => Theme.of(context).brightness,
             ThemeMode.light => Brightness.light,
             ThemeMode.dark => Brightness.dark,

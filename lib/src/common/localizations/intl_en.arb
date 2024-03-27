@@ -20,6 +20,7 @@
   "sourceCode": "Source code",
   "reportABug": "Report a bug",
   "themeMode": "Theme Mode",
+  "weightMode": "Unit of mass",
   "designMode": "Design Mode",
   "deleteAll": "Delete data",
   "deleteAllContent": "This action cannot be undone!",
@@ -37,13 +38,14 @@
   "equalThanPrevious": "The weight is equal.",
   "notCalculated": "Use the sliders to measure.",
   "record": "Record",
+  "edit": "Edit",
   "@ Measurements": {},
   "yourMeasurements": "Your measurements",
   "@ Placeholders": {},
   "cancel": "Cancel",
   "delete": "Delete",
-  "kg": "kg.",
-  "numberKg": "{weight} kg.",
+  "kilogramsShort": "kg.",
+  "kilogramsNumber": "{weight} kg.",
   "@numberKg": {
       "placeholders": {
           "weight": {

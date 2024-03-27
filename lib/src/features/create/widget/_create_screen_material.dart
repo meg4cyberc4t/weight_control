@@ -1,96 +1,32 @@
 part of 'create_screen.dart';
 
-class _CreateScreenWidget$Material extends StatelessWidget {
-  final CreateScreenController controller;
-
-  const _CreateScreenWidget$Material({required this.controller});
-
-  @override
-  Widget build(final BuildContext context) => Scaffold(
-        body: switch (controller.state) {
-          final CreateScreenState$NotAvailable state =>
-            _StopToCreateWidget$Material(
-              state: state,
-              switchPageToDashboard: controller.switchPageToDashboard,
-            ),
-          final CreateScreenState$Available state =>
-            _CreateContentWidget$Material(
-              state: state,
-              controller: controller,
-            ),
-        },
-      );
-}
-
-class _StopToCreateWidget$Material extends StatelessWidget {
-  final CreateScreenState$NotAvailable state;
-  final VoidCallback switchPageToDashboard;
-
-  const _StopToCreateWidget$Material({
-    required this.state,
-    required this.switchPageToDashboard,
+class _CreateScreenWidget$Material extends StatefulWidget {
+  const _CreateScreenWidget$Material({
+    required this.lastMeasure,
+    required this.onAction,
+    required this.isEditing,
   });
+  final Measure? lastMeasure;
+  final void Function({
+    required Weight weight,
+    required String comment,
+  }) onAction;
+  final bool isEditing;
 
   @override
-  Widget build(final BuildContext context) {
-    final theme = Theme.of(context);
-
-    return Scaffold(
-      appBar: AppBar(),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                context.localizations.notAvailableCreateMeasure,
-                style: theme.textTheme.titleLarge,
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 8),
-              Text(
-                context.localizations.notAvailableCreateMeasureDescription,
-                style: theme.textTheme.bodyLarge,
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 8),
-              FilledButton(
-                onPressed: switchPageToDashboard,
-                child: Text(context.localizations.goToDashboard),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
+  State<StatefulWidget> createState() => _CreateScreenWidgetState$Material();
 }
 
-class _CreateContentWidget$Material extends StatefulWidget {
-  final CreateScreenState$Available state;
-  final CreateScreenController controller;
-
-  const _CreateContentWidget$Material({
-    required this.state,
-    required this.controller,
-  });
-
-  @override
-  State<_CreateContentWidget$Material> createState() =>
-      __CreateContentWidget$MaterialState();
-}
-
-class __CreateContentWidget$MaterialState
-    extends State<_CreateContentWidget$Material> {
+class _CreateScreenWidgetState$Material
+    extends State<_CreateScreenWidget$Material> {
   late final FixedExtentScrollController _gramsController;
   late final FixedExtentScrollController _kilogramsController;
-  final TextEditingController _commentTextController = TextEditingController();
+  late final TextEditingController _commentTextController =
+      TextEditingController(text: widget.lastMeasure?.comment);
 
   @override
   void initState() {
-    final lastMeasure = widget.state.lastMeasure;
+    final lastMeasure = widget.lastMeasure;
     _weight = Weight(grams: lastMeasure?.weight.inGrams ?? 0);
     _gramsController = FixedExtentScrollController(
       initialItem: (_weight.inGrams % 1000) ~/ 100,
@@ -128,15 +64,13 @@ class __CreateContentWidget$MaterialState
     });
   }
 
-  void _create() {
-    widget.controller.create(
-      weight: Weight(
-        grams: (_gramsController.selectedItem % 10) * 100,
-        kilograms: _kilogramsController.selectedItem,
-      ),
-      comment: _commentTextController.text,
-    );
-  }
+  void _action() => widget.onAction(
+        weight: Weight(
+          grams: (_gramsController.selectedItem % 10) * 100,
+          kilograms: _kilogramsController.selectedItem,
+        ),
+        comment: _commentTextController.text,
+      );
 
   @override
   Widget build(final BuildContext context) => Scaffold(
@@ -144,14 +78,18 @@ class __CreateContentWidget$MaterialState
           title: Text(context.localizations.specifyTheWeight),
         ),
         floatingActionButton: FloatingActionButton.extended(
-          onPressed: _create,
-          label: Text(context.localizations.record),
+          onPressed: _action,
+          label: Text(
+            widget.isEditing
+                ? context.localizations.edit
+                : context.localizations.record,
+          ),
         ),
         body: CustomScrollView(
           slivers: [
             SliverToBoxAdapter(
               child: WeightDifference(
-                lastWeight: widget.state.lastMeasure?.weight,
+                lastWeight: widget.lastMeasure?.weight,
                 weight: _weight,
                 builder: (final _, final mode, final formattedString) =>
                     _WeightDifference$Material(
@@ -209,7 +147,7 @@ class __CreateContentWidget$MaterialState
                     ),
                   ),
                   Text(
-                    context.localizations.kg,
+                    context.localizations.kilogramsShort,
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ],

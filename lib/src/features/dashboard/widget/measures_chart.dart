@@ -37,7 +37,7 @@ class _MeasuresChartState extends State<MeasuresChart> {
       series: <CartesianSeries<Object?, Object?>>[
         LineSeries<Measure, DateTime>(
           dataLabelMapper: (final datum, final index) =>
-              context.localizations.numberKg(datum.weight.kilograms),
+              context.localizations.kilogramsNumber(datum.weight.kilograms),
           dataSource: measures,
           xValueMapper: (final measure, final _) => measure.time,
           yValueMapper: (final measure, final _) => measure.weight.inGrams,

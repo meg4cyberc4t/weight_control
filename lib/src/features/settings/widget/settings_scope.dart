@@ -13,24 +13,30 @@ abstract interface class SettingsController {
 class SettingsScope extends StatefulWidget {
   final Widget child;
 
-  static SettingsState stateOf(
-    final BuildContext context, {
-    final bool listen = false,
-  }) =>
-      (listen
-              ? context.dependOnInheritedWidgetOfExactType<_SettingsInherited>()
-              : context.getInheritedWidgetOfExactType<_SettingsInherited>())
-          ?.state ??
-      _notFoundInheritedWidget();
+  static DesignMode designModeOf(
+    final BuildContext context,
+  ) =>
+      _scopeOf(context, aspect: _SettingsScopeAspect.design).state.designMode;
+
+  static ThemeMode themeModeOf(
+    final BuildContext context,
+  ) =>
+      _scopeOf(context, aspect: _SettingsScopeAspect.theme).state.themeMode;
 
   static SettingsController controllerOf(
     final BuildContext context, {
     final bool listen = false,
   }) =>
-      (listen
-              ? context.dependOnInheritedWidgetOfExactType<_SettingsInherited>()
-              : context.getInheritedWidgetOfExactType<_SettingsInherited>())
-          ?.controller ??
+      _scopeOf(context, aspect: _SettingsScopeAspect.controller).controller;
+
+  static _SettingsInherited _scopeOf(
+    final BuildContext context, {
+    required final _SettingsScopeAspect aspect,
+  }) =>
+      InheritedModel.inheritFrom<_SettingsInherited>(
+        context,
+        aspect: aspect,
+      ) ??
       _notFoundInheritedWidget();
 
   static Never _notFoundInheritedWidget() => throw ArgumentError(
@@ -93,7 +99,7 @@ class _SettingsScopeState extends State<SettingsScope>
       );
 }
 
-final class _SettingsInherited extends InheritedWidget {
+final class _SettingsInherited extends InheritedModel<_SettingsScopeAspect> {
   final SettingsState state;
   final SettingsController controller;
 
@@ -105,5 +111,37 @@ final class _SettingsInherited extends InheritedWidget {
 
   @override
   bool updateShouldNotify(covariant final _SettingsInherited oldWidget) =>
-      state != oldWidget.state || controller != oldWidget.controller;
+      state.designMode != oldWidget.state.designMode ||
+      state.themeMode != oldWidget.state.themeMode ||
+      controller != oldWidget.controller;
+
+  @override
+  bool updateShouldNotifyDependent(
+    covariant final _SettingsInherited oldWidget,
+    final Set<_SettingsScopeAspect> dependencies,
+  ) {
+    bool shouldNotify = false;
+
+    if (dependencies.contains(_SettingsScopeAspect.design)) {
+      shouldNotify =
+          shouldNotify || state.designMode != oldWidget.state.designMode;
+    }
+
+    if (dependencies.contains(_SettingsScopeAspect.theme)) {
+      shouldNotify =
+          shouldNotify || state.themeMode != oldWidget.state.themeMode;
+    }
+
+    if (dependencies.contains(_SettingsScopeAspect.controller)) {
+      shouldNotify = shouldNotify || controller != oldWidget.controller;
+    }
+
+    return shouldNotify;
+  }
+}
+
+enum _SettingsScopeAspect {
+  controller,
+  theme,
+  design,
 }

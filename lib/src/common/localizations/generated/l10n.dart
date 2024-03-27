@@ -221,6 +221,16 @@ class GeneratedLocalization {
     );
   }
 
+  /// `Unit of mass`
+  String get weightMode {
+    return Intl.message(
+      'Unit of mass',
+      name: 'weightMode',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Design Mode`
   String get designMode {
     return Intl.message(
@@ -381,6 +391,16 @@ class GeneratedLocalization {
     );
   }
 
+  /// `Edit`
+  String get edit {
+    return Intl.message(
+      'Edit',
+      name: 'edit',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Your measurements`
   String get yourMeasurements {
     return Intl.message(
@@ -412,27 +432,22 @@ class GeneratedLocalization {
   }
 
   /// `kg.`
-  String get kg {
+  String get kilogramsShort {
     return Intl.message(
       'kg.',
-      name: 'kg',
+      name: 'kilogramsShort',
       desc: '',
       args: [],
     );
   }
 
   /// `{weight} kg.`
-  String numberKg(double weight) {
-    final NumberFormat weightNumberFormat = NumberFormat.compact(
-      locale: Intl.getCurrentLocale(),
-    );
-    final String weightString = weightNumberFormat.format(weight);
-
+  String kilogramsNumber(Object weight) {
     return Intl.message(
-      '$weightString kg.',
-      name: 'numberKg',
+      '$weight kg.',
+      name: 'kilogramsNumber',
       desc: '',
-      args: [weightString],
+      args: [weight],
     );
   }
 }

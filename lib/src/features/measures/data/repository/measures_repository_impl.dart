@@ -40,4 +40,22 @@ final class MeasuresRepositoryImpl implements MeasuresRepository {
   Future<void> deleteAll() async {
     await _localDs.deleteAll();
   }
+
+  @override
+  Future<void> editLastMeasure({
+    required final Weight weight,
+    required final String? comment,
+  }) async {
+    final lastMeasure = await _localDs.getLastMeasure();
+    if (lastMeasure == null) {
+      throw ArgumentError.notNull(
+        'The method cannot be called if the last dimension does not exist',
+      );
+    }
+    await _localDs.editMeasure(
+      id: lastMeasure.id,
+      weight: weight,
+      comment: comment,
+    );
+  }
 }

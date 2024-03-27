@@ -58,11 +58,13 @@ class _MeasureTile$Cupertino extends StatelessWidget {
     if (prevMeasure != null) {
       final difference =
           measure.weight - (prevMeasure?.weight ?? const Weight());
-      differenceWeight = context.localizations.numberKg(difference.kilograms);
+      differenceWeight =
+          context.localizations.kilogramsNumber(difference.kilograms);
     }
 
     return CupertinoListTile.notched(
-      title: Text(context.localizations.numberKg(measure.weight.kilograms)),
+      title:
+          Text(context.localizations.kilogramsNumber(measure.weight.kilograms)),
       subtitle: Text(
         [
           DateFormat.yMEd().format(measure.time),
