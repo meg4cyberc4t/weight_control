@@ -23,7 +23,7 @@ class DashboardScreenWidget extends StatefulWidget {
 class _DashboardScreenWidgetState extends State<DashboardScreenWidget> {
   @override
   Widget build(final BuildContext context) =>
-      switch (SettingsScope.stateOf(context, listen: true).designMode) {
+      switch (SettingsScope.designModeOf(context)) {
         DesignMode.material => const _DashboardScreenWidget$Material(),
         DesignMode.cupertino => const _DashboardScreenWidget$Cupertino(),
       };

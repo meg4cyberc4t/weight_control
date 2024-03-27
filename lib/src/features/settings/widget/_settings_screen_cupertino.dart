@@ -87,7 +87,7 @@ class _SettingsDesignModeSwitch$Cupertino extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
-    final themeMode = SettingsScope.stateOf(context, listen: true).designMode;
+    final themeMode = SettingsScope.designModeOf(context);
 
     return CupertinoListTile.notched(
       leading: const Icon(CupertinoIcons.selection_pin_in_out),
@@ -103,7 +103,7 @@ class _SettingsThemeModeSwitch$Cupertino extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
-    final themeMode = SettingsScope.stateOf(context, listen: true).themeMode;
+    final themeMode = SettingsScope.themeModeOf(context);
 
     return CupertinoListTile.notched(
       leading: Icon(

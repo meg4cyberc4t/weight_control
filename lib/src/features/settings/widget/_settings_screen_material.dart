@@ -118,7 +118,7 @@ class _SettingsDesignModeSwitch$Material extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
-    final themeMode = SettingsScope.stateOf(context, listen: true).designMode;
+    final themeMode = SettingsScope.designModeOf(context);
 
     return ListTile(
       leading: Icon(
@@ -139,7 +139,7 @@ class _SettingsThemeModeSwitch$Material extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
-    final themeMode = SettingsScope.stateOf(context, listen: true).themeMode;
+    final themeMode = SettingsScope.themeModeOf(context);
 
     return ListTile(
       leading: Icon(

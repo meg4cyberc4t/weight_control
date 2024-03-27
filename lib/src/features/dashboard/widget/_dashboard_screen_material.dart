@@ -61,7 +61,8 @@ class _MeasureTile$Material extends StatelessWidget {
       differenceWeight = '$formattedKilograms.${formattedGrams.toInt()}';
     }
     return ListTile(
-      title: Text(context.localizations.numberKg(measure.weight.kilograms)),
+      title:
+          Text(context.localizations.kilogramsNumber(measure.weight.kilograms)),
       subtitle: Text(
         [
           DateFormat.yMEd().format(measure.time),

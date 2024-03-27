@@ -83,8 +83,7 @@ class _SettingsScreenWidgetState extends State<SettingsScreenWidget>
   @override
   Future<void> deleteAllData(final BuildContext context) async {
     final measuresController = MeasuresScope.controllerOf(context);
-    final showDialogFuture =
-        switch (SettingsScope.stateOf(context).designMode) {
+    final showDialogFuture = switch (SettingsScope.designModeOf(context)) {
       DesignMode.material => _showDeleteAllMaterialDialog(context),
       DesignMode.cupertino => _showDeleteAllCupertinoDialog(context),
     };
@@ -148,7 +147,7 @@ class _SettingsScreenWidgetState extends State<SettingsScreenWidget>
 
   @override
   Widget build(final BuildContext context) =>
-      switch (SettingsScope.stateOf(context, listen: true).designMode) {
+      switch (SettingsScope.designModeOf(context)) {
         DesignMode.material => _SettingsScreenWidget$Material(controller: this),
         DesignMode.cupertino =>
           _SettingsScreenWidget$Cupertino(controller: this),

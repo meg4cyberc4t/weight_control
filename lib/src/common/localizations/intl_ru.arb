@@ -20,6 +20,7 @@
   "sourceCode": "Исходный код",
   "reportABug": "Сообщить о баге",
   "themeMode": "Тема приложения",
+  "weightMode": "Единица массы",
   "designMode": "Стиль приложения",
   "deleteAll": "Удалить данные",
   "deleteAllContent": "Это действие нельзя будет отменить!",
@@ -43,8 +44,10 @@
   "@ Placeholders": {},
   "cancel": "Отмена",
   "delete": "Удалить",
-  "kg": "кг.",
-  "numberKg": "{weight} кг.",
+  "kilogramsShort": "кг.",
+  "poundsShort": "ф.",
+  "kilogramsNumber": "{weight} кг.",
+  "poundsNumber": "{weight} ф.",
   "@numberKg": {
       "placeholders": {
           "weight": {

@@ -55,7 +55,7 @@ class _CreateScreenWidgetState extends State<CreateScreenWidget> {
     final lastMeasure = MeasuresScope.stateOf(context, listen: true).last;
     final bool isEditing =
         DateUtils.isSameDay(lastMeasure?.time, DateTime.now());
-    return switch (SettingsScope.stateOf(context, listen: true).designMode) {
+    return switch (SettingsScope.designModeOf(context)) {
       DesignMode.material => _CreateScreenWidget$Material(
           isEditing: isEditing,
           lastMeasure: lastMeasure,

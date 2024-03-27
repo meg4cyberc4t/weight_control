@@ -147,7 +147,7 @@ class _CreateScreenWidgetState$Material
                     ),
                   ),
                   Text(
-                    context.localizations.kg,
+                    context.localizations.kilogramsShort,
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ],

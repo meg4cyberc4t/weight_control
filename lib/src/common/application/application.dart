@@ -31,8 +31,8 @@ class Application extends StatelessWidget {
         child: SettingsScope(
           child: MeasuresScope(
             child: Builder(
-              builder: (final context) => switch (
-                  SettingsScope.stateOf(context, listen: true).designMode) {
+              builder: (final context) =>
+                  switch (SettingsScope.designModeOf(context)) {
                 DesignMode.material => const MaterialContext(),
                 DesignMode.cupertino => const CupertinoContext(),
               },

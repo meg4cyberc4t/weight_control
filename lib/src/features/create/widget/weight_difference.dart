@@ -26,7 +26,7 @@ class WeightDifference extends StatelessWidget {
     return builder(
       context,
       weight.difference(lastWeight),
-      context.localizations.numberKg(difference.kilograms),
+      context.localizations.kilogramsNumber(difference.kilograms),
     );
   }
 }

@@ -18,7 +18,7 @@ upgrade-major:
 
 # Generation of localization files
 localizations: 
-	@fvm flutter pub run intl_utils:generate
+	@fvm dart run intl_utils:generate
 
 # Displaying a list of outdated dependencies using pub outdated
 outdated: get

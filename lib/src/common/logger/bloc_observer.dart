@@ -7,7 +7,9 @@ import 'package:weight_control/src/common/logger/logger.dart';
 /// {@endtemplate}
 final class LoggerBlocObserver extends BlocObserver {
   /// {@macro LoggerBlocObserver}
-  const LoggerBlocObserver();
+  LoggerBlocObserver() {
+    logger.info('test');
+  }
 
   /// Called whenever a [Bloc] is instantiated.
   /// In many cases, a cubit may be lazily instantiated and
