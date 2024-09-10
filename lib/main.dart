@@ -9,6 +9,5 @@ void main() {
       () async => AppRunner().initializeAndRun(),
       logger.logZoneError,
     ),
-    const LogOptions(),
   );
 }
