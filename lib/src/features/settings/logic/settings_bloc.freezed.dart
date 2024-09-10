@@ -74,6 +74,9 @@ class _$SettingsEventCopyWithImpl<$Res, $Val extends SettingsEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -96,6 +99,8 @@ class __$$SettingsEvent$UpdateThemeModeImplCopyWithImpl<$Res>
       $Res Function(_$SettingsEvent$UpdateThemeModeImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -136,7 +141,9 @@ class _$SettingsEvent$UpdateThemeModeImpl
   @override
   int get hashCode => Object.hash(runtimeType, themeMode);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SettingsEvent$UpdateThemeModeImplCopyWith<
@@ -214,7 +221,10 @@ abstract class _SettingsEvent$UpdateThemeMode implements SettingsEvent {
       _$SettingsEvent$UpdateThemeModeImpl;
 
   ThemeMode get themeMode;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SettingsEvent$UpdateThemeModeImplCopyWith<
           _$SettingsEvent$UpdateThemeModeImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -240,6 +250,8 @@ class __$$SettingsEvent$UpdateDesignModeImplCopyWithImpl<$Res>
       $Res Function(_$SettingsEvent$UpdateDesignModeImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -280,7 +292,9 @@ class _$SettingsEvent$UpdateDesignModeImpl
   @override
   int get hashCode => Object.hash(runtimeType, designMode);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SettingsEvent$UpdateDesignModeImplCopyWith<
@@ -358,7 +372,10 @@ abstract class _SettingsEvent$UpdateDesignMode implements SettingsEvent {
       _$SettingsEvent$UpdateDesignModeImpl;
 
   DesignMode get designMode;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SettingsEvent$UpdateDesignModeImplCopyWith<
           _$SettingsEvent$UpdateDesignModeImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -420,7 +437,9 @@ mixin _$SettingsState {
   }) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SettingsStateCopyWith<SettingsState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -444,6 +463,8 @@ class _$SettingsStateCopyWithImpl<$Res, $Val extends SettingsState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -482,6 +503,8 @@ class __$$SettingsState$IdleImplCopyWithImpl<$Res>
       $Res Function(_$SettingsState$IdleImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -531,7 +554,9 @@ class _$SettingsState$IdleImpl implements SettingsState$Idle {
   @override
   int get hashCode => Object.hash(runtimeType, themeMode, designMode);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SettingsState$IdleImplCopyWith<_$SettingsState$IdleImpl> get copyWith =>
@@ -623,8 +648,11 @@ abstract class SettingsState$Idle implements SettingsState {
   ThemeMode get themeMode;
   @override
   DesignMode get designMode;
+
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SettingsState$IdleImplCopyWith<_$SettingsState$IdleImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -650,6 +678,8 @@ class __$$SettingsState$ProcessingImplCopyWithImpl<$Res>
       $Res Function(_$SettingsState$ProcessingImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -699,7 +729,9 @@ class _$SettingsState$ProcessingImpl implements SettingsState$Processing {
   @override
   int get hashCode => Object.hash(runtimeType, themeMode, designMode);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SettingsState$ProcessingImplCopyWith<_$SettingsState$ProcessingImpl>
@@ -791,8 +823,11 @@ abstract class SettingsState$Processing implements SettingsState {
   ThemeMode get themeMode;
   @override
   DesignMode get designMode;
+
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SettingsState$ProcessingImplCopyWith<_$SettingsState$ProcessingImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -816,6 +851,8 @@ class __$$SettingsState$ErrorImplCopyWithImpl<$Res>
       $Res Function(_$SettingsState$ErrorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -877,7 +914,9 @@ class _$SettingsState$ErrorImpl implements SettingsState$Error {
   int get hashCode =>
       Object.hash(runtimeType, themeMode, designMode, exception);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SettingsState$ErrorImplCopyWith<_$SettingsState$ErrorImpl> get copyWith =>
@@ -971,8 +1010,11 @@ abstract class SettingsState$Error implements SettingsState {
   @override
   DesignMode get designMode;
   Exception get exception;
+
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SettingsState$ErrorImplCopyWith<_$SettingsState$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

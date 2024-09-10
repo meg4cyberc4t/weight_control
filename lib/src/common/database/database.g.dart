@@ -196,6 +196,17 @@ class LogsTableData extends DataClass implements Insertable<LogsTableData> {
         level: level ?? this.level,
         stackTrace: stackTrace.present ? stackTrace.value : this.stackTrace,
       );
+  LogsTableData copyWithCompanion(LogsTableCompanion data) {
+    return LogsTableData(
+      id: data.id.present ? data.id.value : this.id,
+      message: data.message.present ? data.message.value : this.message,
+      time: data.time.present ? data.time.value : this.time,
+      level: data.level.present ? data.level.value : this.level,
+      stackTrace:
+          data.stackTrace.present ? data.stackTrace.value : this.stackTrace,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('LogsTableData(')
@@ -473,6 +484,15 @@ class MeasuresTableData extends DataClass
         weight: weight ?? this.weight,
         comment: comment.present ? comment.value : this.comment,
       );
+  MeasuresTableData copyWithCompanion(MeasuresTableCompanion data) {
+    return MeasuresTableData(
+      id: data.id.present ? data.id.value : this.id,
+      time: data.time.present ? data.time.value : this.time,
+      weight: data.weight.present ? data.weight.value : this.weight,
+      comment: data.comment.present ? data.comment.value : this.comment,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('MeasuresTableData(')
@@ -574,6 +594,7 @@ class MeasuresTableCompanion extends UpdateCompanion<MeasuresTableData> {
 
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
+  $AppDatabaseManager get managers => $AppDatabaseManager(this);
   late final $LogsTableTable logsTable = $LogsTableTable(this);
   late final $MeasuresTableTable measuresTable = $MeasuresTableTable(this);
   @override
@@ -582,4 +603,294 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   @override
   List<DatabaseSchemaEntity> get allSchemaEntities =>
       [logsTable, measuresTable];
+}
+
+typedef $$LogsTableTableCreateCompanionBuilder = LogsTableCompanion Function({
+  Value<int> id,
+  required String message,
+  Value<DateTime?> time,
+  Value<LoggerLevel> level,
+  Value<StackTrace?> stackTrace,
+});
+typedef $$LogsTableTableUpdateCompanionBuilder = LogsTableCompanion Function({
+  Value<int> id,
+  Value<String> message,
+  Value<DateTime?> time,
+  Value<LoggerLevel> level,
+  Value<StackTrace?> stackTrace,
+});
+
+class $$LogsTableTableFilterComposer
+    extends FilterComposer<_$AppDatabase, $LogsTableTable> {
+  $$LogsTableTableFilterComposer(super.$state);
+  ColumnFilters<int> get id => $state.composableBuilder(
+      column: $state.table.id,
+      builder: (column, joinBuilders) =>
+          ColumnFilters(column, joinBuilders: joinBuilders));
+
+  ColumnFilters<String> get message => $state.composableBuilder(
+      column: $state.table.message,
+      builder: (column, joinBuilders) =>
+          ColumnFilters(column, joinBuilders: joinBuilders));
+
+  ColumnFilters<DateTime> get time => $state.composableBuilder(
+      column: $state.table.time,
+      builder: (column, joinBuilders) =>
+          ColumnFilters(column, joinBuilders: joinBuilders));
+
+  ColumnWithTypeConverterFilters<LoggerLevel, LoggerLevel, int> get level =>
+      $state.composableBuilder(
+          column: $state.table.level,
+          builder: (column, joinBuilders) => ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
+
+  ColumnWithTypeConverterFilters<StackTrace?, StackTrace, String>
+      get stackTrace => $state.composableBuilder(
+          column: $state.table.stackTrace,
+          builder: (column, joinBuilders) => ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
+}
+
+class $$LogsTableTableOrderingComposer
+    extends OrderingComposer<_$AppDatabase, $LogsTableTable> {
+  $$LogsTableTableOrderingComposer(super.$state);
+  ColumnOrderings<int> get id => $state.composableBuilder(
+      column: $state.table.id,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  ColumnOrderings<String> get message => $state.composableBuilder(
+      column: $state.table.message,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  ColumnOrderings<DateTime> get time => $state.composableBuilder(
+      column: $state.table.time,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  ColumnOrderings<int> get level => $state.composableBuilder(
+      column: $state.table.level,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  ColumnOrderings<String> get stackTrace => $state.composableBuilder(
+      column: $state.table.stackTrace,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+}
+
+class $$LogsTableTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $LogsTableTable,
+    LogsTableData,
+    $$LogsTableTableFilterComposer,
+    $$LogsTableTableOrderingComposer,
+    $$LogsTableTableCreateCompanionBuilder,
+    $$LogsTableTableUpdateCompanionBuilder,
+    (
+      LogsTableData,
+      BaseReferences<_$AppDatabase, $LogsTableTable, LogsTableData>
+    ),
+    LogsTableData,
+    PrefetchHooks Function()> {
+  $$LogsTableTableTableManager(_$AppDatabase db, $LogsTableTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          filteringComposer:
+              $$LogsTableTableFilterComposer(ComposerState(db, table)),
+          orderingComposer:
+              $$LogsTableTableOrderingComposer(ComposerState(db, table)),
+          updateCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<String> message = const Value.absent(),
+            Value<DateTime?> time = const Value.absent(),
+            Value<LoggerLevel> level = const Value.absent(),
+            Value<StackTrace?> stackTrace = const Value.absent(),
+          }) =>
+              LogsTableCompanion(
+            id: id,
+            message: message,
+            time: time,
+            level: level,
+            stackTrace: stackTrace,
+          ),
+          createCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            required String message,
+            Value<DateTime?> time = const Value.absent(),
+            Value<LoggerLevel> level = const Value.absent(),
+            Value<StackTrace?> stackTrace = const Value.absent(),
+          }) =>
+              LogsTableCompanion.insert(
+            id: id,
+            message: message,
+            time: time,
+            level: level,
+            stackTrace: stackTrace,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$LogsTableTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $LogsTableTable,
+    LogsTableData,
+    $$LogsTableTableFilterComposer,
+    $$LogsTableTableOrderingComposer,
+    $$LogsTableTableCreateCompanionBuilder,
+    $$LogsTableTableUpdateCompanionBuilder,
+    (
+      LogsTableData,
+      BaseReferences<_$AppDatabase, $LogsTableTable, LogsTableData>
+    ),
+    LogsTableData,
+    PrefetchHooks Function()>;
+typedef $$MeasuresTableTableCreateCompanionBuilder = MeasuresTableCompanion
+    Function({
+  Value<int> id,
+  required DateTime time,
+  required Weight weight,
+  Value<String?> comment,
+});
+typedef $$MeasuresTableTableUpdateCompanionBuilder = MeasuresTableCompanion
+    Function({
+  Value<int> id,
+  Value<DateTime> time,
+  Value<Weight> weight,
+  Value<String?> comment,
+});
+
+class $$MeasuresTableTableFilterComposer
+    extends FilterComposer<_$AppDatabase, $MeasuresTableTable> {
+  $$MeasuresTableTableFilterComposer(super.$state);
+  ColumnFilters<int> get id => $state.composableBuilder(
+      column: $state.table.id,
+      builder: (column, joinBuilders) =>
+          ColumnFilters(column, joinBuilders: joinBuilders));
+
+  ColumnFilters<DateTime> get time => $state.composableBuilder(
+      column: $state.table.time,
+      builder: (column, joinBuilders) =>
+          ColumnFilters(column, joinBuilders: joinBuilders));
+
+  ColumnWithTypeConverterFilters<Weight, Weight, int> get weight =>
+      $state.composableBuilder(
+          column: $state.table.weight,
+          builder: (column, joinBuilders) => ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
+
+  ColumnFilters<String> get comment => $state.composableBuilder(
+      column: $state.table.comment,
+      builder: (column, joinBuilders) =>
+          ColumnFilters(column, joinBuilders: joinBuilders));
+}
+
+class $$MeasuresTableTableOrderingComposer
+    extends OrderingComposer<_$AppDatabase, $MeasuresTableTable> {
+  $$MeasuresTableTableOrderingComposer(super.$state);
+  ColumnOrderings<int> get id => $state.composableBuilder(
+      column: $state.table.id,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  ColumnOrderings<DateTime> get time => $state.composableBuilder(
+      column: $state.table.time,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  ColumnOrderings<int> get weight => $state.composableBuilder(
+      column: $state.table.weight,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  ColumnOrderings<String> get comment => $state.composableBuilder(
+      column: $state.table.comment,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+}
+
+class $$MeasuresTableTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $MeasuresTableTable,
+    MeasuresTableData,
+    $$MeasuresTableTableFilterComposer,
+    $$MeasuresTableTableOrderingComposer,
+    $$MeasuresTableTableCreateCompanionBuilder,
+    $$MeasuresTableTableUpdateCompanionBuilder,
+    (
+      MeasuresTableData,
+      BaseReferences<_$AppDatabase, $MeasuresTableTable, MeasuresTableData>
+    ),
+    MeasuresTableData,
+    PrefetchHooks Function()> {
+  $$MeasuresTableTableTableManager(_$AppDatabase db, $MeasuresTableTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          filteringComposer:
+              $$MeasuresTableTableFilterComposer(ComposerState(db, table)),
+          orderingComposer:
+              $$MeasuresTableTableOrderingComposer(ComposerState(db, table)),
+          updateCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<DateTime> time = const Value.absent(),
+            Value<Weight> weight = const Value.absent(),
+            Value<String?> comment = const Value.absent(),
+          }) =>
+              MeasuresTableCompanion(
+            id: id,
+            time: time,
+            weight: weight,
+            comment: comment,
+          ),
+          createCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            required DateTime time,
+            required Weight weight,
+            Value<String?> comment = const Value.absent(),
+          }) =>
+              MeasuresTableCompanion.insert(
+            id: id,
+            time: time,
+            weight: weight,
+            comment: comment,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$MeasuresTableTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $MeasuresTableTable,
+    MeasuresTableData,
+    $$MeasuresTableTableFilterComposer,
+    $$MeasuresTableTableOrderingComposer,
+    $$MeasuresTableTableCreateCompanionBuilder,
+    $$MeasuresTableTableUpdateCompanionBuilder,
+    (
+      MeasuresTableData,
+      BaseReferences<_$AppDatabase, $MeasuresTableTable, MeasuresTableData>
+    ),
+    MeasuresTableData,
+    PrefetchHooks Function()>;
+
+class $AppDatabaseManager {
+  final _$AppDatabase _db;
+  $AppDatabaseManager(this._db);
+  $$LogsTableTableTableManager get logsTable =>
+      $$LogsTableTableTableManager(_db, _db.logsTable);
+  $$MeasuresTableTableTableManager get measuresTable =>
+      $$MeasuresTableTableTableManager(_db, _db.measuresTable);
 }

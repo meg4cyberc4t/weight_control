@@ -87,6 +87,9 @@ class _$MeasuresEventCopyWithImpl<$Res, $Val extends MeasuresEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of MeasuresEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -104,6 +107,9 @@ class __$$MeasuresEvent$StartedImplCopyWithImpl<$Res>
   __$$MeasuresEvent$StartedImplCopyWithImpl(_$MeasuresEvent$StartedImpl _value,
       $Res Function(_$MeasuresEvent$StartedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of MeasuresEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -228,6 +234,8 @@ class __$$MeasuresEvent$CreateOrEditTodaysImplCopyWithImpl<$Res>
       $Res Function(_$MeasuresEvent$CreateOrEditTodaysImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MeasuresEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -276,7 +284,9 @@ class _$MeasuresEvent$CreateOrEditTodaysImpl
   @override
   int get hashCode => Object.hash(runtimeType, weight, comment);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MeasuresEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MeasuresEvent$CreateOrEditTodaysImplCopyWith<
@@ -369,7 +379,10 @@ abstract class _MeasuresEvent$CreateOrEditTodays implements MeasuresEvent {
 
   Weight get weight;
   String get comment;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MeasuresEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MeasuresEvent$CreateOrEditTodaysImplCopyWith<
           _$MeasuresEvent$CreateOrEditTodaysImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -392,6 +405,8 @@ class __$$MeasuresEvent$DeleteImplCopyWithImpl<$Res>
       $Res Function(_$MeasuresEvent$DeleteImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MeasuresEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -430,7 +445,9 @@ class _$MeasuresEvent$DeleteImpl implements _MeasuresEvent$Delete {
   @override
   int get hashCode => Object.hash(runtimeType, id);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MeasuresEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MeasuresEvent$DeleteImplCopyWith<_$MeasuresEvent$DeleteImpl>
@@ -521,7 +538,10 @@ abstract class _MeasuresEvent$Delete implements MeasuresEvent {
       _$MeasuresEvent$DeleteImpl;
 
   int get id;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MeasuresEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MeasuresEvent$DeleteImplCopyWith<_$MeasuresEvent$DeleteImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -542,6 +562,9 @@ class __$$MeasuresEvent$DeleteAllImplCopyWithImpl<$Res>
       _$MeasuresEvent$DeleteAllImpl _value,
       $Res Function(_$MeasuresEvent$DeleteAllImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of MeasuresEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -701,7 +724,9 @@ mixin _$MeasuresState {
   }) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MeasuresState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MeasuresStateCopyWith<MeasuresState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -725,6 +750,8 @@ class _$MeasuresStateCopyWithImpl<$Res, $Val extends MeasuresState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MeasuresState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -763,6 +790,8 @@ class __$$MeasuresState$IdleImplCopyWithImpl<$Res>
       $Res Function(_$MeasuresState$IdleImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MeasuresState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -819,7 +848,9 @@ class _$MeasuresState$IdleImpl extends _MeasuresState$Idle {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_measures), last);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MeasuresState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MeasuresState$IdleImplCopyWith<_$MeasuresState$IdleImpl> get copyWith =>
@@ -911,8 +942,11 @@ abstract class _MeasuresState$Idle extends MeasuresState {
   List<Measure> get measures;
   @override
   Measure? get last;
+
+  /// Create a copy of MeasuresState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MeasuresState$IdleImplCopyWith<_$MeasuresState$IdleImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -938,6 +972,8 @@ class __$$MeasuresState$ProcessingImplCopyWithImpl<$Res>
       $Res Function(_$MeasuresState$ProcessingImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MeasuresState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -994,7 +1030,9 @@ class _$MeasuresState$ProcessingImpl extends _MeasuresState$Processing {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_measures), last);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MeasuresState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MeasuresState$ProcessingImplCopyWith<_$MeasuresState$ProcessingImpl>
@@ -1086,8 +1124,11 @@ abstract class _MeasuresState$Processing extends MeasuresState {
   List<Measure> get measures;
   @override
   Measure? get last;
+
+  /// Create a copy of MeasuresState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MeasuresState$ProcessingImplCopyWith<_$MeasuresState$ProcessingImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -1111,6 +1152,8 @@ class __$$MeasuresState$ErrorImplCopyWithImpl<$Res>
       $Res Function(_$MeasuresState$ErrorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MeasuresState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1178,7 +1221,9 @@ class _$MeasuresState$ErrorImpl extends _MeasuresState$Error {
   int get hashCode => Object.hash(runtimeType,
       const DeepCollectionEquality().hash(_measures), last, exception);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MeasuresState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MeasuresState$ErrorImplCopyWith<_$MeasuresState$ErrorImpl> get copyWith =>
@@ -1272,8 +1317,11 @@ abstract class _MeasuresState$Error extends MeasuresState {
   @override
   Measure? get last;
   Exception get exception;
+
+  /// Create a copy of MeasuresState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MeasuresState$ErrorImplCopyWith<_$MeasuresState$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
