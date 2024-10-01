@@ -31,7 +31,7 @@ dependencies:
   url_launcher: ^6.2.4
   freezed_annotation: ^2.4.1
   sqlite3_flutter_libs: ^0.5.20
-  syncfusion_flutter_charts: ^26.2.14
+  syncfusion_flutter_charts: ^27.1.51
   collection: ^1.18.0
 
 dev_dependencies:
