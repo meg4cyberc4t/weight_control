@@ -621,65 +621,83 @@ typedef $$LogsTableTableUpdateCompanionBuilder = LogsTableCompanion Function({
 });
 
 class $$LogsTableTableFilterComposer
-    extends FilterComposer<_$AppDatabase, $LogsTableTable> {
-  $$LogsTableTableFilterComposer(super.$state);
-  ColumnFilters<int> get id => $state.composableBuilder(
-      column: $state.table.id,
-      builder: (column, joinBuilders) =>
-          ColumnFilters(column, joinBuilders: joinBuilders));
+    extends Composer<_$AppDatabase, $LogsTableTable> {
+  $$LogsTableTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<String> get message => $state.composableBuilder(
-      column: $state.table.message,
-      builder: (column, joinBuilders) =>
-          ColumnFilters(column, joinBuilders: joinBuilders));
+  ColumnFilters<String> get message => $composableBuilder(
+      column: $table.message, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<DateTime> get time => $state.composableBuilder(
-      column: $state.table.time,
-      builder: (column, joinBuilders) =>
-          ColumnFilters(column, joinBuilders: joinBuilders));
+  ColumnFilters<DateTime> get time => $composableBuilder(
+      column: $table.time, builder: (column) => ColumnFilters(column));
 
   ColumnWithTypeConverterFilters<LoggerLevel, LoggerLevel, int> get level =>
-      $state.composableBuilder(
-          column: $state.table.level,
-          builder: (column, joinBuilders) => ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
+      $composableBuilder(
+          column: $table.level,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
 
   ColumnWithTypeConverterFilters<StackTrace?, StackTrace, String>
-      get stackTrace => $state.composableBuilder(
-          column: $state.table.stackTrace,
-          builder: (column, joinBuilders) => ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
+      get stackTrace => $composableBuilder(
+          column: $table.stackTrace,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
 }
 
 class $$LogsTableTableOrderingComposer
-    extends OrderingComposer<_$AppDatabase, $LogsTableTable> {
-  $$LogsTableTableOrderingComposer(super.$state);
-  ColumnOrderings<int> get id => $state.composableBuilder(
-      column: $state.table.id,
-      builder: (column, joinBuilders) =>
-          ColumnOrderings(column, joinBuilders: joinBuilders));
+    extends Composer<_$AppDatabase, $LogsTableTable> {
+  $$LogsTableTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get message => $state.composableBuilder(
-      column: $state.table.message,
-      builder: (column, joinBuilders) =>
-          ColumnOrderings(column, joinBuilders: joinBuilders));
+  ColumnOrderings<String> get message => $composableBuilder(
+      column: $table.message, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<DateTime> get time => $state.composableBuilder(
-      column: $state.table.time,
-      builder: (column, joinBuilders) =>
-          ColumnOrderings(column, joinBuilders: joinBuilders));
+  ColumnOrderings<DateTime> get time => $composableBuilder(
+      column: $table.time, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<int> get level => $state.composableBuilder(
-      column: $state.table.level,
-      builder: (column, joinBuilders) =>
-          ColumnOrderings(column, joinBuilders: joinBuilders));
+  ColumnOrderings<int> get level => $composableBuilder(
+      column: $table.level, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get stackTrace => $state.composableBuilder(
-      column: $state.table.stackTrace,
-      builder: (column, joinBuilders) =>
-          ColumnOrderings(column, joinBuilders: joinBuilders));
+  ColumnOrderings<String> get stackTrace => $composableBuilder(
+      column: $table.stackTrace, builder: (column) => ColumnOrderings(column));
+}
+
+class $$LogsTableTableAnnotationComposer
+    extends Composer<_$AppDatabase, $LogsTableTable> {
+  $$LogsTableTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get message =>
+      $composableBuilder(column: $table.message, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get time =>
+      $composableBuilder(column: $table.time, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<LoggerLevel, int> get level =>
+      $composableBuilder(column: $table.level, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<StackTrace?, String> get stackTrace =>
+      $composableBuilder(
+          column: $table.stackTrace, builder: (column) => column);
 }
 
 class $$LogsTableTableTableManager extends RootTableManager<
@@ -688,6 +706,7 @@ class $$LogsTableTableTableManager extends RootTableManager<
     LogsTableData,
     $$LogsTableTableFilterComposer,
     $$LogsTableTableOrderingComposer,
+    $$LogsTableTableAnnotationComposer,
     $$LogsTableTableCreateCompanionBuilder,
     $$LogsTableTableUpdateCompanionBuilder,
     (
@@ -700,10 +719,12 @@ class $$LogsTableTableTableManager extends RootTableManager<
       : super(TableManagerState(
           db: db,
           table: table,
-          filteringComposer:
-              $$LogsTableTableFilterComposer(ComposerState(db, table)),
-          orderingComposer:
-              $$LogsTableTableOrderingComposer(ComposerState(db, table)),
+          createFilteringComposer: () =>
+              $$LogsTableTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$LogsTableTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$LogsTableTableAnnotationComposer($db: db, $table: table),
           updateCompanionCallback: ({
             Value<int> id = const Value.absent(),
             Value<String> message = const Value.absent(),
@@ -745,6 +766,7 @@ typedef $$LogsTableTableProcessedTableManager = ProcessedTableManager<
     LogsTableData,
     $$LogsTableTableFilterComposer,
     $$LogsTableTableOrderingComposer,
+    $$LogsTableTableAnnotationComposer,
     $$LogsTableTableCreateCompanionBuilder,
     $$LogsTableTableUpdateCompanionBuilder,
     (
@@ -769,53 +791,71 @@ typedef $$MeasuresTableTableUpdateCompanionBuilder = MeasuresTableCompanion
 });
 
 class $$MeasuresTableTableFilterComposer
-    extends FilterComposer<_$AppDatabase, $MeasuresTableTable> {
-  $$MeasuresTableTableFilterComposer(super.$state);
-  ColumnFilters<int> get id => $state.composableBuilder(
-      column: $state.table.id,
-      builder: (column, joinBuilders) =>
-          ColumnFilters(column, joinBuilders: joinBuilders));
+    extends Composer<_$AppDatabase, $MeasuresTableTable> {
+  $$MeasuresTableTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
 
-  ColumnFilters<DateTime> get time => $state.composableBuilder(
-      column: $state.table.time,
-      builder: (column, joinBuilders) =>
-          ColumnFilters(column, joinBuilders: joinBuilders));
+  ColumnFilters<DateTime> get time => $composableBuilder(
+      column: $table.time, builder: (column) => ColumnFilters(column));
 
   ColumnWithTypeConverterFilters<Weight, Weight, int> get weight =>
-      $state.composableBuilder(
-          column: $state.table.weight,
-          builder: (column, joinBuilders) => ColumnWithTypeConverterFilters(
-              column,
-              joinBuilders: joinBuilders));
+      $composableBuilder(
+          column: $table.weight,
+          builder: (column) => ColumnWithTypeConverterFilters(column));
 
-  ColumnFilters<String> get comment => $state.composableBuilder(
-      column: $state.table.comment,
-      builder: (column, joinBuilders) =>
-          ColumnFilters(column, joinBuilders: joinBuilders));
+  ColumnFilters<String> get comment => $composableBuilder(
+      column: $table.comment, builder: (column) => ColumnFilters(column));
 }
 
 class $$MeasuresTableTableOrderingComposer
-    extends OrderingComposer<_$AppDatabase, $MeasuresTableTable> {
-  $$MeasuresTableTableOrderingComposer(super.$state);
-  ColumnOrderings<int> get id => $state.composableBuilder(
-      column: $state.table.id,
-      builder: (column, joinBuilders) =>
-          ColumnOrderings(column, joinBuilders: joinBuilders));
+    extends Composer<_$AppDatabase, $MeasuresTableTable> {
+  $$MeasuresTableTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<DateTime> get time => $state.composableBuilder(
-      column: $state.table.time,
-      builder: (column, joinBuilders) =>
-          ColumnOrderings(column, joinBuilders: joinBuilders));
+  ColumnOrderings<DateTime> get time => $composableBuilder(
+      column: $table.time, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<int> get weight => $state.composableBuilder(
-      column: $state.table.weight,
-      builder: (column, joinBuilders) =>
-          ColumnOrderings(column, joinBuilders: joinBuilders));
+  ColumnOrderings<int> get weight => $composableBuilder(
+      column: $table.weight, builder: (column) => ColumnOrderings(column));
 
-  ColumnOrderings<String> get comment => $state.composableBuilder(
-      column: $state.table.comment,
-      builder: (column, joinBuilders) =>
-          ColumnOrderings(column, joinBuilders: joinBuilders));
+  ColumnOrderings<String> get comment => $composableBuilder(
+      column: $table.comment, builder: (column) => ColumnOrderings(column));
+}
+
+class $$MeasuresTableTableAnnotationComposer
+    extends Composer<_$AppDatabase, $MeasuresTableTable> {
+  $$MeasuresTableTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get time =>
+      $composableBuilder(column: $table.time, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<Weight, int> get weight =>
+      $composableBuilder(column: $table.weight, builder: (column) => column);
+
+  GeneratedColumn<String> get comment =>
+      $composableBuilder(column: $table.comment, builder: (column) => column);
 }
 
 class $$MeasuresTableTableTableManager extends RootTableManager<
@@ -824,6 +864,7 @@ class $$MeasuresTableTableTableManager extends RootTableManager<
     MeasuresTableData,
     $$MeasuresTableTableFilterComposer,
     $$MeasuresTableTableOrderingComposer,
+    $$MeasuresTableTableAnnotationComposer,
     $$MeasuresTableTableCreateCompanionBuilder,
     $$MeasuresTableTableUpdateCompanionBuilder,
     (
@@ -836,10 +877,12 @@ class $$MeasuresTableTableTableManager extends RootTableManager<
       : super(TableManagerState(
           db: db,
           table: table,
-          filteringComposer:
-              $$MeasuresTableTableFilterComposer(ComposerState(db, table)),
-          orderingComposer:
-              $$MeasuresTableTableOrderingComposer(ComposerState(db, table)),
+          createFilteringComposer: () =>
+              $$MeasuresTableTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$MeasuresTableTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$MeasuresTableTableAnnotationComposer($db: db, $table: table),
           updateCompanionCallback: ({
             Value<int> id = const Value.absent(),
             Value<DateTime> time = const Value.absent(),
@@ -877,6 +920,7 @@ typedef $$MeasuresTableTableProcessedTableManager = ProcessedTableManager<
     MeasuresTableData,
     $$MeasuresTableTableFilterComposer,
     $$MeasuresTableTableOrderingComposer,
+    $$MeasuresTableTableAnnotationComposer,
     $$MeasuresTableTableCreateCompanionBuilder,
     $$MeasuresTableTableUpdateCompanionBuilder,
     (
