@@ -63,11 +63,7 @@ final class AppRunner {
     final trackingManager = DatabaseTrackingManager(database, logger);
     await trackingManager.enableReporting();
 
-    const flutterSecureStorage = FlutterSecureStorage(
-      aOptions: AndroidOptions(
-        encryptedSharedPreferences: true,
-      ),
-    );
+    const flutterSecureStorage = FlutterSecureStorage();
 
     final packageInfo = await PackageInfo.fromPlatform();
     final appMetadata = AppMetadata(

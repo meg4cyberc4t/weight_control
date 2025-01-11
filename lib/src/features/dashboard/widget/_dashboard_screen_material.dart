@@ -67,7 +67,7 @@ class _MeasureTile$Material extends StatelessWidget {
         [
           DateFormat.yMEd().format(measure.time),
           measure.comment,
-        ].whereNotNull().join(' '),
+        ].nonNulls.join(' '),
       ),
       trailing: Column(
         mainAxisSize: MainAxisSize.min,
