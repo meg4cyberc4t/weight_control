@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,191 +9,45 @@ part of 'measures_bloc.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$MeasuresEvent {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function(Weight weight, String comment) createOrEditTodays,
-    required TResult Function(int id) delete,
-    required TResult Function() deleteAll,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function(Weight weight, String comment)? createOrEditTodays,
-    TResult? Function(int id)? delete,
-    TResult? Function()? deleteAll,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(Weight weight, String comment)? createOrEditTodays,
-    TResult Function(int id)? delete,
-    TResult Function()? deleteAll,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_MeasuresEvent$Started value) started,
-    required TResult Function(_MeasuresEvent$CreateOrEditTodays value)
-        createOrEditTodays,
-    required TResult Function(_MeasuresEvent$Delete value) delete,
-    required TResult Function(_MeasuresEvent$DeleteAll value) deleteAll,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_MeasuresEvent$Started value)? started,
-    TResult? Function(_MeasuresEvent$CreateOrEditTodays value)?
-        createOrEditTodays,
-    TResult? Function(_MeasuresEvent$Delete value)? delete,
-    TResult? Function(_MeasuresEvent$DeleteAll value)? deleteAll,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_MeasuresEvent$Started value)? started,
-    TResult Function(_MeasuresEvent$CreateOrEditTodays value)?
-        createOrEditTodays,
-    TResult Function(_MeasuresEvent$Delete value)? delete,
-    TResult Function(_MeasuresEvent$DeleteAll value)? deleteAll,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $MeasuresEventCopyWith<$Res> {
-  factory $MeasuresEventCopyWith(
-          MeasuresEvent value, $Res Function(MeasuresEvent) then) =
-      _$MeasuresEventCopyWithImpl<$Res, MeasuresEvent>;
-}
-
-/// @nodoc
-class _$MeasuresEventCopyWithImpl<$Res, $Val extends MeasuresEvent>
-    implements $MeasuresEventCopyWith<$Res> {
-  _$MeasuresEventCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of MeasuresEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-abstract class _$$MeasuresEvent$StartedImplCopyWith<$Res> {
-  factory _$$MeasuresEvent$StartedImplCopyWith(
-          _$MeasuresEvent$StartedImpl value,
-          $Res Function(_$MeasuresEvent$StartedImpl) then) =
-      __$$MeasuresEvent$StartedImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$MeasuresEvent$StartedImplCopyWithImpl<$Res>
-    extends _$MeasuresEventCopyWithImpl<$Res, _$MeasuresEvent$StartedImpl>
-    implements _$$MeasuresEvent$StartedImplCopyWith<$Res> {
-  __$$MeasuresEvent$StartedImplCopyWithImpl(_$MeasuresEvent$StartedImpl _value,
-      $Res Function(_$MeasuresEvent$StartedImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of MeasuresEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$MeasuresEvent$StartedImpl implements _MeasuresEvent$Started {
-  const _$MeasuresEvent$StartedImpl();
-
-  @override
-  String toString() {
-    return 'MeasuresEvent.started()';
-  }
-
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$MeasuresEvent$StartedImpl);
+        (other.runtimeType == runtimeType && other is MeasuresEvent);
   }
 
   @override
   int get hashCode => runtimeType.hashCode;
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function(Weight weight, String comment) createOrEditTodays,
-    required TResult Function(int id) delete,
-    required TResult Function() deleteAll,
-  }) {
-    return started();
+  String toString() {
+    return 'MeasuresEvent()';
   }
+}
 
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function(Weight weight, String comment)? createOrEditTodays,
-    TResult? Function(int id)? delete,
-    TResult? Function()? deleteAll,
-  }) {
-    return started?.call();
-  }
+/// @nodoc
+class $MeasuresEventCopyWith<$Res> {
+  $MeasuresEventCopyWith(MeasuresEvent _, $Res Function(MeasuresEvent) __);
+}
 
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(Weight weight, String comment)? createOrEditTodays,
-    TResult Function(int id)? delete,
-    TResult Function()? deleteAll,
-    required TResult orElse(),
-  }) {
-    if (started != null) {
-      return started();
-    }
-    return orElse();
-  }
+/// Adds pattern-matching-related methods to [MeasuresEvent].
+extension MeasuresEventPatterns on MeasuresEvent {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
 
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_MeasuresEvent$Started value) started,
-    required TResult Function(_MeasuresEvent$CreateOrEditTodays value)
-        createOrEditTodays,
-    required TResult Function(_MeasuresEvent$Delete value) delete,
-    required TResult Function(_MeasuresEvent$DeleteAll value) deleteAll,
-  }) {
-    return started(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_MeasuresEvent$Started value)? started,
-    TResult? Function(_MeasuresEvent$CreateOrEditTodays value)?
-        createOrEditTodays,
-    TResult? Function(_MeasuresEvent$Delete value)? delete,
-    TResult? Function(_MeasuresEvent$DeleteAll value)? deleteAll,
-  }) {
-    return started?.call(this);
-  }
-
-  @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MeasuresEvent$Started value)? started,
@@ -203,52 +57,281 @@ class _$MeasuresEvent$StartedImpl implements _MeasuresEvent$Started {
     TResult Function(_MeasuresEvent$DeleteAll value)? deleteAll,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    final _that = this;
+    switch (_that) {
+      case _MeasuresEvent$Started() when started != null:
+        return started(_that);
+      case _MeasuresEvent$CreateOrEditTodays() when createOrEditTodays != null:
+        return createOrEditTodays(_that);
+      case _MeasuresEvent$Delete() when delete != null:
+        return delete(_that);
+      case _MeasuresEvent$DeleteAll() when deleteAll != null:
+        return deleteAll(_that);
+      case _:
+        return orElse();
     }
-    return orElse();
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_MeasuresEvent$Started value) started,
+    required TResult Function(_MeasuresEvent$CreateOrEditTodays value)
+        createOrEditTodays,
+    required TResult Function(_MeasuresEvent$Delete value) delete,
+    required TResult Function(_MeasuresEvent$DeleteAll value) deleteAll,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _MeasuresEvent$Started():
+        return started(_that);
+      case _MeasuresEvent$CreateOrEditTodays():
+        return createOrEditTodays(_that);
+      case _MeasuresEvent$Delete():
+        return delete(_that);
+      case _MeasuresEvent$DeleteAll():
+        return deleteAll(_that);
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_MeasuresEvent$Started value)? started,
+    TResult? Function(_MeasuresEvent$CreateOrEditTodays value)?
+        createOrEditTodays,
+    TResult? Function(_MeasuresEvent$Delete value)? delete,
+    TResult? Function(_MeasuresEvent$DeleteAll value)? deleteAll,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _MeasuresEvent$Started() when started != null:
+        return started(_that);
+      case _MeasuresEvent$CreateOrEditTodays() when createOrEditTodays != null:
+        return createOrEditTodays(_that);
+      case _MeasuresEvent$Delete() when delete != null:
+        return delete(_that);
+      case _MeasuresEvent$DeleteAll() when deleteAll != null:
+        return deleteAll(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(Weight weight, String comment)? createOrEditTodays,
+    TResult Function(int id)? delete,
+    TResult Function()? deleteAll,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _MeasuresEvent$Started() when started != null:
+        return started();
+      case _MeasuresEvent$CreateOrEditTodays() when createOrEditTodays != null:
+        return createOrEditTodays(_that.weight, _that.comment);
+      case _MeasuresEvent$Delete() when delete != null:
+        return delete(_that.id);
+      case _MeasuresEvent$DeleteAll() when deleteAll != null:
+        return deleteAll();
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(Weight weight, String comment) createOrEditTodays,
+    required TResult Function(int id) delete,
+    required TResult Function() deleteAll,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _MeasuresEvent$Started():
+        return started();
+      case _MeasuresEvent$CreateOrEditTodays():
+        return createOrEditTodays(_that.weight, _that.comment);
+      case _MeasuresEvent$Delete():
+        return delete(_that.id);
+      case _MeasuresEvent$DeleteAll():
+        return deleteAll();
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(Weight weight, String comment)? createOrEditTodays,
+    TResult? Function(int id)? delete,
+    TResult? Function()? deleteAll,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _MeasuresEvent$Started() when started != null:
+        return started();
+      case _MeasuresEvent$CreateOrEditTodays() when createOrEditTodays != null:
+        return createOrEditTodays(_that.weight, _that.comment);
+      case _MeasuresEvent$Delete() when delete != null:
+        return delete(_that.id);
+      case _MeasuresEvent$DeleteAll() when deleteAll != null:
+        return deleteAll();
+      case _:
+        return null;
+    }
   }
 }
 
-abstract class _MeasuresEvent$Started implements MeasuresEvent {
-  const factory _MeasuresEvent$Started() = _$MeasuresEvent$StartedImpl;
+/// @nodoc
+
+class _MeasuresEvent$Started implements MeasuresEvent {
+  const _MeasuresEvent$Started();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _MeasuresEvent$Started);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'MeasuresEvent.started()';
+  }
 }
 
 /// @nodoc
-abstract class _$$MeasuresEvent$CreateOrEditTodaysImplCopyWith<$Res> {
-  factory _$$MeasuresEvent$CreateOrEditTodaysImplCopyWith(
-          _$MeasuresEvent$CreateOrEditTodaysImpl value,
-          $Res Function(_$MeasuresEvent$CreateOrEditTodaysImpl) then) =
-      __$$MeasuresEvent$CreateOrEditTodaysImplCopyWithImpl<$Res>;
+
+class _MeasuresEvent$CreateOrEditTodays implements MeasuresEvent {
+  const _MeasuresEvent$CreateOrEditTodays(
+      {required this.weight, required this.comment});
+
+  final Weight weight;
+  final String comment;
+
+  /// Create a copy of MeasuresEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$MeasuresEvent$CreateOrEditTodaysCopyWith<_MeasuresEvent$CreateOrEditTodays>
+      get copyWith => __$MeasuresEvent$CreateOrEditTodaysCopyWithImpl<
+          _MeasuresEvent$CreateOrEditTodays>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _MeasuresEvent$CreateOrEditTodays &&
+            (identical(other.weight, weight) || other.weight == weight) &&
+            (identical(other.comment, comment) || other.comment == comment));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, weight, comment);
+
+  @override
+  String toString() {
+    return 'MeasuresEvent.createOrEditTodays(weight: $weight, comment: $comment)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$MeasuresEvent$CreateOrEditTodaysCopyWith<$Res>
+    implements $MeasuresEventCopyWith<$Res> {
+  factory _$MeasuresEvent$CreateOrEditTodaysCopyWith(
+          _MeasuresEvent$CreateOrEditTodays value,
+          $Res Function(_MeasuresEvent$CreateOrEditTodays) _then) =
+      __$MeasuresEvent$CreateOrEditTodaysCopyWithImpl;
   @useResult
   $Res call({Weight weight, String comment});
 }
 
 /// @nodoc
-class __$$MeasuresEvent$CreateOrEditTodaysImplCopyWithImpl<$Res>
-    extends _$MeasuresEventCopyWithImpl<$Res,
-        _$MeasuresEvent$CreateOrEditTodaysImpl>
-    implements _$$MeasuresEvent$CreateOrEditTodaysImplCopyWith<$Res> {
-  __$$MeasuresEvent$CreateOrEditTodaysImplCopyWithImpl(
-      _$MeasuresEvent$CreateOrEditTodaysImpl _value,
-      $Res Function(_$MeasuresEvent$CreateOrEditTodaysImpl) _then)
-      : super(_value, _then);
+class __$MeasuresEvent$CreateOrEditTodaysCopyWithImpl<$Res>
+    implements _$MeasuresEvent$CreateOrEditTodaysCopyWith<$Res> {
+  __$MeasuresEvent$CreateOrEditTodaysCopyWithImpl(this._self, this._then);
+
+  final _MeasuresEvent$CreateOrEditTodays _self;
+  final $Res Function(_MeasuresEvent$CreateOrEditTodays) _then;
 
   /// Create a copy of MeasuresEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? weight = null,
     Object? comment = null,
   }) {
-    return _then(_$MeasuresEvent$CreateOrEditTodaysImpl(
+    return _then(_MeasuresEvent$CreateOrEditTodays(
       weight: null == weight
-          ? _value.weight
+          ? _self.weight
           : weight // ignore: cast_nullable_to_non_nullable
               as Weight,
       comment: null == comment
-          ? _value.comment
+          ? _self.comment
           : comment // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -257,164 +340,63 @@ class __$$MeasuresEvent$CreateOrEditTodaysImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$MeasuresEvent$CreateOrEditTodaysImpl
-    implements _MeasuresEvent$CreateOrEditTodays {
-  const _$MeasuresEvent$CreateOrEditTodaysImpl(
-      {required this.weight, required this.comment});
+class _MeasuresEvent$Delete implements MeasuresEvent {
+  const _MeasuresEvent$Delete({required this.id});
 
-  @override
-  final Weight weight;
-  @override
-  final String comment;
+  final int id;
 
-  @override
-  String toString() {
-    return 'MeasuresEvent.createOrEditTodays(weight: $weight, comment: $comment)';
-  }
+  /// Create a copy of MeasuresEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$MeasuresEvent$DeleteCopyWith<_MeasuresEvent$Delete> get copyWith =>
+      __$MeasuresEvent$DeleteCopyWithImpl<_MeasuresEvent$Delete>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MeasuresEvent$CreateOrEditTodaysImpl &&
-            (identical(other.weight, weight) || other.weight == weight) &&
-            (identical(other.comment, comment) || other.comment == comment));
+            other is _MeasuresEvent$Delete &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, weight, comment);
-
-  /// Create a copy of MeasuresEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$MeasuresEvent$CreateOrEditTodaysImplCopyWith<
-          _$MeasuresEvent$CreateOrEditTodaysImpl>
-      get copyWith => __$$MeasuresEvent$CreateOrEditTodaysImplCopyWithImpl<
-          _$MeasuresEvent$CreateOrEditTodaysImpl>(this, _$identity);
+  int get hashCode => Object.hash(runtimeType, id);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function(Weight weight, String comment) createOrEditTodays,
-    required TResult Function(int id) delete,
-    required TResult Function() deleteAll,
-  }) {
-    return createOrEditTodays(weight, comment);
+  String toString() {
+    return 'MeasuresEvent.delete(id: $id)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function(Weight weight, String comment)? createOrEditTodays,
-    TResult? Function(int id)? delete,
-    TResult? Function()? deleteAll,
-  }) {
-    return createOrEditTodays?.call(weight, comment);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(Weight weight, String comment)? createOrEditTodays,
-    TResult Function(int id)? delete,
-    TResult Function()? deleteAll,
-    required TResult orElse(),
-  }) {
-    if (createOrEditTodays != null) {
-      return createOrEditTodays(weight, comment);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_MeasuresEvent$Started value) started,
-    required TResult Function(_MeasuresEvent$CreateOrEditTodays value)
-        createOrEditTodays,
-    required TResult Function(_MeasuresEvent$Delete value) delete,
-    required TResult Function(_MeasuresEvent$DeleteAll value) deleteAll,
-  }) {
-    return createOrEditTodays(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_MeasuresEvent$Started value)? started,
-    TResult? Function(_MeasuresEvent$CreateOrEditTodays value)?
-        createOrEditTodays,
-    TResult? Function(_MeasuresEvent$Delete value)? delete,
-    TResult? Function(_MeasuresEvent$DeleteAll value)? deleteAll,
-  }) {
-    return createOrEditTodays?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_MeasuresEvent$Started value)? started,
-    TResult Function(_MeasuresEvent$CreateOrEditTodays value)?
-        createOrEditTodays,
-    TResult Function(_MeasuresEvent$Delete value)? delete,
-    TResult Function(_MeasuresEvent$DeleteAll value)? deleteAll,
-    required TResult orElse(),
-  }) {
-    if (createOrEditTodays != null) {
-      return createOrEditTodays(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _MeasuresEvent$CreateOrEditTodays implements MeasuresEvent {
-  const factory _MeasuresEvent$CreateOrEditTodays(
-      {required final Weight weight,
-      required final String comment}) = _$MeasuresEvent$CreateOrEditTodaysImpl;
-
-  Weight get weight;
-  String get comment;
-
-  /// Create a copy of MeasuresEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MeasuresEvent$CreateOrEditTodaysImplCopyWith<
-          _$MeasuresEvent$CreateOrEditTodaysImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$MeasuresEvent$DeleteImplCopyWith<$Res> {
-  factory _$$MeasuresEvent$DeleteImplCopyWith(_$MeasuresEvent$DeleteImpl value,
-          $Res Function(_$MeasuresEvent$DeleteImpl) then) =
-      __$$MeasuresEvent$DeleteImplCopyWithImpl<$Res>;
+abstract mixin class _$MeasuresEvent$DeleteCopyWith<$Res>
+    implements $MeasuresEventCopyWith<$Res> {
+  factory _$MeasuresEvent$DeleteCopyWith(_MeasuresEvent$Delete value,
+          $Res Function(_MeasuresEvent$Delete) _then) =
+      __$MeasuresEvent$DeleteCopyWithImpl;
   @useResult
   $Res call({int id});
 }
 
 /// @nodoc
-class __$$MeasuresEvent$DeleteImplCopyWithImpl<$Res>
-    extends _$MeasuresEventCopyWithImpl<$Res, _$MeasuresEvent$DeleteImpl>
-    implements _$$MeasuresEvent$DeleteImplCopyWith<$Res> {
-  __$$MeasuresEvent$DeleteImplCopyWithImpl(_$MeasuresEvent$DeleteImpl _value,
-      $Res Function(_$MeasuresEvent$DeleteImpl) _then)
-      : super(_value, _then);
+class __$MeasuresEvent$DeleteCopyWithImpl<$Res>
+    implements _$MeasuresEvent$DeleteCopyWith<$Res> {
+  __$MeasuresEvent$DeleteCopyWithImpl(this._self, this._then);
+
+  final _MeasuresEvent$Delete _self;
+  final $Res Function(_MeasuresEvent$Delete) _then;
 
   /// Create a copy of MeasuresEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? id = null,
   }) {
-    return _then(_$MeasuresEvent$DeleteImpl(
+    return _then(_MeasuresEvent$Delete(
       id: null == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
     ));
@@ -423,274 +405,201 @@ class __$$MeasuresEvent$DeleteImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$MeasuresEvent$DeleteImpl implements _MeasuresEvent$Delete {
-  const _$MeasuresEvent$DeleteImpl({required this.id});
-
-  @override
-  final int id;
-
-  @override
-  String toString() {
-    return 'MeasuresEvent.delete(id: $id)';
-  }
+class _MeasuresEvent$DeleteAll implements MeasuresEvent {
+  const _MeasuresEvent$DeleteAll();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$MeasuresEvent$DeleteImpl &&
-            (identical(other.id, id) || other.id == id));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, id);
-
-  /// Create a copy of MeasuresEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$MeasuresEvent$DeleteImplCopyWith<_$MeasuresEvent$DeleteImpl>
-      get copyWith =>
-          __$$MeasuresEvent$DeleteImplCopyWithImpl<_$MeasuresEvent$DeleteImpl>(
-              this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function(Weight weight, String comment) createOrEditTodays,
-    required TResult Function(int id) delete,
-    required TResult Function() deleteAll,
-  }) {
-    return delete(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function(Weight weight, String comment)? createOrEditTodays,
-    TResult? Function(int id)? delete,
-    TResult? Function()? deleteAll,
-  }) {
-    return delete?.call(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(Weight weight, String comment)? createOrEditTodays,
-    TResult Function(int id)? delete,
-    TResult Function()? deleteAll,
-    required TResult orElse(),
-  }) {
-    if (delete != null) {
-      return delete(id);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_MeasuresEvent$Started value) started,
-    required TResult Function(_MeasuresEvent$CreateOrEditTodays value)
-        createOrEditTodays,
-    required TResult Function(_MeasuresEvent$Delete value) delete,
-    required TResult Function(_MeasuresEvent$DeleteAll value) deleteAll,
-  }) {
-    return delete(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_MeasuresEvent$Started value)? started,
-    TResult? Function(_MeasuresEvent$CreateOrEditTodays value)?
-        createOrEditTodays,
-    TResult? Function(_MeasuresEvent$Delete value)? delete,
-    TResult? Function(_MeasuresEvent$DeleteAll value)? deleteAll,
-  }) {
-    return delete?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_MeasuresEvent$Started value)? started,
-    TResult Function(_MeasuresEvent$CreateOrEditTodays value)?
-        createOrEditTodays,
-    TResult Function(_MeasuresEvent$Delete value)? delete,
-    TResult Function(_MeasuresEvent$DeleteAll value)? deleteAll,
-    required TResult orElse(),
-  }) {
-    if (delete != null) {
-      return delete(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _MeasuresEvent$Delete implements MeasuresEvent {
-  const factory _MeasuresEvent$Delete({required final int id}) =
-      _$MeasuresEvent$DeleteImpl;
-
-  int get id;
-
-  /// Create a copy of MeasuresEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MeasuresEvent$DeleteImplCopyWith<_$MeasuresEvent$DeleteImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$MeasuresEvent$DeleteAllImplCopyWith<$Res> {
-  factory _$$MeasuresEvent$DeleteAllImplCopyWith(
-          _$MeasuresEvent$DeleteAllImpl value,
-          $Res Function(_$MeasuresEvent$DeleteAllImpl) then) =
-      __$$MeasuresEvent$DeleteAllImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$MeasuresEvent$DeleteAllImplCopyWithImpl<$Res>
-    extends _$MeasuresEventCopyWithImpl<$Res, _$MeasuresEvent$DeleteAllImpl>
-    implements _$$MeasuresEvent$DeleteAllImplCopyWith<$Res> {
-  __$$MeasuresEvent$DeleteAllImplCopyWithImpl(
-      _$MeasuresEvent$DeleteAllImpl _value,
-      $Res Function(_$MeasuresEvent$DeleteAllImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of MeasuresEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$MeasuresEvent$DeleteAllImpl implements _MeasuresEvent$DeleteAll {
-  const _$MeasuresEvent$DeleteAllImpl();
-
-  @override
-  String toString() {
-    return 'MeasuresEvent.deleteAll()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$MeasuresEvent$DeleteAllImpl);
+        (other.runtimeType == runtimeType && other is _MeasuresEvent$DeleteAll);
   }
 
   @override
   int get hashCode => runtimeType.hashCode;
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function(Weight weight, String comment) createOrEditTodays,
-    required TResult Function(int id) delete,
-    required TResult Function() deleteAll,
-  }) {
-    return deleteAll();
+  String toString() {
+    return 'MeasuresEvent.deleteAll()';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function(Weight weight, String comment)? createOrEditTodays,
-    TResult? Function(int id)? delete,
-    TResult? Function()? deleteAll,
-  }) {
-    return deleteAll?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(Weight weight, String comment)? createOrEditTodays,
-    TResult Function(int id)? delete,
-    TResult Function()? deleteAll,
-    required TResult orElse(),
-  }) {
-    if (deleteAll != null) {
-      return deleteAll();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_MeasuresEvent$Started value) started,
-    required TResult Function(_MeasuresEvent$CreateOrEditTodays value)
-        createOrEditTodays,
-    required TResult Function(_MeasuresEvent$Delete value) delete,
-    required TResult Function(_MeasuresEvent$DeleteAll value) deleteAll,
-  }) {
-    return deleteAll(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_MeasuresEvent$Started value)? started,
-    TResult? Function(_MeasuresEvent$CreateOrEditTodays value)?
-        createOrEditTodays,
-    TResult? Function(_MeasuresEvent$Delete value)? delete,
-    TResult? Function(_MeasuresEvent$DeleteAll value)? deleteAll,
-  }) {
-    return deleteAll?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_MeasuresEvent$Started value)? started,
-    TResult Function(_MeasuresEvent$CreateOrEditTodays value)?
-        createOrEditTodays,
-    TResult Function(_MeasuresEvent$Delete value)? delete,
-    TResult Function(_MeasuresEvent$DeleteAll value)? deleteAll,
-    required TResult orElse(),
-  }) {
-    if (deleteAll != null) {
-      return deleteAll(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _MeasuresEvent$DeleteAll implements MeasuresEvent {
-  const factory _MeasuresEvent$DeleteAll() = _$MeasuresEvent$DeleteAllImpl;
 }
 
 /// @nodoc
 mixin _$MeasuresState {
-  List<Measure> get measures => throw _privateConstructorUsedError;
-  Measure? get last => throw _privateConstructorUsedError;
+  List<Measure> get measures;
+  Measure? get last;
+
+  /// Create a copy of MeasuresState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $MeasuresStateCopyWith<MeasuresState> get copyWith =>
+      _$MeasuresStateCopyWithImpl<MeasuresState>(
+          this as MeasuresState, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is MeasuresState &&
+            const DeepCollectionEquality().equals(other.measures, measures) &&
+            (identical(other.last, last) || other.last == last));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(measures), last);
+
+  @override
+  String toString() {
+    return 'MeasuresState(measures: $measures, last: $last)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $MeasuresStateCopyWith<$Res> {
+  factory $MeasuresStateCopyWith(
+          MeasuresState value, $Res Function(MeasuresState) _then) =
+      _$MeasuresStateCopyWithImpl;
+  @useResult
+  $Res call({List<Measure> measures, Measure? last});
+}
+
+/// @nodoc
+class _$MeasuresStateCopyWithImpl<$Res>
+    implements $MeasuresStateCopyWith<$Res> {
+  _$MeasuresStateCopyWithImpl(this._self, this._then);
+
+  final MeasuresState _self;
+  final $Res Function(MeasuresState) _then;
+
+  /// Create a copy of MeasuresState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? measures = null,
+    Object? last = freezed,
+  }) {
+    return _then(_self.copyWith(
+      measures: null == measures
+          ? _self.measures
+          : measures // ignore: cast_nullable_to_non_nullable
+              as List<Measure>,
+      last: freezed == last
+          ? _self.last
+          : last // ignore: cast_nullable_to_non_nullable
+              as Measure?,
+    ));
+  }
+}
+
+/// Adds pattern-matching-related methods to [MeasuresState].
+extension MeasuresStatePatterns on MeasuresState {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<Measure> measures, Measure? last) idle,
-    required TResult Function(List<Measure> measures, Measure? last) processing,
-    required TResult Function(
-            List<Measure> measures, Measure? last, Exception exception)
-        error,
-  }) =>
-      throw _privateConstructorUsedError;
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_MeasuresState$Idle value)? idle,
+    TResult Function(_MeasuresState$Processing value)? processing,
+    TResult Function(_MeasuresState$Error value)? error,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _MeasuresState$Idle() when idle != null:
+        return idle(_that);
+      case _MeasuresState$Processing() when processing != null:
+        return processing(_that);
+      case _MeasuresState$Error() when error != null:
+        return error(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<Measure> measures, Measure? last)? idle,
-    TResult? Function(List<Measure> measures, Measure? last)? processing,
-    TResult? Function(
-            List<Measure> measures, Measure? last, Exception exception)?
-        error,
-  }) =>
-      throw _privateConstructorUsedError;
+  TResult map<TResult extends Object?>({
+    required TResult Function(_MeasuresState$Idle value) idle,
+    required TResult Function(_MeasuresState$Processing value) processing,
+    required TResult Function(_MeasuresState$Error value) error,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _MeasuresState$Idle():
+        return idle(_that);
+      case _MeasuresState$Processing():
+        return processing(_that);
+      case _MeasuresState$Error():
+        return error(_that);
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_MeasuresState$Idle value)? idle,
+    TResult? Function(_MeasuresState$Processing value)? processing,
+    TResult? Function(_MeasuresState$Error value)? error,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _MeasuresState$Idle() when idle != null:
+        return idle(_that);
+      case _MeasuresState$Processing() when processing != null:
+        return processing(_that);
+      case _MeasuresState$Error() when error != null:
+        return error(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<Measure> measures, Measure? last)? idle,
@@ -699,122 +608,90 @@ mixin _$MeasuresState {
             List<Measure> measures, Measure? last, Exception exception)?
         error,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_MeasuresState$Idle value) idle,
-    required TResult Function(_MeasuresState$Processing value) processing,
-    required TResult Function(_MeasuresState$Error value) error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_MeasuresState$Idle value)? idle,
-    TResult? Function(_MeasuresState$Processing value)? processing,
-    TResult? Function(_MeasuresState$Error value)? error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_MeasuresState$Idle value)? idle,
-    TResult Function(_MeasuresState$Processing value)? processing,
-    TResult Function(_MeasuresState$Error value)? error,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-
-  /// Create a copy of MeasuresState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $MeasuresStateCopyWith<MeasuresState> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $MeasuresStateCopyWith<$Res> {
-  factory $MeasuresStateCopyWith(
-          MeasuresState value, $Res Function(MeasuresState) then) =
-      _$MeasuresStateCopyWithImpl<$Res, MeasuresState>;
-  @useResult
-  $Res call({List<Measure> measures, Measure? last});
-}
-
-/// @nodoc
-class _$MeasuresStateCopyWithImpl<$Res, $Val extends MeasuresState>
-    implements $MeasuresStateCopyWith<$Res> {
-  _$MeasuresStateCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of MeasuresState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? measures = null,
-    Object? last = freezed,
   }) {
-    return _then(_value.copyWith(
-      measures: null == measures
-          ? _value.measures
-          : measures // ignore: cast_nullable_to_non_nullable
-              as List<Measure>,
-      last: freezed == last
-          ? _value.last
-          : last // ignore: cast_nullable_to_non_nullable
-              as Measure?,
-    ) as $Val);
+    final _that = this;
+    switch (_that) {
+      case _MeasuresState$Idle() when idle != null:
+        return idle(_that.measures, _that.last);
+      case _MeasuresState$Processing() when processing != null:
+        return processing(_that.measures, _that.last);
+      case _MeasuresState$Error() when error != null:
+        return error(_that.measures, _that.last, _that.exception);
+      case _:
+        return orElse();
+    }
   }
-}
 
-/// @nodoc
-abstract class _$$MeasuresState$IdleImplCopyWith<$Res>
-    implements $MeasuresStateCopyWith<$Res> {
-  factory _$$MeasuresState$IdleImplCopyWith(_$MeasuresState$IdleImpl value,
-          $Res Function(_$MeasuresState$IdleImpl) then) =
-      __$$MeasuresState$IdleImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({List<Measure> measures, Measure? last});
-}
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
 
-/// @nodoc
-class __$$MeasuresState$IdleImplCopyWithImpl<$Res>
-    extends _$MeasuresStateCopyWithImpl<$Res, _$MeasuresState$IdleImpl>
-    implements _$$MeasuresState$IdleImplCopyWith<$Res> {
-  __$$MeasuresState$IdleImplCopyWithImpl(_$MeasuresState$IdleImpl _value,
-      $Res Function(_$MeasuresState$IdleImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of MeasuresState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? measures = null,
-    Object? last = freezed,
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<Measure> measures, Measure? last) idle,
+    required TResult Function(List<Measure> measures, Measure? last) processing,
+    required TResult Function(
+            List<Measure> measures, Measure? last, Exception exception)
+        error,
   }) {
-    return _then(_$MeasuresState$IdleImpl(
-      measures: null == measures
-          ? _value._measures
-          : measures // ignore: cast_nullable_to_non_nullable
-              as List<Measure>,
-      last: freezed == last
-          ? _value.last
-          : last // ignore: cast_nullable_to_non_nullable
-              as Measure?,
-    ));
+    final _that = this;
+    switch (_that) {
+      case _MeasuresState$Idle():
+        return idle(_that.measures, _that.last);
+      case _MeasuresState$Processing():
+        return processing(_that.measures, _that.last);
+      case _MeasuresState$Error():
+        return error(_that.measures, _that.last, _that.exception);
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<Measure> measures, Measure? last)? idle,
+    TResult? Function(List<Measure> measures, Measure? last)? processing,
+    TResult? Function(
+            List<Measure> measures, Measure? last, Exception exception)?
+        error,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _MeasuresState$Idle() when idle != null:
+        return idle(_that.measures, _that.last);
+      case _MeasuresState$Processing() when processing != null:
+        return processing(_that.measures, _that.last);
+      case _MeasuresState$Error() when error != null:
+        return error(_that.measures, _that.last, _that.exception);
+      case _:
+        return null;
+    }
   }
 }
 
 /// @nodoc
 
-class _$MeasuresState$IdleImpl extends _MeasuresState$Idle {
-  const _$MeasuresState$IdleImpl(
+class _MeasuresState$Idle extends MeasuresState {
+  const _MeasuresState$Idle(
       {required final List<Measure> measures, required this.last})
       : _measures = measures,
         super._();
@@ -829,164 +706,68 @@ class _$MeasuresState$IdleImpl extends _MeasuresState$Idle {
 
   @override
   final Measure? last;
+
+  /// Create a copy of MeasuresState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$MeasuresState$IdleCopyWith<_MeasuresState$Idle> get copyWith =>
+      __$MeasuresState$IdleCopyWithImpl<_MeasuresState$Idle>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _MeasuresState$Idle &&
+            const DeepCollectionEquality().equals(other._measures, _measures) &&
+            (identical(other.last, last) || other.last == last));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_measures), last);
 
   @override
   String toString() {
     return 'MeasuresState.idle(measures: $measures, last: $last)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$MeasuresState$IdleImpl &&
-            const DeepCollectionEquality().equals(other._measures, _measures) &&
-            (identical(other.last, last) || other.last == last));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_measures), last);
-
-  /// Create a copy of MeasuresState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$MeasuresState$IdleImplCopyWith<_$MeasuresState$IdleImpl> get copyWith =>
-      __$$MeasuresState$IdleImplCopyWithImpl<_$MeasuresState$IdleImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<Measure> measures, Measure? last) idle,
-    required TResult Function(List<Measure> measures, Measure? last) processing,
-    required TResult Function(
-            List<Measure> measures, Measure? last, Exception exception)
-        error,
-  }) {
-    return idle(measures, last);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<Measure> measures, Measure? last)? idle,
-    TResult? Function(List<Measure> measures, Measure? last)? processing,
-    TResult? Function(
-            List<Measure> measures, Measure? last, Exception exception)?
-        error,
-  }) {
-    return idle?.call(measures, last);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Measure> measures, Measure? last)? idle,
-    TResult Function(List<Measure> measures, Measure? last)? processing,
-    TResult Function(
-            List<Measure> measures, Measure? last, Exception exception)?
-        error,
-    required TResult orElse(),
-  }) {
-    if (idle != null) {
-      return idle(measures, last);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_MeasuresState$Idle value) idle,
-    required TResult Function(_MeasuresState$Processing value) processing,
-    required TResult Function(_MeasuresState$Error value) error,
-  }) {
-    return idle(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_MeasuresState$Idle value)? idle,
-    TResult? Function(_MeasuresState$Processing value)? processing,
-    TResult? Function(_MeasuresState$Error value)? error,
-  }) {
-    return idle?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_MeasuresState$Idle value)? idle,
-    TResult Function(_MeasuresState$Processing value)? processing,
-    TResult Function(_MeasuresState$Error value)? error,
-    required TResult orElse(),
-  }) {
-    if (idle != null) {
-      return idle(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _MeasuresState$Idle extends MeasuresState {
-  const factory _MeasuresState$Idle(
-      {required final List<Measure> measures,
-      required final Measure? last}) = _$MeasuresState$IdleImpl;
-  const _MeasuresState$Idle._() : super._();
-
-  @override
-  List<Measure> get measures;
-  @override
-  Measure? get last;
-
-  /// Create a copy of MeasuresState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MeasuresState$IdleImplCopyWith<_$MeasuresState$IdleImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$MeasuresState$ProcessingImplCopyWith<$Res>
+abstract mixin class _$MeasuresState$IdleCopyWith<$Res>
     implements $MeasuresStateCopyWith<$Res> {
-  factory _$$MeasuresState$ProcessingImplCopyWith(
-          _$MeasuresState$ProcessingImpl value,
-          $Res Function(_$MeasuresState$ProcessingImpl) then) =
-      __$$MeasuresState$ProcessingImplCopyWithImpl<$Res>;
+  factory _$MeasuresState$IdleCopyWith(
+          _MeasuresState$Idle value, $Res Function(_MeasuresState$Idle) _then) =
+      __$MeasuresState$IdleCopyWithImpl;
   @override
   @useResult
   $Res call({List<Measure> measures, Measure? last});
 }
 
 /// @nodoc
-class __$$MeasuresState$ProcessingImplCopyWithImpl<$Res>
-    extends _$MeasuresStateCopyWithImpl<$Res, _$MeasuresState$ProcessingImpl>
-    implements _$$MeasuresState$ProcessingImplCopyWith<$Res> {
-  __$$MeasuresState$ProcessingImplCopyWithImpl(
-      _$MeasuresState$ProcessingImpl _value,
-      $Res Function(_$MeasuresState$ProcessingImpl) _then)
-      : super(_value, _then);
+class __$MeasuresState$IdleCopyWithImpl<$Res>
+    implements _$MeasuresState$IdleCopyWith<$Res> {
+  __$MeasuresState$IdleCopyWithImpl(this._self, this._then);
+
+  final _MeasuresState$Idle _self;
+  final $Res Function(_MeasuresState$Idle) _then;
 
   /// Create a copy of MeasuresState
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
   @override
+  @pragma('vm:prefer-inline')
   $Res call({
     Object? measures = null,
     Object? last = freezed,
   }) {
-    return _then(_$MeasuresState$ProcessingImpl(
+    return _then(_MeasuresState$Idle(
       measures: null == measures
-          ? _value._measures
+          ? _self._measures
           : measures // ignore: cast_nullable_to_non_nullable
               as List<Measure>,
       last: freezed == last
-          ? _value.last
+          ? _self.last
           : last // ignore: cast_nullable_to_non_nullable
               as Measure?,
     ));
@@ -995,8 +776,8 @@ class __$$MeasuresState$ProcessingImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$MeasuresState$ProcessingImpl extends _MeasuresState$Processing {
-  const _$MeasuresState$ProcessingImpl(
+class _MeasuresState$Processing extends MeasuresState {
+  const _MeasuresState$Processing(
       {required final List<Measure> measures, required this.last})
       : _measures = measures,
         super._();
@@ -1012,16 +793,20 @@ class _$MeasuresState$ProcessingImpl extends _MeasuresState$Processing {
   @override
   final Measure? last;
 
+  /// Create a copy of MeasuresState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'MeasuresState.processing(measures: $measures, last: $last)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$MeasuresState$ProcessingCopyWith<_MeasuresState$Processing> get copyWith =>
+      __$MeasuresState$ProcessingCopyWithImpl<_MeasuresState$Processing>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MeasuresState$ProcessingImpl &&
+            other is _MeasuresState$Processing &&
             const DeepCollectionEquality().equals(other._measures, _measures) &&
             (identical(other.last, last) || other.last == last));
   }
@@ -1030,158 +815,56 @@ class _$MeasuresState$ProcessingImpl extends _MeasuresState$Processing {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_measures), last);
 
-  /// Create a copy of MeasuresState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$MeasuresState$ProcessingImplCopyWith<_$MeasuresState$ProcessingImpl>
-      get copyWith => __$$MeasuresState$ProcessingImplCopyWithImpl<
-          _$MeasuresState$ProcessingImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<Measure> measures, Measure? last) idle,
-    required TResult Function(List<Measure> measures, Measure? last) processing,
-    required TResult Function(
-            List<Measure> measures, Measure? last, Exception exception)
-        error,
-  }) {
-    return processing(measures, last);
+  String toString() {
+    return 'MeasuresState.processing(measures: $measures, last: $last)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<Measure> measures, Measure? last)? idle,
-    TResult? Function(List<Measure> measures, Measure? last)? processing,
-    TResult? Function(
-            List<Measure> measures, Measure? last, Exception exception)?
-        error,
-  }) {
-    return processing?.call(measures, last);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Measure> measures, Measure? last)? idle,
-    TResult Function(List<Measure> measures, Measure? last)? processing,
-    TResult Function(
-            List<Measure> measures, Measure? last, Exception exception)?
-        error,
-    required TResult orElse(),
-  }) {
-    if (processing != null) {
-      return processing(measures, last);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_MeasuresState$Idle value) idle,
-    required TResult Function(_MeasuresState$Processing value) processing,
-    required TResult Function(_MeasuresState$Error value) error,
-  }) {
-    return processing(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_MeasuresState$Idle value)? idle,
-    TResult? Function(_MeasuresState$Processing value)? processing,
-    TResult? Function(_MeasuresState$Error value)? error,
-  }) {
-    return processing?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_MeasuresState$Idle value)? idle,
-    TResult Function(_MeasuresState$Processing value)? processing,
-    TResult Function(_MeasuresState$Error value)? error,
-    required TResult orElse(),
-  }) {
-    if (processing != null) {
-      return processing(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _MeasuresState$Processing extends MeasuresState {
-  const factory _MeasuresState$Processing(
-      {required final List<Measure> measures,
-      required final Measure? last}) = _$MeasuresState$ProcessingImpl;
-  const _MeasuresState$Processing._() : super._();
-
-  @override
-  List<Measure> get measures;
-  @override
-  Measure? get last;
-
-  /// Create a copy of MeasuresState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MeasuresState$ProcessingImplCopyWith<_$MeasuresState$ProcessingImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$MeasuresState$ErrorImplCopyWith<$Res>
+abstract mixin class _$MeasuresState$ProcessingCopyWith<$Res>
     implements $MeasuresStateCopyWith<$Res> {
-  factory _$$MeasuresState$ErrorImplCopyWith(_$MeasuresState$ErrorImpl value,
-          $Res Function(_$MeasuresState$ErrorImpl) then) =
-      __$$MeasuresState$ErrorImplCopyWithImpl<$Res>;
+  factory _$MeasuresState$ProcessingCopyWith(_MeasuresState$Processing value,
+          $Res Function(_MeasuresState$Processing) _then) =
+      __$MeasuresState$ProcessingCopyWithImpl;
   @override
   @useResult
-  $Res call({List<Measure> measures, Measure? last, Exception exception});
+  $Res call({List<Measure> measures, Measure? last});
 }
 
 /// @nodoc
-class __$$MeasuresState$ErrorImplCopyWithImpl<$Res>
-    extends _$MeasuresStateCopyWithImpl<$Res, _$MeasuresState$ErrorImpl>
-    implements _$$MeasuresState$ErrorImplCopyWith<$Res> {
-  __$$MeasuresState$ErrorImplCopyWithImpl(_$MeasuresState$ErrorImpl _value,
-      $Res Function(_$MeasuresState$ErrorImpl) _then)
-      : super(_value, _then);
+class __$MeasuresState$ProcessingCopyWithImpl<$Res>
+    implements _$MeasuresState$ProcessingCopyWith<$Res> {
+  __$MeasuresState$ProcessingCopyWithImpl(this._self, this._then);
+
+  final _MeasuresState$Processing _self;
+  final $Res Function(_MeasuresState$Processing) _then;
 
   /// Create a copy of MeasuresState
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
   @override
+  @pragma('vm:prefer-inline')
   $Res call({
     Object? measures = null,
     Object? last = freezed,
-    Object? exception = null,
   }) {
-    return _then(_$MeasuresState$ErrorImpl(
+    return _then(_MeasuresState$Processing(
       measures: null == measures
-          ? _value._measures
+          ? _self._measures
           : measures // ignore: cast_nullable_to_non_nullable
               as List<Measure>,
       last: freezed == last
-          ? _value.last
+          ? _self.last
           : last // ignore: cast_nullable_to_non_nullable
               as Measure?,
-      exception: null == exception
-          ? _value.exception
-          : exception // ignore: cast_nullable_to_non_nullable
-              as Exception,
     ));
   }
 }
 
 /// @nodoc
 
-class _$MeasuresState$ErrorImpl extends _MeasuresState$Error {
-  const _$MeasuresState$ErrorImpl(
+class _MeasuresState$Error extends MeasuresState {
+  const _MeasuresState$Error(
       {required final List<Measure> measures,
       required this.last,
       required this.exception})
@@ -1198,19 +881,22 @@ class _$MeasuresState$ErrorImpl extends _MeasuresState$Error {
 
   @override
   final Measure? last;
-  @override
   final Exception exception;
 
+  /// Create a copy of MeasuresState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'MeasuresState.error(measures: $measures, last: $last, exception: $exception)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$MeasuresState$ErrorCopyWith<_MeasuresState$Error> get copyWith =>
+      __$MeasuresState$ErrorCopyWithImpl<_MeasuresState$Error>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MeasuresState$ErrorImpl &&
+            other is _MeasuresState$Error &&
             const DeepCollectionEquality().equals(other._measures, _measures) &&
             (identical(other.last, last) || other.last == last) &&
             (identical(other.exception, exception) ||
@@ -1221,107 +907,55 @@ class _$MeasuresState$ErrorImpl extends _MeasuresState$Error {
   int get hashCode => Object.hash(runtimeType,
       const DeepCollectionEquality().hash(_measures), last, exception);
 
+  @override
+  String toString() {
+    return 'MeasuresState.error(measures: $measures, last: $last, exception: $exception)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$MeasuresState$ErrorCopyWith<$Res>
+    implements $MeasuresStateCopyWith<$Res> {
+  factory _$MeasuresState$ErrorCopyWith(_MeasuresState$Error value,
+          $Res Function(_MeasuresState$Error) _then) =
+      __$MeasuresState$ErrorCopyWithImpl;
+  @override
+  @useResult
+  $Res call({List<Measure> measures, Measure? last, Exception exception});
+}
+
+/// @nodoc
+class __$MeasuresState$ErrorCopyWithImpl<$Res>
+    implements _$MeasuresState$ErrorCopyWith<$Res> {
+  __$MeasuresState$ErrorCopyWithImpl(this._self, this._then);
+
+  final _MeasuresState$Error _self;
+  final $Res Function(_MeasuresState$Error) _then;
+
   /// Create a copy of MeasuresState
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$MeasuresState$ErrorImplCopyWith<_$MeasuresState$ErrorImpl> get copyWith =>
-      __$$MeasuresState$ErrorImplCopyWithImpl<_$MeasuresState$ErrorImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<Measure> measures, Measure? last) idle,
-    required TResult Function(List<Measure> measures, Measure? last) processing,
-    required TResult Function(
-            List<Measure> measures, Measure? last, Exception exception)
-        error,
+  $Res call({
+    Object? measures = null,
+    Object? last = freezed,
+    Object? exception = null,
   }) {
-    return error(measures, last, exception);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<Measure> measures, Measure? last)? idle,
-    TResult? Function(List<Measure> measures, Measure? last)? processing,
-    TResult? Function(
-            List<Measure> measures, Measure? last, Exception exception)?
-        error,
-  }) {
-    return error?.call(measures, last, exception);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Measure> measures, Measure? last)? idle,
-    TResult Function(List<Measure> measures, Measure? last)? processing,
-    TResult Function(
-            List<Measure> measures, Measure? last, Exception exception)?
-        error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(measures, last, exception);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_MeasuresState$Idle value) idle,
-    required TResult Function(_MeasuresState$Processing value) processing,
-    required TResult Function(_MeasuresState$Error value) error,
-  }) {
-    return error(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_MeasuresState$Idle value)? idle,
-    TResult? Function(_MeasuresState$Processing value)? processing,
-    TResult? Function(_MeasuresState$Error value)? error,
-  }) {
-    return error?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_MeasuresState$Idle value)? idle,
-    TResult Function(_MeasuresState$Processing value)? processing,
-    TResult Function(_MeasuresState$Error value)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this);
-    }
-    return orElse();
+    return _then(_MeasuresState$Error(
+      measures: null == measures
+          ? _self._measures
+          : measures // ignore: cast_nullable_to_non_nullable
+              as List<Measure>,
+      last: freezed == last
+          ? _self.last
+          : last // ignore: cast_nullable_to_non_nullable
+              as Measure?,
+      exception: null == exception
+          ? _self.exception
+          : exception // ignore: cast_nullable_to_non_nullable
+              as Exception,
+    ));
   }
 }
 
-abstract class _MeasuresState$Error extends MeasuresState {
-  const factory _MeasuresState$Error(
-      {required final List<Measure> measures,
-      required final Measure? last,
-      required final Exception exception}) = _$MeasuresState$ErrorImpl;
-  const _MeasuresState$Error._() : super._();
-
-  @override
-  List<Measure> get measures;
-  @override
-  Measure? get last;
-  Exception get exception;
-
-  /// Create a copy of MeasuresState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MeasuresState$ErrorImplCopyWith<_$MeasuresState$ErrorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on
