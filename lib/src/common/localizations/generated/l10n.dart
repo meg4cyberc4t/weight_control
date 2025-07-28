@@ -18,8 +18,10 @@ class GeneratedLocalization {
   static GeneratedLocalization? _current;
 
   static GeneratedLocalization get current {
-    assert(_current != null,
-        'No instance of GeneratedLocalization was loaded. Try to initialize the GeneratedLocalization delegate before accessing GeneratedLocalization.current.');
+    assert(
+      _current != null,
+      'No instance of GeneratedLocalization was loaded. Try to initialize the GeneratedLocalization delegate before accessing GeneratedLocalization.current.',
+    );
     return _current!;
   }
 
@@ -41,54 +43,38 @@ class GeneratedLocalization {
 
   static GeneratedLocalization of(BuildContext context) {
     final instance = GeneratedLocalization.maybeOf(context);
-    assert(instance != null,
-        'No instance of GeneratedLocalization present in the widget tree. Did you add GeneratedLocalization.delegate in localizationsDelegates?');
+    assert(
+      instance != null,
+      'No instance of GeneratedLocalization present in the widget tree. Did you add GeneratedLocalization.delegate in localizationsDelegates?',
+    );
     return instance!;
   }
 
   static GeneratedLocalization? maybeOf(BuildContext context) {
     return Localizations.of<GeneratedLocalization>(
-        context, GeneratedLocalization);
+      context,
+      GeneratedLocalization,
+    );
   }
 
   /// `en_US`
   String get localeCode {
-    return Intl.message(
-      'en_US',
-      name: 'localeCode',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('en_US', name: 'localeCode', desc: '', args: []);
   }
 
   /// `en`
   String get languageCode {
-    return Intl.message(
-      'en',
-      name: 'languageCode',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('en', name: 'languageCode', desc: '', args: []);
   }
 
   /// `English`
   String get language {
-    return Intl.message(
-      'English',
-      name: 'language',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('English', name: 'language', desc: '', args: []);
   }
 
   /// `Weight Control`
   String get title {
-    return Intl.message(
-      'Weight Control',
-      name: 'title',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Weight Control', name: 'title', desc: '', args: []);
   }
 
   /// `Weight Control Stage`
@@ -113,142 +99,72 @@ class GeneratedLocalization {
 
   /// `Create`
   String get create {
-    return Intl.message(
-      'Create',
-      name: 'create',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Create', name: 'create', desc: '', args: []);
   }
 
   /// `Dashboard`
   String get dashboard {
-    return Intl.message(
-      'Dashboard',
-      name: 'dashboard',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Dashboard', name: 'dashboard', desc: '', args: []);
   }
 
   /// `Settings`
   String get settings {
-    return Intl.message(
-      'Settings',
-      name: 'settings',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Settings', name: 'settings', desc: '', args: []);
   }
 
   /// `About app`
   String get aboutApp {
-    return Intl.message(
-      'About app',
-      name: 'aboutApp',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('About app', name: 'aboutApp', desc: '', args: []);
   }
 
   /// `Version`
   String get version {
-    return Intl.message(
-      'Version',
-      name: 'version',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Version', name: 'version', desc: '', args: []);
   }
 
   /// `Rate the app`
   String get rateTheApp {
-    return Intl.message(
-      'Rate the app',
-      name: 'rateTheApp',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Rate the app', name: 'rateTheApp', desc: '', args: []);
   }
 
   /// `Licenses`
   String get licenses {
-    return Intl.message(
-      'Licenses',
-      name: 'licenses',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Licenses', name: 'licenses', desc: '', args: []);
   }
 
   /// `Additional`
   String get additional {
-    return Intl.message(
-      'Additional',
-      name: 'additional',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Additional', name: 'additional', desc: '', args: []);
   }
 
   /// `Source code`
   String get sourceCode {
-    return Intl.message(
-      'Source code',
-      name: 'sourceCode',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Source code', name: 'sourceCode', desc: '', args: []);
   }
 
   /// `Report a bug`
   String get reportABug {
-    return Intl.message(
-      'Report a bug',
-      name: 'reportABug',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Report a bug', name: 'reportABug', desc: '', args: []);
   }
 
   /// `Theme Mode`
   String get themeMode {
-    return Intl.message(
-      'Theme Mode',
-      name: 'themeMode',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Theme Mode', name: 'themeMode', desc: '', args: []);
   }
 
   /// `Unit of mass`
   String get weightMode {
-    return Intl.message(
-      'Unit of mass',
-      name: 'weightMode',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Unit of mass', name: 'weightMode', desc: '', args: []);
   }
 
   /// `Design Mode`
   String get designMode {
-    return Intl.message(
-      'Design Mode',
-      name: 'designMode',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Design Mode', name: 'designMode', desc: '', args: []);
   }
 
   /// `Delete data`
   String get deleteAll {
-    return Intl.message(
-      'Delete data',
-      name: 'deleteAll',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Delete data', name: 'deleteAll', desc: '', args: []);
   }
 
   /// `This action cannot be undone!`
@@ -263,12 +179,7 @@ class GeneratedLocalization {
 
   /// `Data`
   String get data {
-    return Intl.message(
-      'Data',
-      name: 'data',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Data', name: 'data', desc: '', args: []);
   }
 
   /// `Have you already lost your weight today`
@@ -313,32 +224,17 @@ class GeneratedLocalization {
 
   /// `Weight`
   String get weight {
-    return Intl.message(
-      'Weight',
-      name: 'weight',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Weight', name: 'weight', desc: '', args: []);
   }
 
   /// `Comment`
   String get comment {
-    return Intl.message(
-      'Comment',
-      name: 'comment',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Comment', name: 'comment', desc: '', args: []);
   }
 
   /// `Add...`
   String get addAComment {
-    return Intl.message(
-      'Add...',
-      name: 'addAComment',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Add...', name: 'addAComment', desc: '', args: []);
   }
 
   /// `More than the previous measurements by {kg}`
@@ -383,22 +279,12 @@ class GeneratedLocalization {
 
   /// `Record`
   String get record {
-    return Intl.message(
-      'Record',
-      name: 'record',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Record', name: 'record', desc: '', args: []);
   }
 
   /// `Edit`
   String get edit {
-    return Intl.message(
-      'Edit',
-      name: 'edit',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Edit', name: 'edit', desc: '', args: []);
   }
 
   /// `Your measurements`
@@ -413,32 +299,17 @@ class GeneratedLocalization {
 
   /// `Cancel`
   String get cancel {
-    return Intl.message(
-      'Cancel',
-      name: 'cancel',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Cancel', name: 'cancel', desc: '', args: []);
   }
 
   /// `Delete`
   String get delete {
-    return Intl.message(
-      'Delete',
-      name: 'delete',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Delete', name: 'delete', desc: '', args: []);
   }
 
   /// `kg.`
   String get kilogramsShort {
-    return Intl.message(
-      'kg.',
-      name: 'kilogramsShort',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('kg.', name: 'kilogramsShort', desc: '', args: []);
   }
 
   /// `{weight} kg.`

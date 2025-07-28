@@ -29,7 +29,6 @@ class $LogsTableTable extends LogsTable
   late final GeneratedColumn<DateTime> time = GeneratedColumn<DateTime>(
       'time', aliasedName, true,
       type: DriftSqlType.dateTime, requiredDuringInsert: false);
-  static const VerificationMeta _levelMeta = const VerificationMeta('level');
   @override
   late final GeneratedColumnWithTypeConverter<LoggerLevel, int> level =
       GeneratedColumn<int>('level', aliasedName, false,
@@ -37,8 +36,6 @@ class $LogsTableTable extends LogsTable
               requiredDuringInsert: false,
               defaultValue: const Constant(200))
           .withConverter<LoggerLevel>($LogsTableTable.$converterlevel);
-  static const VerificationMeta _stackTraceMeta =
-      const VerificationMeta('stackTrace');
   @override
   late final GeneratedColumnWithTypeConverter<StackTrace?, String> stackTrace =
       GeneratedColumn<String>('stack_trace', aliasedName, true,
@@ -69,8 +66,6 @@ class $LogsTableTable extends LogsTable
       context.handle(
           _timeMeta, time.isAcceptableOrUnknown(data['time']!, _timeMeta));
     }
-    context.handle(_levelMeta, const VerificationResult.success());
-    context.handle(_stackTraceMeta, const VerificationResult.success());
     return context;
   }
 
@@ -341,7 +336,6 @@ class $MeasuresTableTable extends MeasuresTable
       type: DriftSqlType.dateTime,
       requiredDuringInsert: true,
       defaultConstraints: GeneratedColumn.constraintIsAlways('UNIQUE'));
-  static const VerificationMeta _weightMeta = const VerificationMeta('weight');
   @override
   late final GeneratedColumnWithTypeConverter<Weight, int> weight =
       GeneratedColumn<int>('weight', aliasedName, false,
@@ -374,7 +368,6 @@ class $MeasuresTableTable extends MeasuresTable
     } else if (isInserting) {
       context.missing(_timeMeta);
     }
-    context.handle(_weightMeta, const VerificationResult.success());
     if (data.containsKey('comment')) {
       context.handle(_commentMeta,
           comment.isAcceptableOrUnknown(data['comment']!, _commentMeta));

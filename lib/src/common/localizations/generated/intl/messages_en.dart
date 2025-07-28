@@ -39,13 +39,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "delete": MessageLookupByLibrary.simpleMessage("Delete"),
         "deleteAll": MessageLookupByLibrary.simpleMessage("Delete data"),
         "deleteAllContent": MessageLookupByLibrary.simpleMessage(
-            "This action cannot be undone!"),
+          "This action cannot be undone!",
+        ),
         "designMode": MessageLookupByLibrary.simpleMessage("Design Mode"),
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
-        "equalThanPrevious":
-            MessageLookupByLibrary.simpleMessage("The weight is equal."),
-        "goToDashboard":
-            MessageLookupByLibrary.simpleMessage("Go to the dashboard"),
+        "equalThanPrevious": MessageLookupByLibrary.simpleMessage(
+          "The weight is equal.",
+        ),
+        "goToDashboard": MessageLookupByLibrary.simpleMessage(
+          "Go to the dashboard",
+        ),
         "greaterThanPrevious": m0,
         "kilogramsNumber": m1,
         "kilogramsShort": MessageLookupByLibrary.simpleMessage("kg."),
@@ -55,29 +58,35 @@ class MessageLookup extends MessageLookupByLibrary {
         "licenses": MessageLookupByLibrary.simpleMessage("Licenses"),
         "localeCode": MessageLookupByLibrary.simpleMessage("en_US"),
         "notAvailableCreateMeasure": MessageLookupByLibrary.simpleMessage(
-            "Have you already lost your weight today"),
+          "Have you already lost your weight today",
+        ),
         "notAvailableCreateMeasureDescription":
             MessageLookupByLibrary.simpleMessage(
-                "Come back tomorrow for new measurements!"),
-        "notCalculated":
-            MessageLookupByLibrary.simpleMessage("Use the sliders to measure."),
+          "Come back tomorrow for new measurements!",
+        ),
+        "notCalculated": MessageLookupByLibrary.simpleMessage(
+          "Use the sliders to measure.",
+        ),
         "rateTheApp": MessageLookupByLibrary.simpleMessage("Rate the app"),
         "record": MessageLookupByLibrary.simpleMessage("Record"),
         "reportABug": MessageLookupByLibrary.simpleMessage("Report a bug"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "sourceCode": MessageLookupByLibrary.simpleMessage("Source code"),
-        "specifyTheWeight":
-            MessageLookupByLibrary.simpleMessage("Specify the weight"),
+        "specifyTheWeight": MessageLookupByLibrary.simpleMessage(
+          "Specify the weight",
+        ),
         "themeMode": MessageLookupByLibrary.simpleMessage("Theme Mode"),
         "title": MessageLookupByLibrary.simpleMessage("Weight Control"),
-        "titleDevelopment":
-            MessageLookupByLibrary.simpleMessage("Weight Control Development"),
+        "titleDevelopment": MessageLookupByLibrary.simpleMessage(
+          "Weight Control Development",
+        ),
         "titleStage":
             MessageLookupByLibrary.simpleMessage("Weight Control Stage"),
         "version": MessageLookupByLibrary.simpleMessage("Version"),
         "weight": MessageLookupByLibrary.simpleMessage("Weight"),
         "weightMode": MessageLookupByLibrary.simpleMessage("Unit of mass"),
-        "yourMeasurements":
-            MessageLookupByLibrary.simpleMessage("Your measurements")
+        "yourMeasurements": MessageLookupByLibrary.simpleMessage(
+          "Your measurements",
+        ),
       };
 }
